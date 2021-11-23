@@ -1,5 +1,9 @@
 # Kim
-## 6160503003
+**Muhammadhakim Lupusee**
+> - 6160503003
+> - [สาขาวิชาวิศวกรรมคอมพิวเตอร์](http://eng.pnu.ac.th/main/index.php/th/about-us-th/th-programme-offered/undergraduate-th/th-computer-engineering)
+![Program in Computer Engineering Logo](cpe.png)
+---
 # Suha 
 **Solihah Baka**
 > 6160503001
