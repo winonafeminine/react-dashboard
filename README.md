@@ -13,6 +13,6 @@
 > 6160503004 
 *Electronic Department PNU*
 # wan
-**Haswan musi**
+**Haswan museh**
 > 6160503009
 *Electronic Department PNU*
