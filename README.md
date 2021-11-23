@@ -11,8 +11,15 @@
 # Naya
 **Nareeya Chenu**
 > 6160503004 
-*Electronic Department PNU*
+
+*Electronic Department PNU Narathiwas* 
 # wan
 **Haswan museh**
 > 6160503009
 *Electronic Department PNU*
+
+# suha5030
+
+# My Job
+># Software Engineer
+># Kim learn Gitflow
