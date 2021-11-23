@@ -18,4 +18,6 @@
 *Electronic Department PNU*
 
 # My Job
-># Software Engineer 
+># Software Engineer
+
+># Kim learn Gitflow 
