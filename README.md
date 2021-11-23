@@ -22,3 +22,7 @@
 *Electronic Department PNU*
 
 # suha5030
+
+# My Job
+># Software Engineer
+># Kim learn Gitflow
