@@ -11,9 +11,14 @@
 # Naya
 **Nareeya Chenu**
 > 6160503004 
+<<<<<<< HEAD
 *Electronic Department PNU*
 
 
+=======
+
+*Electronic Department PNU Narathiwas* 
+>>>>>>> 99323ae6ea8066257a892033101eccedce691b48
 # wan
 **Haswan musi**
 > 6160503009
