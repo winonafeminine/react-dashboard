@@ -11,7 +11,8 @@
 # Naya
 **Nareeya Chenu**
 > 6160503004 
-*Electronic Department PNU*
+*Electronic 
+Department PNU*
 # wan
 **Haswan musi**
 > 6160503009
