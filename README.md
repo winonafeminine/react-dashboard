@@ -23,8 +23,3 @@
 # My Job
 ># Software Engineer
 ># Kim learn Gitflow
-=======
-# My Job
-># Software Engineer
-
-># Kim learn Gitflow 
