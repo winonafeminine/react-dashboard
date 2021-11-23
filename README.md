@@ -11,9 +11,6 @@
 # Naya
 **Nareeya Chenu**
 > 6160503004 
-*Electronic Department PNU*
-
-
 
 *Electronic Department PNU Narathiwas* 
 # wan
@@ -26,3 +23,8 @@
 # My Job
 ># Software Engineer
 ># Kim learn Gitflow
+=======
+# My Job
+># Software Engineer
+
+># Kim learn Gitflow 
