@@ -12,12 +12,11 @@
 **Nareeya Chenu**
 > 6160503004 
 *Electronic Department PNU*
+
+
 # wan
 **Haswan musi**
 > 6160503009
 *Electronic Department PNU*
 
-# My Job
-># Software Engineer
-
-># Kim learn Gitflow 
+# suha5030
