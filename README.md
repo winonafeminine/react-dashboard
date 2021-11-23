@@ -14,7 +14,7 @@
 
 *Electronic Department PNU Narathiwas* 
 # wan
-**Haswan musi**
+**Haswan museh**
 > 6160503009
 *Electronic Department PNU*
 
