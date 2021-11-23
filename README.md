@@ -1,8 +1,8 @@
 # Kim
 **Muhammadhakim Lupusee**
-> - 6160503003
+> - Student ID 6160503003
 > - [สาขาวิชาวิศวกรรมคอมพิวเตอร์](http://eng.pnu.ac.th/main/index.php/th/about-us-th/th-programme-offered/undergraduate-th/th-computer-engineering)
-![Program in Computer Engineering Logo](cpe.png)
+![Program in Computer Engineering Logo ](cpe.png)
 ---
 # Suha 
 **Solihah Baka**
