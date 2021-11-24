@@ -9,10 +9,9 @@ function Contact() {
            <li> <a href = "https://www.instagram.com/winonaofficial_th/">winonaofficial_th</a></li>
            <li> <a href = "https://www.winonafeminine.com/en">Winona Feminine (official) </a></li>
            </ui>
-            
         </div>
         
     )
 }
 
-export default Contact
+export default Contact;
