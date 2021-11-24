@@ -1,5 +1,7 @@
 import React from 'react';
 import './Home.css';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function Home() {
     return (  
@@ -7,12 +9,12 @@ function Home() {
             <div className="home-container">
                 <div>
                     <div className="search-container">
-                        <input type="text" placeholder="Search.." name="search" /> 
+                        <TextField variant="standard" type="text" placeholder="Search.." name="search" label="Search" fullWidth/> 
                         
                     </div>
                 <h1>Hello, <span></span></h1>
                 <h1>Welcome to Winina Feminine Websites.<span></span></h1>
-                <a href="#" type="button" className="sign-in">Sign in</a>
+                <Button variant="contained" type="button" className="sign-in">Sign in</Button>
                 </div>
             </div>
         </div> 
