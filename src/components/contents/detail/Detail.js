@@ -1,11 +1,18 @@
 import React from 'react'
 
-function Detail() {
+function Contact() {
     return (
-        <div>
-            Detail   
+        <div className="Contact">
+        <header className="App-header">
+            <h1 className="App">winonafeminine</h1>
+            <h1 className=".bb">About</h1>
+            <h2>Contact Form</h2> 
+            <p>Name</p>
+            <p>Email*</p>
+            <p>Message*</p>
+      </header>
         </div>
     )
 }
 
-export default Detail
+export default Contact;
