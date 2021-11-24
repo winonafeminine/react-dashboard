@@ -1,17 +1,16 @@
 import React from 'react'
 
+
 function Contact() {
     return (
-        <div className="Contact">
-        <header className="App-header">
-            <h1 className="App">winonafeminine</h1>
-            <h1 className=".bb">About</h1>
-            <h2>Contact Form</h2> 
-            <p>Name*</p>
-            <p>Email*</p>
-            <p>Message*</p>
-      </header>
+        <div>
+           <ui>
+           <li><a href = "https://web.facebook.com/WinonaCosmetic/?_rdc=1&_rdr">วิโนน่า คอสเมติกส์</a></li>
+           <li> <a href = "https://www.instagram.com/winonaofficial_th/">winonaofficial_th</a></li>
+           <li> <a href = "https://www.winonafeminine.com/en">Winona Feminine (official) </a></li>
+           </ui>
         </div>
+        
     )
 }
 

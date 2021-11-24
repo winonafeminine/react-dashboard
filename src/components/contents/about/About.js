@@ -2,7 +2,8 @@ import React from 'react'
 
 function Contact() {
     return (
-        <div className="Contact">
+         <div>  About 
+        <div className="Contact"> </div>
         <header className="App-header">
             <h1 className="App">winonafeminine</h1>
             <h1 className=".bb">About</h1>
