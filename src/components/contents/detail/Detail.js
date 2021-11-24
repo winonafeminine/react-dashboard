@@ -1,7 +1,7 @@
 import React from 'react'
 import './Detail.css'
 
-function Detail() {
+function Contact() {
     return (
         <div>
             <header>
@@ -50,9 +50,9 @@ function Detail() {
                     
             </article>
             </section>
-  
+       
         </div>
     )
 }
 
-export default Detail
+export default Contact;
