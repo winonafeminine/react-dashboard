@@ -1,17 +1,16 @@
+
 import React from 'react'
-
-
-function Contact() {
+import Tcontact from './Tcontact'
+import Hcontact from './Hcontact'
+import StandardImageList from './StandardImageList'
+export default function Contact() {
     return (
-        <div>
-           <ui>
-           <li><a href = "https://web.facebook.com/WinonaCosmetic/?_rdc=1&_rdr">วิโนน่า คอสเมติกส์</a></li>
-           <li> <a href = "https://www.instagram.com/winonaofficial_th/">winonaofficial_th</a></li>
-           <li> <a href = "https://www.winonafeminine.com/en">Winona Feminine (official) </a></li>
-           </ui>
-        </div>
+      <div>
+        <Hcontact/>
+        <Tcontact/>
+        <StandardImageList/>
         
-    )
-}
-
-export default Contact;
+        
+      </div>
+  )
+} 
