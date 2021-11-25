@@ -10,11 +10,14 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 
 function Header1() {
+  const [value, setValue] = React.useState("");
   function Leave (){
-        console.log ("Hello")
+        // console.log ("Hello")
+        setValue("Hello");
     }
     return (
         <div>       
+          <div>{value}</div>
         <List>
           <ListItem disablePadding>
             <ListItemButton onMouseLeave = {Leave}>
