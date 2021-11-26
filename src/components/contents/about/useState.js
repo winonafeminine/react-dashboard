@@ -1,19 +1,23 @@
+import React from 'react'
 import { useEffect, useState } from "react";
 import React, {useState} from "react";
-import React, {Component} from "react";
-export default class App extends Component {
-     constructor (props) {
-         
-     }
+import React, {Component, useState} from "react";
+ function UseState1 () {
+ //  useState  
+ const [buttonText, setButonText] = useState ("Clik me, Please");
+ const [incrememt, setincrememt] = useState (0);
+ //  useEffect
+    //  useEffect (effect: () => {
+    //      const rgbElem = document.querySelector(selectors: '.rgb');
+    //      rgbElem.style.color = 'rgb(${rgb.join(',')})';
+    //  });
    
     return (
         <div>
-            <p className ="rgb">Ramdom RGB: {rgb.join(',')}</p>
-            <button onClick={() => {
-                setRGB (rgb.map(callbackfn:() => {
-                    return Math.floor (x:Math.random()*256);
-    )));
-            }}>Random</button>
+            <button onClick={() => setButonText ("Thanks, been Clicked")}>{buttonText}</button>
+            <h>{setincrememt}</h>
         </div>
     );
+
 }
+export default UseState1;
