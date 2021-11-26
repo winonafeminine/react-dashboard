@@ -2,8 +2,19 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import ProductCard from './ProductCard';
 import Box from '@mui/material/Box';
+import ProductDialog from './ProductDialog';
 
 function Products() {
+    const [catValue, setCatValue] = React.useState({
+        name: "",
+        src: "",
+        price: 0,
+        salePrice: 0,
+        des: ""
+    });
+
+    const [dialogOpen, setDialogOpen] = React.useState(false);
+
     const cats = [
         {
             name: "Ganster cat",
@@ -33,7 +44,14 @@ function Products() {
             salePrice: 200,
             des: "This is cat is a son of superman but it can only mew when hungry"
         },
-    ]
+    ];
+
+
+    const handleImgClicked = (value) => {
+        setCatValue(value);
+        setDialogOpen(true)
+    }
+
     return (
         <Box sx={{
             display: 'flex',
@@ -53,11 +71,13 @@ function Products() {
                                 description={value.des}
                                 price={value.price}
                                 salePrice={value.salePrice}
+                                onImgClick={() => handleImgClicked(value)}
                             />
                         </Grid>
                     ))}
                 </Grid>
             </Box>
+            <ProductDialog open={dialogOpen} setOpen={setDialogOpen} value={catValue}/>
         </Box>
     )
 }

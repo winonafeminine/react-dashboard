@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
 
 function ProductCard(props) {
-    const {name, imageSrc, description, price, salePrice} = props;
+    // get value from parent to child
+    const {name, imageSrc, description, price, salePrice, onImgClick} = props;
+    
     return (
         <Paper sx={{
             '&.MuiPaper-root': theme => ({
-                borderRadius: '12px',
+                borderRadius: '12px 12px 0 12px',
                 // padding: '0 12px 12px 12px'
+                background: theme.palette.secondary.main
             })
         }}>
             {/* cat image wrapper */}
@@ -23,11 +26,12 @@ function ProductCard(props) {
                     '& img.imageSrc': {
                         width: '100%',
                         height: 300,
-                        borderRadius: '12px 12px 0 0'
+                        borderRadius: '12px 12px 0 0',
+                        cursor: 'pointer'
                     }
                 })
             }}>
-                <img className="imageSrc" src={imageSrc} alt="" />
+                <img onClick={onImgClick} className="imageSrc" src={imageSrc} alt="" />
             </Box>
 
             {/* text or title area */}
@@ -70,12 +74,14 @@ function ProductCard(props) {
     )
 }
 
+// specify the type for each properties
 ProductCard.propTypes = {
     name: PropTypes.string, 
     imageSrc: PropTypes.string, 
     description: PropTypes.string, 
     price: PropTypes.number,
     salePrice: PropTypes.number,
+    onImgClick: PropTypes.func
 }
 
 export default ProductCard
