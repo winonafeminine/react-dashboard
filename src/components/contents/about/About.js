@@ -1,23 +1,22 @@
 import React from 'react'
 import './Detail.css'
 import Header from './Header'
-import Header1 from './Header1'
-import Foot1 from './Foot1'
 import Text from './Text'
-import One from './img/1.png'
+
 
 function App() {
     return (
-         <div>       
-        <Header/>  
-        <Header1/> 
+         <div>        
         <Text/>
-        <div className="flex">
-        <img src={One} alt="" align="center"/></div>
         <div class="box">
-        <div><Foot1/></div>
-          <div>Two</div>
-          <div>Three</div>
+        <div>
+        <article align="left">            
+            <li><a>บริษัท วิโนน่า คอสเมติกส์ จำกัf</a></li>
+            <li><a>139/26 ชั้น 3 อาคาร The Shelter ซอยโชคชัย 4, ถนนลาดพร้าว 53, แขวงสะพานสอง, เขตวังทองหลาง, กรุงเทพมหานคร 10310</a></li>
+            <li><a>Mobile : 095-454-5149</a></li>
+            <li><a>Line@ : @buyzabuy</a></li>
+            <li><a>เวลาทำการ : วันจันทร์ – วันศุกร์ 9.00 – 18.000</a></li>
+        </article></div> 
         </div>
         </div>
  

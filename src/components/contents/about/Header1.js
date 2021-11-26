@@ -7,24 +7,24 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-
+import One from './img/5.jpg'
 
 function Header1() {
   const [value, setValue] = React.useState("");
   function Leave (){
         // console.log ("Hello")
-        setValue("Hello");
+        setValue("Hellow");
     }
     return (
-        <div>       
+        <div className="App-header1">       
           <div>{value}</div>
         <List>
           <ListItem disablePadding>
-            <ListItemButton onMouseLeave = {Leave}>
+            <ListItemButton onMouseEnter = {Leave}>
             <ListItemIcon>
                 <AddShoppingCartIcon/>
               </ListItemIcon>
-              <ListItemText primary="วิโนน่า คอสเมติกส์" />
+              <ListItemText primary="ธุรกิจจากจุดซ่อนเร้นสู่เงินล้าน" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -32,10 +32,11 @@ function Header1() {
               <ListItemIcon>
                 <LocalShippingIcon />
               </ListItemIcon>
-              <ListItemText primary="winonaofficial_th" />
+              <ListItemText primary="ผู้บิรหาร" />
             </ListItemButton>
           </ListItem>
         </List>
+        <div><img src={One} alt="" align="center" width ="800" height = "500"/></div>
         </div>
  
     );
