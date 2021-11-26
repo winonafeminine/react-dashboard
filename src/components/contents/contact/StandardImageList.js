@@ -1,48 +1,44 @@
-import * as React from 'react';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
+import React from 'react';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
 
-export default function StandardImageList() {
+ function Image (props){
+  const {title,imageSrc,Description, onImgClick} = props;
   return (
-    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
-      {itemData.map((item) => (
-        <ImageListItem key={item.img}>
-          <img
-            src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
-  );
+      <Paper sx={{
+        '&.MuiPaper-root': theme => ({
+            borderRadius: '15px 15px 0 15px',
+            background: theme.palette.warning.main})
+      }}>
+      <Box sx={{
+                '&.MuiBox-root': theme => ({
+                    display: 'flex',
+                    flexGrow: 1,
+                    justifyContent: 'center',
+                    '& img.imageSrc': {
+                        width: '100%',
+                        height: 200,
+                        borderRadius: '12px 12px 0 0',
+                        cursor: 'pointer'}
+                })
+            }}>
+        
+              <img onClick={onImgClick} className="imageSrc" src={imageSrc} alt="" /> </Box>
+            <Box  sx ={{padding : '12px'}}>
+              <Typography variant = "h6">{title}</Typography>
+              
+            </Box>
+        
+    </Paper>
+  )
+ }
+ Image.propTypes = {
+  title: PropTypes.string, 
+  imageSrc: PropTypes.string, 
+  Description: PropTypes.string, 
+  onImgClick: PropTypes.func
 }
-
-const itemData = [
-  {
-    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-    title: 'Breakfast',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-    title: 'Burger',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-    title: 'Camera',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-    title: 'Coffee',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1533827432537-70133748f5c8',
-    title: 'Hats',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62',
-    title: 'Honey',
-  },
+export default Image
  
-];
