@@ -12,6 +12,7 @@ function ProductCard(props) {
             '&.MuiPaper-root': theme => ({
                 borderRadius: '15px',
                 // padding: '0 12px 12px 12px'
+                 background: theme.palette.action.selected,
             })
         }}>
             {/* cat image wrapper */}

@@ -13,8 +13,12 @@ function Header() {
   const [value, setValue] = React.useState("");
   function Leave (){
         // console.log ("Hello")
-        setValue("Hellow");
+        setValue("เเบรนด์สินค้ายอดนิยม");
     }
+    function Leave1 (){
+      // console.log ("Hello")
+      setValue("สบู่กลิ่มหอม");
+  }
     return (
         <div className="App-header1">       
           <div>{value}</div>
@@ -28,7 +32,7 @@ function Header() {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onMouseEnter = {Leave1}>
               <ListItemIcon>
                 <LocalShippingIcon />
               </ListItemIcon>

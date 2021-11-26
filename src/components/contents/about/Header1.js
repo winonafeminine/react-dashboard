@@ -5,16 +5,20 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import WorkIcon from '@mui/icons-material/Work';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import One from './img/5.jpg'
 
 function Header1() {
   const [value, setValue] = React.useState("");
   function Leave (){
         // console.log ("Hello")
-        setValue("Hellow");
+        setValue("จำหน่ายสินค้าคุณภาพ");
     }
+  function Leave1 (){
+      // console.log ("Hello")
+      setValue("บริหารจัดการ");
+  }
     return (
         <div className="App-header1">       
           <div>{value}</div>
@@ -22,15 +26,15 @@ function Header1() {
           <ListItem disablePadding>
             <ListItemButton onMouseEnter = {Leave}>
             <ListItemIcon>
-                <AddShoppingCartIcon/>
+                <WorkIcon />
               </ListItemIcon>
               <ListItemText primary="ธุรกิจจากจุดซ่อนเร้นสู่เงินล้าน" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton>
+            <ListItemButton onMouseEnter = {Leave1}>
               <ListItemIcon>
-                <LocalShippingIcon />
+              <PermIdentityIcon/>
               </ListItemIcon>
               <ListItemText primary="ผู้บิรหาร" />
             </ListItemButton>

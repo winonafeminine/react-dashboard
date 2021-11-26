@@ -78,7 +78,19 @@
   .flex1{
     display: flex;
     justify-content: center;
-    height: 30pc;
+    height: 25pc;
+    width: 100%;
+  }
+  .flex2{
+    display: flex;
+    justify-content: center;
+    height: 5pc;
+    width: 100%;
+  }
+  .flex3{
+    display: flex;
+    justify-content: right;
+    height: 3pc;
     width: 100%;
   }
   .example1 {
