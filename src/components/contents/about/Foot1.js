@@ -1,6 +1,6 @@
 import React from 'react'
 import './Detail.css'
-
+import One from './img/4.jpg'
 function Foot1() {
     return (
         <div id="example1">

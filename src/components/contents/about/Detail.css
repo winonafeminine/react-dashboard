@@ -61,14 +61,13 @@
     display: flex;
     justify-content: left;
     flex-direction: column;
-    font-size: calc(10px + 2vmin);
-    color: rgb(194, 12, 82);
-    border-color: darkred;
-    border-radius: 15mm;
-    border-bottom-left-radius: 12ex;
+
   }
   .App-header1 {
     color: rgb(15, 2, 7);
+  }
+  .App-header2 {
+    color: rgb(121, 5, 5);
   }
   .flex{
     display: flex;
@@ -76,6 +75,23 @@
     height: 35pc;
     width: 100%;
   }
-
+  .flex1{
+    display: flex;
+    justify-content: center;
+    height: 30pc;
+    width: 100%;
+  }
+  .example1 {
+    background-image: linear-gradient(to right, rgb(255, 0, 128), rgba(226, 121, 203, 0));
+    font-size: calc(10px + 2vmin);
+    color: rgb(73, 30, 46);
+    border-color: rgb(233, 55, 159);
+    background-repeat: no-repeat, repeat;
+    padding: 15px;
+  }
+  .p {
+    font-family: 'Times New Roman', serif;
+    color: rgb(126, 42, 42);
+    }
 
   
