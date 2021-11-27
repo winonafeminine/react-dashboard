@@ -22,7 +22,13 @@
 
     export default function Body ()
     {
-         return (      
+        const[state, setState] = React.useState(0);
+        const handleClick = (e) => {
+            setState(state+1);
+            
+        }
+         return (   
+           
             <div>
                 <article align="center">
                     <div className="flex">
@@ -35,7 +41,7 @@
                 <Box sx={{ width: '100%', maxWidth: 360, bgcolor:'rgba(255, 99, 71, 0.6)',align:'center' }} >  
                 <nav aria-label="main mailbox folders"></nav>
                     <ListItem disablePadding>
-                        <ListItemButton>
+                        <ListItemButton onClick={handleClick}>
                             <ListItemIcon>
                                 <FaceRetouchingOffIcon/>
                             </ListItemIcon>
@@ -44,6 +50,7 @@
                      </ListItem>
                 </Box>
               </div>
+               <div>{state}</div>  
                         
                         <div className="flex">
                             <img src={Two} alt="" align="center"/>
