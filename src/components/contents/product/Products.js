@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import ProductCard from './ProductCard';
 import Box from '@mui/material/Box';
 import ProductDialog from './ProductDialog';
+import {useNavigate} from 'react-router-dom';
 
 function Products() {
     const [catValue, setCatValue] = React.useState({
@@ -12,6 +13,7 @@ function Products() {
         salePrice: 0,
         des: ""
     });
+    const navigate = useNavigate();
 
     const [dialogOpen, setDialogOpen] = React.useState(false);
 
@@ -52,6 +54,21 @@ function Products() {
         setDialogOpen(true)
     }
 
+    const handleViewDetailClick = (value) => {
+        // const catname = 'catname';
+        // const catsrc = 'catsrc';
+        // const catprice = 'catprice';
+        // const catsaleprice = 'catsaleprice';
+        // const catdes = 'catdes';
+
+        // save to localstorage/coookies
+        const catdetail = 'catdetail';
+        // convert to string
+        const str_value = JSON.stringify(value);
+        localStorage.setItem(catdetail, str_value);
+        navigate('/cats/detail')
+    }
+
     return (
         <Box sx={{
             display: 'flex',
@@ -72,6 +89,7 @@ function Products() {
                                 price={value.price}
                                 salePrice={value.salePrice}
                                 onImgClick={() => handleImgClicked(value)}
+                                onViewDetailClick={() => handleViewDetailClick(value)}
                             />
                         </Grid>
                     ))}
