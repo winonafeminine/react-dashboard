@@ -1,18 +1,22 @@
-import React from 'react'
-
-function Contact() {
+import React, { useState } from 'react'
+import './Detail.css'
+import Header from './Header'
+import Text from './Text'
+import Products from './Products'
+import FlexDirection from './FlexDirection'
+import Box from './Box'
+import One from './img/4.png'
+function App() {
     return (
-         <div>  About 
-        <div className="Contact"> </div>
-        <header className="App-header">
-            <h1 className="App">winonafeminine</h1>
-            <h1 className=".bb">About</h1>
-            <p>Name : Haswan Musi</p>
-            <p>Email : rbae1998@gmail.com</p>
-            <p>Tell : 0936816898</p>
-      </header>
+         <div>        
+        <Text/>
+        <FlexDirection/>
+        <Products/> 
+        <div className="flex2"><Box/></div>
+        <div className="flex1"><img src={One} alt="" align="center"/></div>       
         </div>
-    )
+         
+    );
 }
 
-export default Contact;
+export default App;
