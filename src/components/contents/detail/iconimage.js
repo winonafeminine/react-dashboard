@@ -4,13 +4,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 
- function Image (props){
+ function iconimage (props){
   const {title,imageSrc,Description, onImgClick} = props;
   return (
       <Paper sx={{
         '&.MuiPaper-root': theme => ({
-            borderRadius: '15px 15px 0 15px',
-            background: theme.palette.warning.main})
+            borderRadius: '15px 15px 15px 15px',
+            background: theme.palette.success.light})
       }}>
       <Box sx={{
                 '&.MuiBox-root': theme => ({
@@ -34,11 +34,11 @@ import PropTypes from 'prop-types';
     </Paper>
   )
  }
- Image.propTypes = {
+ iconimage.propTypes = {
   title: PropTypes.string, 
   imageSrc: PropTypes.string, 
   Description: PropTypes.string, 
   onImgClick: PropTypes.func
 }
-export default Image
+export default iconimage
  
