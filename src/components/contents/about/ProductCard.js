@@ -4,18 +4,23 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
+import Button from '@mui/material/Button';
+import InfoIcon from '@mui/icons-material/Info';
 
 function ProductCard(props) {
-    const {name, imageSrc, description, price, price1, onImgClick} = props;
+
+    const {name, imageSrc, description, price, price1, onImgClick, onViewDetailClick} = props;
+
     return (
         <Paper sx={{
             '&.MuiPaper-root': theme => ({
                 borderRadius: '15px',
                 // padding: '0 12px 12px 12px'
-                 background: theme.palette.action.selected,
+                 background: theme.palette.warning.dark,
+                 color: theme.palette.common.white,
             })
         }}>
-            {/* cat image wrapper */}
+            
             <Box sx={{
                 '&.MuiBox-root': theme => ({
                     display: 'flex',
@@ -28,7 +33,7 @@ function ProductCard(props) {
                     }
                 })
             }}>
-                <img  onClick={onImgClick} className="imageSrc" src={imageSrc} alt="" />
+            <img  onClick={onImgClick} className="imageSrc" src={imageSrc} alt="" />
             </Box>
 
             {/* text or title area */}
@@ -44,8 +49,16 @@ function ProductCard(props) {
                 <Typography>
                     {description}
                 </Typography>
-                
-                {/* price */}
+
+                {/* rating */}
+                <Rating value={5} />
+
+                {/* price and shopping cart */}
+                <Box sx={{
+                    '&.MuiBox-root': {
+                        display: 'flex',
+                    }
+                }}>                
                 <Box sx={{
                     '&.MuiBox-root': {
                         display: 'flex',
@@ -58,8 +71,9 @@ function ProductCard(props) {
                     <Typography variant="h6" sx={{
                         margin: '0 0 0 8px',
                     }}>
-                        {price1}
+                        {`$${price1}`}
                     </Typography>
+                    </Box>
                 </Box>
             </Box>
         </Paper>
@@ -71,8 +85,9 @@ ProductCard.propTypes = {
     imageSrc: PropTypes.string, 
     description: PropTypes.string, 
     price: PropTypes.string,
-    price1: PropTypes.string,
-    onImgClick: PropTypes.func
+    price1: PropTypes.number,
+    onImgClick: PropTypes.func,
+    onViewDetailClick: PropTypes.func
 }
 
 export default ProductCard;

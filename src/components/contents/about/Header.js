@@ -7,7 +7,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import One from './img/4.jpg'
 
 function Header() {
   const [value, setValue] = React.useState("");
@@ -17,18 +16,21 @@ function Header() {
     }
     function Leave1 (){
       // console.log ("Hello")
-      setValue("สบู่กลิ่มหอม");
+      setValue("สินค้าเเบรนด์ดัง");
   }
+  function Leave2 (){
+    // console.log ("Hello")
+    setValue("เเบรนด์คุณภาพ");
+}
     return (
         <div className="App-header1">       
-          <div>{value}</div>
         <List>
           <ListItem disablePadding>
             <ListItemButton onMouseEnter = {Leave}>
             <ListItemIcon>
                 <AddShoppingCartIcon/>
               </ListItemIcon>
-              <ListItemText primary="วิโนน่า คอสเมติกส์" />
+              <ListItemText primary="เสื้อเเขนสั้น" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -36,11 +38,19 @@ function Header() {
               <ListItemIcon>
                 <LocalShippingIcon />
               </ListItemIcon>
-              <ListItemText primary="จำหน่ายสินค้า" />
+              <ListItemText primary="กางเกงขายาว" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton onMouseEnter = {Leave2}>
+              <ListItemIcon>
+                <LocalShippingIcon />
+              </ListItemIcon>
+              <ListItemText primary="รองเท้า" />
             </ListItemButton>
           </ListItem>
         </List>
-        <div className="flex"><img src={One} alt="" align="center"/></div>
+        <div className="flex2">{value}</div>
         </div>
  
     );
