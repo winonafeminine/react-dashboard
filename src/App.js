@@ -23,7 +23,7 @@ function App() {
           <li className="navbar"><Link to="/product" className="btn">Catsitory</Link></li>
           <li className="navbar"><Link to="/detail" className="btn">Sweater</Link></li>
           <li className="navbar"><Link to="/contact" className="btn">Contact</Link></li>
-          <li className="navbar"><Link to="/about" className="btn">About</Link></li>
+          <li className="navbar"><Link to="/about" className="btn">Clothes</Link></li>
         </ul>
         <Routes>
           <Route exact path="/" element={<Home/>} />
