@@ -3,6 +3,10 @@ import Grid from '@mui/material/Grid';
 import ProductCard from './ProductCard';
 import Box from '@mui/material/Box';
 import ProductDialog from './ProductDialog';
+import {useNavigate} from 'react-router-dom';
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import CssBaseline from '@mui/material/CssBaseline';
+import { catTheme } from '../../UIs/theme/catTheme';
 
 function Products() {
     const [catValue, setCatValue] = React.useState({
@@ -12,6 +16,7 @@ function Products() {
         salePrice: 0,
         des: ""
     });
+    const navigate = useNavigate();
 
     const [dialogOpen, setDialogOpen] = React.useState(false);
 
@@ -21,7 +26,7 @@ function Products() {
             src: "https://static.independent.co.uk/2021/06/16/08/newFile-4.jpg?width=982&height=726&auto=webp&quality=75",
             price: 230,
             salePrice: 200,
-            des: "This is cat is a son of superman but it can only mew when hungry"
+            des: "ก่าดฟหสกด่สฟห่กดสฟาห่กดสาฟ่หสกดา่ฟสหาก่ดสฟหาก่ดสฟาหก่ดสาฟห่กสาด่"
         },
         {
             name: "Sleepy cat",
@@ -52,33 +57,52 @@ function Products() {
         setDialogOpen(true)
     }
 
+    const handleViewDetailClick = (value) => {
+        // const catname = 'catname';
+        // const catsrc = 'catsrc';
+        // const catprice = 'catprice';
+        // const catsaleprice = 'catsaleprice';
+        // const catdes = 'catdes';
+
+        // save to localstorage/coookies
+        const catdetail = 'catdetail';
+        // convert to string
+        const str_value = JSON.stringify(value);
+        localStorage.setItem(catdetail, str_value);
+        navigate('/cats/detail')
+    }
+
     return (
-        <Box sx={{
-            display: 'flex',
-            justifyContent: 'center'
-        }}>
+        <ThemeProvider theme={catTheme}>
+            <CssBaseline/>
             <Box sx={{
-                width: '80%'
+                display: 'flex',
+                justifyContent: 'center'
             }}>
-                <Grid container spacing={2} sx={{
-                    margin: '20px 0 0 0'
+                <Box sx={{
+                    width: '80%'
                 }}>
-                    {cats.map((value, ind) => (
-                        <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
-                            <ProductCard 
-                                name={value.name}
-                                imageSrc={value.src}
-                                description={value.des}
-                                price={value.price}
-                                salePrice={value.salePrice}
-                                onImgClick={() => handleImgClicked(value)}
-                            />
-                        </Grid>
-                    ))}
-                </Grid>
+                    <Grid container spacing={2} sx={{
+                        margin: '20px 0 0 0'
+                    }}>
+                        {cats.map((value, ind) => (
+                            <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
+                                <ProductCard 
+                                    name={value.name}
+                                    imageSrc={value.src}
+                                    description={value.des}
+                                    price={value.price}
+                                    salePrice={value.salePrice}
+                                    onImgClick={() => handleImgClicked(value)}
+                                    onViewDetailClick={() => handleViewDetailClick(value)}
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
+                <ProductDialog open={dialogOpen} setOpen={setDialogOpen} value={catValue}/>
             </Box>
-            <ProductDialog open={dialogOpen} setOpen={setDialogOpen} value={catValue}/>
-        </Box>
+        </ThemeProvider>
     )
 }
 

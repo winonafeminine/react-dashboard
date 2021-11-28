@@ -4,10 +4,14 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
+import Button from '@mui/material/Button';
+
+// icons
+import InfoIcon from '@mui/icons-material/Info';
 
 function ProductCard(props) {
     // get value from parent to child
-    const {name, imageSrc, description, price, salePrice, onImgClick} = props;
+    const {name, imageSrc, description, price, salePrice, onImgClick, onViewDetailClick} = props;
     
     return (
         <Paper sx={{
@@ -51,23 +55,40 @@ function ProductCard(props) {
                 {/* rating */}
                 <Rating value={5} />
                 
-                {/* price */}
+                {/* price and shopping cart */}
                 <Box sx={{
                     '&.MuiBox-root': {
                         display: 'flex',
-                        alignItems: 'flex-end'
                     }
                 }}>
-                    <Typography variant="h6">
-                        {`$${price}`}
-                    </Typography>
-                    <Typography variant="h6" sx={{
-                        margin: '0 0 0 6px',
-                        textDecoration: 'line-through',
-                        // fontSize: '15px'
+                    <Box sx={{
+                        '&.MuiBox-root': {
+                            display: 'flex',
+                            alignItems: 'flex-end',
+                            flexGrow: 1
+                        }
                     }}>
-                        {`$${salePrice}`}
-                    </Typography>
+                        <Typography variant="h6">
+                            {`$${price}`}
+                        </Typography>
+                        <Typography variant="h6" sx={{
+                            margin: '0 0 0 6px',
+                            textDecoration: 'line-through',
+                            // fontSize: '15px'
+                        }}>
+                            {`$${salePrice}`}
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Button variant="outlined" sx={{
+                            '&.MuiButton-outlined': theme => ({
+                                color: theme.palette.common.white,
+                                borderColor: theme.palette.common.white
+                            })
+                        }} startIcon={<InfoIcon/>} 
+                            onClick={onViewDetailClick}
+                        >View Detail</Button>
+                    </Box>
                 </Box>
             </Box>
         </Paper>
@@ -81,7 +102,8 @@ ProductCard.propTypes = {
     description: PropTypes.string, 
     price: PropTypes.number,
     salePrice: PropTypes.number,
-    onImgClick: PropTypes.func
+    onImgClick: PropTypes.func,
+    onViewDetailClick: PropTypes.func
 }
 
 export default ProductCard
