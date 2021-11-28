@@ -1,72 +1,110 @@
 import React from 'react'
 import MediaQuery from './Header'
-import Image from './iconimage'
 import BasicTextFields from './comment'
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import './Detail.css'
 import Emotional from './dialog';
-import one from './img/1.jpg'
-import two from './img/2.jpg'
-import three from './img/3.jpg'
-import four from './img/4.jpg'
+import sty from './img/sty.jpg'
+import str from './img/str.jpg'
+import stp from './img/stp.jpg'
+import stg from './img/stg.jpg'
+import ThemeProvider from '@mui/material/styles/ThemeProvider';
+import CssBaseline from '@mui/material/CssBaseline';
+import { catTheme } from '../../UIs/theme/catTheme';
+import {useNavigate} from 'react-router-dom';
+import DetailCard from './DetailCard';
+import { display } from '@mui/system';
 
-export default function Contact() {
+
+export default function Detail() {
   const [imgValue, setimgValue] = React.useState({
     title: "",
     src: "",
+    price: 0,
+    salePrice: 0,
     des: ""
   });
+
+  const navigate = useNavigate();
+
   const [dialogOpen, setDialogOpen] = React.useState(false);
-          const food = [
+          const sweater = [
             {
-              title: "เผชิญหน้ากับความคิด",
-              src: two,
-              des: "ขั้นตอนแรกคือเปิดเผยมันออกมา เผชิญหน้ากับความคิด อารมณ์ และพฤติกรรมด้วยความตั้งใจ ด้วยความอยากรู้อยากเห็น และความเห็นใจ ไม่ว่าสิ่งนั้นมันจะเป็นเรื่องจริงที่สะท้อนออกมา หรือความคิดที่บิดเบี้ยว ความคิดและอารมณ์เหล่านี้ต่างก็เป็นส่วนหนึ่งของเรา เราเรียนรู้ที่จะอยู่กับมันและก้าวข้ามมันไป"
+              title: "Sweater USA",
+              src: sty,
+              price: 19,
+              salePrice: 50,
+              des: "เสื้อสเวเตอร์นำเข้างาน USA"
             },
             {
-                title: "ปลดปล่อยตัวเองออกจากความคิด",
-                src: two,
-                des: "ขั้นตอนต่อไปคือเดินออกจากความคิด ปล่อยตัวเราออกจากความคิด และมองดูมันอย่างที่มันเป็น มันก็แค่ความคิด ก็เป็นแค่อารมณ์ เราต้องแยกคนคิดออกจากความคิด ปล่อยให้เกิดช่องว่างระหว่างความรู้สึกกับการตอบสนอง จะทำให้เราเห็นหนทางหลายๆ แบบที่เราจะรับมือกับสถานการณ์ได้ ทำให้เราหลุดจากการควบคุมและทำให้เราไม่อยู่ใต้อำนาจของอารมณ์"
+                title: "Sweater Brand",
+                src: str,
+                price: 19,
+                salePrice: 50,
+                des: "เสื้อสเวเตอร์งานแบรนด์"
             },
             
             {
-              title: "ตัดสินใจทำตามเป้าหมายในชีวิต",
-              src: three,
-              des: "ขั้นตอนต่อไปคือการมุ่งไปยังสิ่งที่เราต้องการ ตามคุณค่าของเรา มุ่งไปตามเป้าหมายที่สำคัญของเรา  รวบรวมความคิดความรู้สึกเข้ากับคุณค่าของเรา ทำให้เราตัดสินใจเพื่อทำตามสิ่งที่เราต้องการ คุณค่าของเราจะเป็นเหมือนเข็มทิศที่ช่วยนำทางเราไปยังเส้นทางที่ถูกต้อง"
+              title: "Sweater Minimol",
+              src: stp,
+              price: 19,
+              salePrice: 50,
+              des: "เสื้อสเวเตอร์งานมินิมอล"
             },
             {
-              title: "ก้าวต่อไป ก้าวไปข้างหน้า",
-              src: four,
-              des: "ขั้นตอนต่อไปคือการมุ่งไปยังสิ่งที่เราต้องการ ตามคุณค่าของเรา มุ่งไปตามเป้าหมายที่สำคัญของเรา  รวบรวมความคิดความรู้สึกเข้ากับคุณค่าของเรา ทำให้เราตัดสินใจเพื่อทำตามสิ่งที่เราต้องการ คุณค่าของเราจะเป็นเหมือนเข็มทิศที่ช่วยนำทางเราไปยังเส้นทางที่ถูกต้อง"
+              title: "Sweater Low-priced",
+              src: stg,
+              price: 19,
+              salePrice: 50,
+              des: "เสื้อสเวเตอร์ราคาถูก"
             },
           ]
   const handleImgClicked = (value) => {
     setimgValue(value);
     setDialogOpen(true)
   }
+
+  const handleViewDetailClick = (value) => {
+    // const catname = 'catname';
+    // const catsrc = 'catsrc';
+    // const catprice = 'catprice';
+    // const catsaleprice = 'catsaleprice';
+    // const catdes = 'catdes';
+
+    // save to localstorage/coookies
+    const dtdetail = 'dtdetail';
+    // convert to string
+    const str_value = JSON.stringify(value);
+    localStorage.setItem(dtdetail, str_value);
+    navigate('/suha/sweater')
+}
           return (
-            <div>
-              <MediaQuery/>
-              
+            <ThemeProvider theme={catTheme}>
+            <CssBaseline/>
+            <MediaQuery/>
               <Box sx={{
                   display: 'flex',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  backgroundColor: '#4caf50'
               }}>
                   <Box sx={{
-                      width: '80%'
+                      width: '90%'
                   }}>
                       <Grid container spacing={2} sx={{
-                          margin: '20px 0 0 0'
+                          margin: '20px 20px 15px 0px'
                       }}>
-                          {food.map((value, ind) => (
+                          {sweater.map((value, ind) => (
                               <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
-                                  <Image
+                                  <DetailCard
                                       title={value.title}
                                       imageSrc={value.src}
                                       Description={value.des}
                                       onImgClick={() => handleImgClicked(value)}
+                                      onViewDetailClick={() => handleViewDetailClick(value)}
+                                      price ={value.price}
+                                      salePrice={value.salePrice}
                                   />
                               </Grid>
                           ))}
@@ -74,11 +112,16 @@ export default function Contact() {
                   </Box>
                   <Emotional open={dialogOpen} setOpen={setDialogOpen} value={imgValue}/>
               </Box>
-              <div className = "flex">
-                <Typography sx = {{fontFamily :'sans-serif'}} variant = "h5"> Comment <br /><BasicTextFields/></Typography>
-              </div>
-              </div>
-      
+              <Box sx={{
+                backgroundColor: '#4caf50' ,
+                display: 'flex' ,
+                justifyContent: 'center' ,
+                padding: '20px 0 0 0'
+              }}>
+                <Typography sx = {{}} variant = "h5"> Comment</Typography>
+                <BasicTextFields/>
+              </Box>
+              </ThemeProvider>
     ) 
 }
 
