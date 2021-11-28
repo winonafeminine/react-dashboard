@@ -7,10 +7,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import LanguageIcon from '@mui/icons-material/Language';
-import { render } from '@testing-library/react';
 function Tconcact ()
 { 
     const[state, setState] = React.useState(0);
@@ -23,27 +20,51 @@ function Tconcact ()
                 <nav aria-label="nested-list-subheader">
                     <List>
                         <ListItem disablePadding>
-                            <ListItemButton onClick={() => {window.open("https://www.instagram.com/winonaofficial_th/")}} >
+                            <ListItemButton onClick={() => {window.open("https://www.instagram.com/blackpinkofficial/")}} >
                              <ListItemIcon>
-                                <FacebookIcon/>
+                                <InstagramIcon/>
                             </ListItemIcon>
-                            <ListItemText sx ={{color:'darksalmon'}}  primary="วิโนน่า คอสเมติกส์" />
+                            <ListItemText sx ={{color:'darksalmon'}}  primary="BLACKPINK" />
                             </ListItemButton>
                         </ListItem>
                        <ListItem disablePadding>
-                            <ListItemButton  onClick={() => {window.open("https://www.instagram.com/winonaofficial_th/")}}>
+                            <ListItemButton  onClick={() => {window.open("https://www.instagram.com/bigbang_official/")}}>
                             <ListItemIcon>
                                 <InstagramIcon/>
                             </ListItemIcon>
-                            <ListItemText sx ={{color:'darksalmon'}} primary="winonaofficial_th" />
+                            <ListItemText sx ={{color:'darksalmon'}} primary="BIGBANG" />
                             </ListItemButton>
                         </ListItem>
                         <ListItem disablePadding>
-                            <ListItemButton>
+                            <ListItemButton onClick={() => {window.open("https://www.instagram.com/yg_treasure_official/")}}>
                             <ListItemIcon>
-                                <LanguageIcon/>
+                                <InstagramIcon/>
                             </ListItemIcon>
-                            <ListItemText sx ={{color:'darksalmon'}}  primary="Winona Feminine (official) " />
+                            <ListItemText sx ={{color:'darksalmon'}}  primary="TREASURE " />
+                            </ListItemButton>
+                        </ListItem>   
+                        <ListItem disablePadding>
+                            <ListItemButton onClick={() => {window.open("https://www.instagram.com/yg_treasure_official/")}}>
+                            <ListItemIcon>
+                                <InstagramIcon/>
+                            </ListItemIcon>
+                            <ListItemText sx ={{color:'darksalmon'}}  primary="iKon" />
+                            </ListItemButton>
+                        </ListItem>   
+                        <ListItem disablePadding>
+                            <ListItemButton onClick={() => {window.open("https://www.instagram.com/yg_treasure_official/")}}>
+                            <ListItemIcon>
+                                <InstagramIcon/>
+                            </ListItemIcon>
+                            <ListItemText sx ={{color:'darksalmon'}}  primary="WINNER " />
+                            </ListItemButton>
+                        </ListItem>   
+                        <ListItem disablePadding>
+                            <ListItemButton onClick={() => {window.open("https://www.instagram.com/yg_treasure_official/")}}>
+                            <ListItemIcon>
+                                <InstagramIcon/>
+                            </ListItemIcon>
+                            <ListItemText sx ={{color:'darksalmon'}}  primary="BTS " />
                             </ListItemButton>
                         </ListItem>      
                     </List>
