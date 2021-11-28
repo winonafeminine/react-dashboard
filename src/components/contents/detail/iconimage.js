@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
                     '& img.imageSrc': {
                         width: '100%',
                         height: 200,
-                        borderRadius: '12px 12px 0 0',
+                        borderRadius: '12px 0 0 0',
                         cursor: 'pointer'}
                 })
             }}>
