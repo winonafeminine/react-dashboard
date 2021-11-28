@@ -20,7 +20,7 @@ function App() {
           <li className="navbar"><Link to="/" className="btn">Home</Link></li>
           <li className="navbar"><Link to="/product" className="btn">Product</Link></li>
           <li className="navbar"><Link to="/detail" className="btn">Detail</Link></li>
-          <li className="navbar"><Link to="/contact" className="btn">Contact</Link></li>
+          <li className="navbar"><Link to="/contact" className="btn">Kpop Center</Link></li>
           <li className="navbar"><Link to="/about" className="btn">About</Link></li>
         </ul>
         <Routes>

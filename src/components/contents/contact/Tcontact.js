@@ -20,14 +20,14 @@ function Tconcact ()
     return (
         <div> 
             <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} >
-                <nav aria-label="main mailbox folders">
+                <nav aria-label="nested-list-subheader">
                     <List>
                         <ListItem disablePadding>
                             <ListItemButton onClick={() => {window.open("https://www.instagram.com/winonaofficial_th/")}} >
                              <ListItemIcon>
                                 <FacebookIcon/>
                             </ListItemIcon>
-                            <ListItemText  primary="วิโนน่า คอสเมติกส์" />
+                            <ListItemText sx ={{color:'darksalmon'}}  primary="วิโนน่า คอสเมติกส์" />
                             </ListItemButton>
                         </ListItem>
                        <ListItem disablePadding>
@@ -35,16 +35,15 @@ function Tconcact ()
                             <ListItemIcon>
                                 <InstagramIcon/>
                             </ListItemIcon>
-                            <ListItemText primary="winonaofficial_th" />
+                            <ListItemText sx ={{color:'darksalmon'}} primary="winonaofficial_th" />
                             </ListItemButton>
                         </ListItem>
-                        
                         <ListItem disablePadding>
                             <ListItemButton>
                             <ListItemIcon>
                                 <LanguageIcon/>
                             </ListItemIcon>
-                            <ListItemText primary="Winona Feminine (official) " />
+                            <ListItemText sx ={{color:'darksalmon'}}  primary="Winona Feminine (official) " />
                             </ListItemButton>
                         </ListItem>      
                     </List>
