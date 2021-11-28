@@ -11,6 +11,7 @@ import Contact from './components/contents/contact/Contact';
 import About from './components/contents/about/About';
 import Products from './components/contents/product/Products';
 import ProductDetail from './components/contents/product/ProductDetail';
+import Dtdetail from './components/contents/detail/Dtdetail';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/contact" element={<Contact/>} />
           <Route exact path="/about" element={<About/>} />
           <Route exact path="/cats/detail" element={<ProductDetail/>} />
+          <Route exact path="/suha/sweater" element={<Dtdetail/>} />
         </Routes>
       </Router>
     </div>

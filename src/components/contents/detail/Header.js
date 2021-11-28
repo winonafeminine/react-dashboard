@@ -8,13 +8,13 @@ export default function Hcontact() {
   const Root = styled('div')(({ theme }) => ({
     padding: theme.spacing(1),
     [theme.breakpoints.down('sm')]: {
-      backgroundColor: theme.palette.success.light   
+      backgroundColor: theme.palette.success.main 
     },
     [theme.breakpoints.up('md')]: {
-      backgroundColor: theme.palette.success.light
+      backgroundColor: theme.palette.success.main
     },
     [theme.breakpoints.up('lg')]: {
-      backgroundColor: theme.palette.success.light
+      backgroundColor: theme.palette.success.main
     },
   }));
   
@@ -23,8 +23,6 @@ export default function Hcontact() {
          <Root>
             <Typography sx = {{display:'flex', justifyContent : 'center'} } variant = "h3"> 
             Sweater GradeA
-            <ListItemIcon>
-            </ListItemIcon>
             </Typography>
         </Root>
       </div>

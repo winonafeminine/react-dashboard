@@ -6,8 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
+
 export default function FoodDialog (props){
-    const {value, open, setOpen} = props;
+    const {value, open, setOpen,onViewDetailClick} = props;
     const handleClose = () => {
         setOpen(false);
     };
@@ -31,10 +32,14 @@ export default function FoodDialog (props){
             <DialogActions>
             <Button onClick={handleClose} autoFocus>
               ปิด
-            </Button>
+             </Button>
+
             </DialogActions>
+            
         </Dialog>
+        
         </div>
+
     );
 }
 

@@ -17,6 +17,7 @@ import {useNavigate} from 'react-router-dom';
 import DetailCard from './DetailCard';
 import { display } from '@mui/system';
 
+
 export default function Detail() {
   const [imgValue, setimgValue] = React.useState({
     title: "",
@@ -33,30 +34,30 @@ export default function Detail() {
             {
               title: "Sweater USA",
               src: sty,
-              price: 230,
-              salePrice: 200,
+              price: 19,
+              salePrice: 50,
               des: "เสื้อสเวเตอร์นำเข้างาน USA"
             },
             {
                 title: "Sweater Brand",
                 src: str,
-                price: 230,
-                salePrice: 200,
+                price: 19,
+                salePrice: 50,
                 des: "เสื้อสเวเตอร์งานแบรนด์"
             },
             
             {
               title: "Sweater Minimol",
               src: stp,
-              price: 230,
-              salePrice: 200,
+              price: 19,
+              salePrice: 50,
               des: "เสื้อสเวเตอร์งานมินิมอล"
             },
             {
               title: "Sweater Low-priced",
               src: stg,
-              price: 230,
-              salePrice: 200,
+              price: 19,
+              salePrice: 50,
               des: "เสื้อสเวเตอร์ราคาถูก"
             },
           ]
@@ -86,13 +87,13 @@ export default function Detail() {
               <Box sx={{
                   display: 'flex',
                   justifyContent: 'center',
-                  backgroundColor: 'pink'
+                  backgroundColor: '#4caf50'
               }}>
                   <Box sx={{
                       width: '90%'
                   }}>
                       <Grid container spacing={2} sx={{
-                          margin: '20px 20px 15px 0'
+                          margin: '20px 20px 15px 0px'
                       }}>
                           {sweater.map((value, ind) => (
                               <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
@@ -112,7 +113,7 @@ export default function Detail() {
                   <Emotional open={dialogOpen} setOpen={setDialogOpen} value={imgValue}/>
               </Box>
               <Box sx={{
-                backgroundColor: 'pink' ,
+                backgroundColor: '#4caf50' ,
                 display: 'flex' ,
                 justifyContent: 'center' ,
                 padding: '20px 0 0 0'

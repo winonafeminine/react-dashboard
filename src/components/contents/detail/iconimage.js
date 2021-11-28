@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
       <Paper sx={{
         '&.MuiPaper-root': theme => ({
             borderRadius: '15px 15px 15px 15px',
-            background: theme.palette.success.light})
+            background: theme.palette.success.main})
       }}>
       <Box sx={{
                 '&.MuiBox-root': theme => ({
@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
                     '& img.imageSrc': {
                         width: '100%',
                         height: 200,
-                        borderRadius: '12px 0 0 0',
+                        borderRadius: '0 0 0 0',
                         cursor: 'pointer'}
                 })
             }}>
