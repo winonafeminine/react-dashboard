@@ -11,6 +11,7 @@ import Contact from './components/contents/contact/Contact';
 import About from './components/contents/about/About';
 import Products from './components/contents/product/Products';
 import ProductDetail from './components/contents/product/ProductDetail';
+import Dtdetail from './components/contents/detail/Dtdetail';
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
         <ul className="navbar-group">
           <li className="navbar"><Link to="/" className="btn">IT Center</Link></li>
           <li className="navbar"><Link to="/product" className="btn">Catsitory</Link></li>
-          <li className="navbar"><Link to="/detail" className="btn">Detail</Link></li>
+          <li className="navbar"><Link to="/detail" className="btn">Sweater</Link></li>
           <li className="navbar"><Link to="/contact" className="btn">Contact</Link></li>
           <li className="navbar"><Link to="/about" className="btn">About</Link></li>
         </ul>
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/contact" element={<Contact/>} />
           <Route exact path="/about" element={<About/>} />
           <Route exact path="/cats/detail" element={<ProductDetail/>} />
+          <Route exact path="/suha/sweater" element={<Dtdetail/>} />
         </Routes>
       </Router>
     </div>

@@ -22,20 +22,22 @@ export default function BasicTextFields() {
     >
         <div className = "TextField">
             <TextField 
-            id="outlined-textarea"
+            id="filled-basic"
             label="Full Name"
+            color="success"
             multiline
             />
-                
+          
             <TextField
             style = {wtext}
             id="outlined-textarea"
             label="Comment"
+            color="success"
             multiline
-            rows={5}
+            rows={4}
              />
              <br />
-            <div className = "btn"><Button variant= "contained">SEND</Button> </div>
+            <div className = "btn"><Button variant= "contained"  color="success" >SEND</Button> </div>
         
         </div>
             
