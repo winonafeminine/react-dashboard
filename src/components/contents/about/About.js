@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import './Detail.css'
 import Products1 from './Products1'
 import Products2 from './Products2'
@@ -11,10 +10,8 @@ function App() {
          <div>   
         <Text/>        
         <div className="App-header">
-            <Products1/> 
-                </div>
-        <div className="App-header">
-            <Products2/> 
+            <Products1/>
+            <Products2/>  
                 </div>
         <FlexDirection/>
         </div>
