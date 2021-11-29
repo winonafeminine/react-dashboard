@@ -1,38 +1,42 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Rating from '@mui/material/Rating';
 import styled from '@mui/material/styles/styled';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
+
+// icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 
-function Kdetail() {
-    const StyledPaper = styled(Paper)
+const StyledPaper = styled(Paper)
     (({theme}) => ({
         borderRadius: '12px',
         padding: '12px',
-        width: '80%'
+        width: '70%'
     }));
-    const kpopdetail= 'kpopdetail';
+
+function CatDetail() {
+    const catdetail = 'catdetail';
     // convert to object
-    const strkdata = localStorage.getItem(kpopdetail);
+    const strdata = localStorage.getItem(catdetail);
     // raw data
-    const kdata = JSON.parse(strkdata);
-    console.log(kdata);
+    const data = JSON.parse(strdata);
+    // console.log(data);
     return (
         <React.Fragment>
-            <Box sx = {{
-                display : 'flex',
-                justifyContent:'center'
+            <Box sx={{
+                display: 'flex',
+                justifyContent: 'center'
             }}>
                 <StyledPaper>
-                {/* container */}
-                    <Box sx={{ 
+                    {/* container */}
+                    <Box sx={{
                         '&.MuiBox-root': {
                             // width: '100%'
                             flexGrow: 1,
@@ -42,12 +46,12 @@ function Kdetail() {
                     }}>
                         {/* wrapper */}
                         <Box sx={{
-                            '&.MuiBox-root': {
+                        '&.MuiBox-root': {
                             // width: '100%'
-                            width: '70%'
-                            }
-                        }}>
-                            <Box sx={{
+                            width: '80%'
+                        }
+                    }}>
+                        <Box sx={{
                             display: 'flex'
                         }}>
                             <Box sx={{
@@ -55,13 +59,13 @@ function Kdetail() {
                                     display: 'flex',
                                     flexDirection: 'column',
                                     alignItems: 'center',
-                                    '& img.kImg' : {
+                                    '& img.catImg' : {
                                         width: '500px',
                                         borderRadius: '6px'
                                     }
                                 })
                             }}>
-                                <img className="kImg" src={kdata.src} alt=""/>
+                                <img className="catImg" src={data.src} alt=""/>
                                 <Box sx={{
                                     '&.MuiBox-root': {
                                         width: '100%',
@@ -76,23 +80,22 @@ function Kdetail() {
                                         }
                                     }
                                 }}>
-                                    <img className="gallery" src={kdata.src} alt=""/>
-                                    <img className="gallery" src={kdata.src} alt=""/>
-                                    <img className="gallery" src={kdata.src} alt=""/>
+                                    <img className="gallery" src={data.src} alt=""/>
+                                    <img className="gallery" src={data.src} alt=""/>
+                                    <img className="gallery" src={data.src} alt=""/>
                                 </Box>
-                            </Box>  
+                            </Box>
                             <Box sx={{
-                                 width:'70%',
                                 '&.MuiBox-root': {
-                                    margin: '0 0 0 20px'
+                                    margin: '0 0 0 12px'
                                 }
                             }}>
                                 <Box sx={{
                                     display: 'flex'
                                 }}>
                                     <Typography sx={{
-                                        margin: '0 0 12px 0'
-                                    }} variant="h5">{kdata.title}</Typography>
+                                        margin: '0 0 6px 0'
+                                    }} variant="h5">{data.name}</Typography>
                                     <Chip color="primary" sx={{
                                         margin: '0 0 0 6px',
                                     }} label="New" />
@@ -100,11 +103,18 @@ function Kdetail() {
                                 <Typography sx={{
                                     margin: '0 0 6px 0  '
                                 }}>
-                                    {kdata.des}
+                                    {data.des}
                                 </Typography>
+                                <Rating value={5} />
                                 <Box sx={{
                                     display: 'flex'
                                 }}>
+                                    <Typography >{`฿${data.salePrice}`}</Typography>
+                                    <Typography sx={{
+                                        margin: '0 0 0 6px',
+                                        textDecoration: 'line-through'
+                                    }}>{ `฿${data.price}`}</Typography>
+
                                 </Box>
                                 <ButtonGroup sx={{
                                     margin: '6px 0 0 0'
@@ -119,11 +129,11 @@ function Kdetail() {
                                 }}>
                                     <Button variant="outlined" startIcon={<AddShoppingCartIcon/>}>Add To Cart</Button>
                                     <Button sx={{
-                                        margin: '0 0 0 20px'
+                                        margin: '0 0 0 6px'
                                     }} variant="contained" startIcon={<LocalMallIcon/>}>Buy Now</Button>
                                 </Box>
-                            </Box>       
                             </Box>
+                        </Box>
                         </Box>
                     </Box>
                 </StyledPaper>
@@ -132,4 +142,4 @@ function Kdetail() {
     )
 }
 
-export default Kdetail
+export default CatDetail

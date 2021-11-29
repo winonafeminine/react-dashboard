@@ -10,9 +10,15 @@ export default function Homecontainer() {
     const handleChange = (event) => {
       setValue(event.target.value);
     };
-    return (  
+    return (
+        <Box sx={{
+            '&.MuiBox-root': theme =>({
+                alignItems: "center",
+                width: '100%',
+                margin: '30px 0 30px 0'
+            })
+        }}>
             <Grid container spacing={2} sx={{
-                margin: '12px 0 50px 0'
             }}>
                 <Grid item lg={6}>
                     <TextField
@@ -54,5 +60,7 @@ export default function Homecontainer() {
                     />
                 </Grid>
             </Grid>
+        </Box>
+            
     )
 }

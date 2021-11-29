@@ -4,17 +4,18 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import {useNavigate} from 'react-router-dom';
 import './style.css'
-import MediaQuery from './Hcontact'
+import MediaQuery from './Headerkpop'
 import Tcontact from './Tcontact'
-import Image from './StandardImageList'
+import Image from './Card'
 import BasicTextFields from './Textfield'
 import FoodDialog from './dialog';
-import Blackpink from './img/blackpink.jpg';
-import Bigbang from './img/bigbang.jpg';
-import Treasure from './img/treasure.jpg';
+// picture
+import Blackpink from './img/blackpink2.jpg';
+import Bigbang from './img/bigbang3.jpg';
+import Treasure from './img/treasure2.jpg';
 import Ikon from './img/ikon.png';
 import Winner from './img/winner.jpeg';
-import Bts from './img/bts.jfif';
+import Bts from './img/bts2.jpg';
 export default function Contact() {
   const [imgValue, setimgValue] = React.useState({
     title: "",
