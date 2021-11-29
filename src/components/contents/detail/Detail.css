@@ -6,7 +6,7 @@ body {
 }
 .header{
   margin-top: 0px;
-  background-color: darksalmon;
+  
 }
 .TextField {
   height: 26rem;
@@ -16,16 +16,16 @@ body {
 .btn {
   margin-left: 20px;
   margin-bottom: 20px;
+  color: yellow;
 }
 .card{
-  
   margin-top: 50px;
   margin-left: 30%;
 }
 .flex{
   display: flex;
   justify-content: center;
-  row-gap: 1rem;
-  column-gap: 7rem;
-  margin-top: 20px;
+  /* row-gap: 1rem; */
+  /* column-gap: 7rem; */
+  /* margin-top: 20px; */
 }

@@ -6,14 +6,34 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
+import {useNavigate} from 'react-router-dom';
+import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 
-export default function ProductDialog(props) {
-    const {value, open, setOpen} = props;
+
+ function ProductDialog(props) {
+    const {value, open, setOpen, onViewDetailClick} = props;
     // const [open, setOpen] = React.useState(false);
 
+    const navigate = useNavigate();
+   
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleViewDetailClick = (value) => {
+        // const catname = 'catname';
+        // const catsrc = 'catsrc';
+        // const catprice = 'catprice';
+        // const catsaleprice = 'catsaleprice';
+        // const catdes = 'catdes';
+
+        // save to localstorage/coookies
+        const clotdetail = 'clotdetail';
+        // convert to string
+        const str_value = JSON.stringify(value);
+        localStorage.setItem(clotdetail, str_value);
+        navigate('/clot/detail')
+    }
 
     return (
         <div>
@@ -32,11 +52,15 @@ export default function ProductDialog(props) {
                 {value.des}
             </DialogContentText>
             </DialogContent>
-            <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
-            <Button onClick={handleClose} autoFocus>
-                Agree
-            </Button>
+            <DialogActions>            
+           <Button variant="outlined" sx={{
+                            '&.MuiButton-outlined': theme => ({
+                                color: theme.palette.warning.dark,
+                                borderColor: theme.palette.warning.light,
+                            })
+                        }}startIcon={<ShoppingCartTwoToneIcon/>} 
+                        onClick={() => handleViewDetailClick(value)}
+                        >shop</Button>
             </DialogActions>
         </Dialog>
         </div>
@@ -46,5 +70,7 @@ export default function ProductDialog(props) {
 ProductDialog.propTypes = {
     value: PropTypes.object, 
     open: PropTypes.bool, 
-    setOpen: PropTypes.func
+    setOpen: PropTypes.func,
+    onClick: PropTypes.func,
 }
+export default ProductDialog;
