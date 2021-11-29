@@ -45,14 +45,10 @@ export default function Homeheader() {
                         <Box sx={{
                             height: '419px',
                             padding: '10px 0 0 17px',
-                            borderRadius: '0 0 12px 12px'
+                            borderRadius: '0 0 12px 12px', 
                         }}>
                             <FormControl component="fieldset">
-                                <RadioGroup
-                                    aria-label="gender"
-                                    defaultValue=""
-                                    name="radio-buttons-group"
-                                >
+                                <RadioGroup aria-label="Kategorie" defaultValue="" name="radio-buttons-group">
                                     <FormControlLabel value="msi" control={<Radio />} label="MSI" />
                                     <FormControlLabel value="acer" control={<Radio />} label="ACER" />
                                     <FormControlLabel value="hp" control={<Radio />} label="HP" />
