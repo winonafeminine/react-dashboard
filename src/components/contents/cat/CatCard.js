@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 // icons
 import InfoIcon from '@mui/icons-material/Info';
 
-function ProductCard(props) {
+function CatCard(props) {
     // get value from parent to child
     const {name, imageSrc, description, price, salePrice, onImgClick, onViewDetailClick} = props;
     
@@ -96,7 +96,7 @@ function ProductCard(props) {
 }
 
 // specify the type for each properties
-ProductCard.propTypes = {
+CatCard.propTypes = {
     name: PropTypes.string, 
     imageSrc: PropTypes.string, 
     description: PropTypes.string, 
@@ -106,4 +106,4 @@ ProductCard.propTypes = {
     onViewDetailClick: PropTypes.func
 }
 
-export default ProductCard
+export default CatCard
