@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Home from './components/contents/home/Home';
+import Home from './components/contents/IT/ItCenter';
 import Detail from './components/contents/detail/Detail';
 import Contact from './components/contents/contact/Contact';
 import About from './components/contents/about/About';
