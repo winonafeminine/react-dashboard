@@ -43,7 +43,7 @@ function DetailCard(props) {
                 padding: '12px'
             }}>
                 {/* product name */}
-                <Typography variant="h5">
+                <Typography variant="h5" color="white">
                     {title}
                 </Typography>
 
@@ -68,10 +68,10 @@ function DetailCard(props) {
                             flexGrow: 1
                         }
                     }}>
-                        <Typography variant="h6">
+                        <Typography variant="h6" color="white">
                             {`$${price}`}
                         </Typography>
-                        <Typography variant="h6" sx={{
+                        <Typography variant="h6"  sx={{
                             margin: '0 0 0 6px',
                             textDecoration: 'line-through',
                             // fontSize: '15px'
