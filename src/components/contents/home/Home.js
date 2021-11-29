@@ -1,39 +1,27 @@
 import React from 'react';
-// import './style/Home.css';
 import Homeheader from './Homeheader';
-import Homecontainer from './Homecontainer';
+import MenuBar from './MenuBar';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import Footer from './Footer';
+import Tooltips from './Tooltip';
 
 
 function Home() {
     return (  
         <React.Fragment>
-            {/* container */}
+            
+            
             <Box sx={{
-                display: 'flex',
-                justifyContent: 'center'
+                margin: '0 130px 0 130px',
             }}>
-                <Box className="home" sx={{
-                    '&.MuiBox-root': theme => ({
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        width: '65%'
-                    })
-                }}>
-                    <Box className="home header" sx={{
-                        
-                    }}>
-                        <Homeheader />
-                    </Box>         
-                    <Box className="home container" sx={{
-                        width: '100%'
-                    }}>
-                        <Homecontainer />
-                    </Box>
-                </Box> 
+                {/* Header */}
+                <Homeheader />
+                {/* container */}
+                <MenuBar />
+                <Tooltips />
             </Box>
-            </React.Fragment>
+        </React.Fragment>
     )
 }
 

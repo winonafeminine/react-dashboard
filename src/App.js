@@ -18,7 +18,7 @@ function App() {
     <div className="main">
       <Router>
         <ul className="navbar-group">
-          <li className="navbar"><Link to="/" className="btn">Home</Link></li>
+          <li className="navbar"><Link to="/" className="btn">IT Center</Link></li>
           <li className="navbar"><Link to="/product" className="btn">Catsitory</Link></li>
           <li className="navbar"><Link to="/detail" className="btn">Detail</Link></li>
           <li className="navbar"><Link to="/contact" className="btn">Contact</Link></li>
