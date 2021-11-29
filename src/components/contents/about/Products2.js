@@ -25,25 +25,25 @@ function Products() {
 
     const cats = [
         {
-            name: "SNDMDNS",
-            src: "https://th-live-05.slatic.net/p/ddd16792237425a7a99acfbd2c42d3e0.jpg_720x720q80.jpg_.webp",
-            price: "Shirt",
+            name: "Otello",
+            src: "https://www.otellothailand.com/wp-content/uploads/2019/03/1_6.jpg",
+            price: "Oxford",
             price1: 200,
-            des: "เสื้อผ้าแฟชั่นผู้ชาย เสื้อยืดคอกลม ใส่สบาย สไตล์เกาหลี"
+            des: " รองเท้าหนังวัวแท้ทรง Oxford 102-สีน้ำตาลเข้ม #น้ำตาลเข้ม"
         },
         {
-            name: "TIDE CUILD",
-            src: "https://th-live-05.slatic.net/p/363c0941ce340f42975fc53e94bfbf94.jpg_720x720q80.jpg_.webp",
-            price: "TATE",
+            name: "TIDE CUIStep",
+            src: "https://cf.shopee.co.th/file/9a8b335e39c1977c6a692edad57797cb",
+            price: "Shoes-911LD",
             price1: 300,
-            des: "เสื้อผู้ชายแขนสั้นมีฮู้ด เสื้อแฟชั่นผู้ชาย สไตล์เกาหลี"
+            des: "รองเท้าหนังแท้ผู้ชาย หุ้มส้น แบบผูกเชือก หนังออยล์ สีน้ำตาล"
         },
         {
-            name: "MEN Short Sleeve",
-            src: "https://th-live-05.slatic.net/p/5b15af55a0b3f65a3e038a8f787d43d4.jpg_720x720q80.jpg_.webp",
-            price: "T-Shirt",
+            name: "Shoes StepPro",
+            src: "http://ca.lnwfile.com/fhwix7.jpg",
+            price: "Boots-939",
             price1: 400,
-            des: "เสื้อผ้าแฟชั่นผู้ชาย เสื้อยืดคอกลมแขนสั้นผู้ชาย สไตล์เกาหลี"
+            des: "รองเท้าหนังแท้ นูบัค บูทหุ้มข้อ ชนิดหนา 3mm รุ่น Boots Code 939"
         },
     ];
 

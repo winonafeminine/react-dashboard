@@ -1,20 +1,24 @@
 import React, { useState } from 'react'
 import './Detail.css'
-import Header from './Header'
+import Products1 from './Products1'
+import Products2 from './Products2'
 import Text from './Text'
-import Products from './Products'
 import FlexDirection from './FlexDirection'
-import Box from './Box'
-import One from './img/4.png'
+
+
 function App() {
     return (
-         <div>        
-        <Text/>
+         <div>   
+        <Text/>        
+        <div className="App-header">
+            <Products1/> 
+                </div>
+        <div className="App-header">
+            <Products2/> 
+                </div>
         <FlexDirection/>
-        <Products/> 
-        <div className="flex2"><Box/></div>
-        <div className="flex1"><img src={One} alt="" align="center"/></div>       
         </div>
+        
          
     );
 }

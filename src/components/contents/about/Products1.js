@@ -25,25 +25,25 @@ function Products() {
 
     const cats = [
         {
-            name: "SNDMDNS",
-            src: "https://th-live-05.slatic.net/p/ddd16792237425a7a99acfbd2c42d3e0.jpg_720x720q80.jpg_.webp",
-            price: "Shirt",
+            name: "Trousers",
+            src: "https://cf.shopee.co.th/file/dde145e08f59501438abde51aef85a52",
+            price: "Tatum",
             price1: 200,
-            des: "เสื้อผ้าแฟชั่นผู้ชาย เสื้อยืดคอกลม ใส่สบาย สไตล์เกาหลี"
+            des: "กางเกงแฟชั่นผู้ชาย เอวยืดเชือกผูก กระเป๋ามีซิป ใส่สบาย สไตล์เกาหลี"
         },
         {
-            name: "TIDE CUILD",
-            src: "https://th-live-05.slatic.net/p/363c0941ce340f42975fc53e94bfbf94.jpg_720x720q80.jpg_.webp",
-            price: "TATE",
+            name: "MEN Short",
+            src: "https://img.kaidee.com/prd/20200808/357680187/m/98a0fa29-4b8e-4ba7-bd06-f98c96e76f11.jpg",
+            price: "Walnuts",
             price1: 300,
-            des: "เสื้อผู้ชายแขนสั้นมีฮู้ด เสื้อแฟชั่นผู้ชาย สไตล์เกาหลี"
+            des: "กางเกงแฟชั่น-กางเกงขาจั้ม-กางเกงผู้ชาย แฟชั่นผู้ชาย กางเกงขายาว กางเกงจ็อกเกอร์"
         },
         {
-            name: "MEN Short Sleeve",
-            src: "https://th-live-05.slatic.net/p/5b15af55a0b3f65a3e038a8f787d43d4.jpg_720x720q80.jpg_.webp",
-            price: "T-Shirt",
+            name: "CGW",
+            src: "https://cf.shopee.co.th/file/1756ffb62733f22aabe88646fe648006",
+            price: "CGW-1376",
             price1: 400,
-            des: "เสื้อผ้าแฟชั่นผู้ชาย เสื้อยืดคอกลมแขนสั้นผู้ชาย สไตล์เกาหลี"
+            des: "⚡ Ag ⚡กางเกงลำลองผู้ชายกางเกงแฟชั่นผู้ชาย สีดำ กางเกงรัดรูปผู้ชายผ้ายืดสไตล์เกาหลี"
         },
     ];
 
