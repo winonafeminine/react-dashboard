@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 
-export default function ProductDialog(props) {
+export default function CatDialog(props) {
     const {value, open, setOpen} = props;
     // const [open, setOpen] = React.useState(false);
 
@@ -43,7 +43,7 @@ export default function ProductDialog(props) {
     );
 }
 
-ProductDialog.propTypes = {
+CatDialog.propTypes = {
     value: PropTypes.object, 
     open: PropTypes.bool, 
     setOpen: PropTypes.func

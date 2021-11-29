@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-import ProductCard from './ProductCard';
+import CatCard from './CatCard';
 import Box from '@mui/material/Box';
-import ProductDialog from './ProductDialog';
+import CatDialog from './CatDialog';
 import {useNavigate} from 'react-router-dom';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -87,7 +87,7 @@ function Products() {
                     }}>
                         {cats.map((value, ind) => (
                             <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
-                                <ProductCard 
+                                <CatCard 
                                     name={value.name}
                                     imageSrc={value.src}
                                     description={value.des}
@@ -100,7 +100,7 @@ function Products() {
                         ))}
                     </Grid>
                 </Box>
-                <ProductDialog open={dialogOpen} setOpen={setDialogOpen} value={catValue}/>
+                <CatDialog open={dialogOpen} setOpen={setDialogOpen} value={catValue}/>
             </Box>
         </ThemeProvider>
     )

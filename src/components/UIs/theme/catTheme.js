@@ -9,3 +9,4 @@ export const catTheme = createTheme({
         ].join(',')
     }
 });
+
