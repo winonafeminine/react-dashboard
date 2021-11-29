@@ -23,16 +23,8 @@ export default function FoodDialog (props){
             {value.title}
             </DialogTitle>
             <img src={value.src} alt="" />
-            <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-                {value.des}
-            </DialogContentText>
-            </DialogContent>
             <DialogActions>
             <Button onClick={handleClose}>ปิด</Button>
-            <Button onClick={handleClose} autoFocus>
-                เห็นด้วย
-            </Button>
             </DialogActions>
         </Dialog>
         </div>
