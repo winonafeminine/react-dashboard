@@ -11,7 +11,8 @@ import InfoIcon from '@mui/icons-material/Info';
 
 function CatCard(props) {
     // get value from parent to child
-    const {name, imageSrc, description, price, salePrice, onImgClick, onViewDetailClick} = props;
+    const {name, imageSrc, description, price, salePrice, 
+            onImgClick, onViewDetailClick} = props;
     
     return (
         <Paper sx={{
@@ -103,7 +104,7 @@ CatCard.propTypes = {
     price: PropTypes.number,
     salePrice: PropTypes.number,
     onImgClick: PropTypes.func,
-    onViewDetailClick: PropTypes.func
+    onViewDetailClick: PropTypes.func,
 }
 
 export default CatCard
