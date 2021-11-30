@@ -15,7 +15,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { catTheme } from '../../UIs/theme/catTheme';
 import {useNavigate} from 'react-router-dom';
 import DetailCard from './DetailCard';
-import { display } from '@mui/system';
+
 
 
 export default function Detail() {
@@ -30,15 +30,16 @@ export default function Detail() {
   const navigate = useNavigate();
 
   const [dialogOpen, setDialogOpen] = React.useState(false);
-          const sweater = [
+          const sweater = [ 
             {
               title: "Sweater USA",
               src: sty,
               price: 19,
               salePrice: 50,
-              des: "เสื้อสเวเตอร์นำเข้างาน USA"
+              des: "เสื้อสเวเตอร์นำเข้างาน USA" ,
+            
             },
-            {
+            { 
                 title: "Sweater Brand",
                 src: str,
                 price: 19,
@@ -97,7 +98,8 @@ export default function Detail() {
                       }}>
                           {sweater.map((value, ind) => (
                               <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
-                                  <DetailCard
+                                  <DetailCard 
+                                      
                                       title={value.title}
                                       imageSrc={value.src}
                                       Description={value.des}

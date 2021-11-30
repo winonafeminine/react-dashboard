@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 
 export default function FoodDialog (props){
-    const {value, open, setOpen,onViewDetailClick} = props;
+    const {value, open, setOpen} = props;
     const handleClose = () => {
         setOpen(false);
     };

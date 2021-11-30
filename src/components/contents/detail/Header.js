@@ -1,7 +1,6 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import './Detail.css'
 
 export default function Hcontact() {
@@ -19,7 +18,7 @@ export default function Hcontact() {
   }));
   
      return (
-      <div  >
+      <div  className="header">
          <Root>
             <Typography sx = {{display:'flex', justifyContent : 'center'} } variant = "h3"> 
             Sweater GradeA
