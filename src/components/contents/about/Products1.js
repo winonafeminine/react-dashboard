@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import ProductCard from './ProductCard';
 import Box from '@mui/material/Box';
 import ProductDialog from './ProductDialog';
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { clotTheme } from '../../UIs/theme/clotTheme';
@@ -19,7 +19,7 @@ function Products() {
         salePrice: 0,
         des: ""
     });
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [dialogOpen, setDialogOpen] = React.useState(false);
 
@@ -51,20 +51,6 @@ function Products() {
         setCatValue(value);
         setDialogOpen(true)
     }
-    const handleViewDetailClick = (value) => {
-        // const catname = 'catname';
-        // const catsrc = 'catsrc';
-        // const catprice = 'catprice';
-        // const catsaleprice = 'catsaleprice';
-        // const catdes = 'catdes';
-
-        // save to localstorage/coookies
-        const clotdetail = 'clotdetail';
-        // convert to string
-        const str_value = JSON.stringify(value);
-        localStorage.setItem(clotdetail, str_value);
-        navigate('/clot/detail')
-    }
    
 
     return (
@@ -78,7 +64,8 @@ function Products() {
                 width: '80%'
             }}>
                 <Grid container spacing={2} sx={{
-                    margin: '10px 0 0 0'
+                    // margin: '10px 0 0 0',
+                    justifyContent: 'center'
                 }}>
                     {cats.map((value, ind) => (
                         <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
