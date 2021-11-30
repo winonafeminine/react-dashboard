@@ -5,7 +5,7 @@ import ItDialog from './ItDialog';
 import {useNavigate} from 'react-router-dom';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
-import { catTheme } from '../../UIs/theme/catTheme';
+import { itTheme } from '../../UIs/theme/itTheme';
 import ItCardDetail from './ItCardDetail';
 
 function ItCard() {
@@ -69,10 +69,10 @@ function ItCard() {
         // convert to string
         const str_value = JSON.stringify(value);
         localStorage.setItem(itdetail, str_value);
-        navigate('/its/detail')
+        navigate('/it/detail')
     }
     return (
-        <ThemeProvider theme={catTheme}>
+        <ThemeProvider theme={itTheme}>
             <CssBaseline/>
             <Box sx={{
                 display: 'flex',

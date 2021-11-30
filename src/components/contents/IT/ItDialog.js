@@ -22,6 +22,7 @@ export default function ItDialog(props) {
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
+            
         >
             <DialogTitle id="alert-dialog-title">
             {value.name}
@@ -33,9 +34,8 @@ export default function ItDialog(props) {
             </DialogContentText>
             </DialogContent>
             <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
             <Button onClick={handleClose} autoFocus>
-                Agree
+                Leave
             </Button>
             </DialogActions>
         </Dialog>

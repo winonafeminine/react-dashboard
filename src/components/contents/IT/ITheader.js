@@ -36,7 +36,7 @@ export default function Homeheader() {
                         borderRadius: '12px',
                     }}>
                         <Box sx={{
-                            height: '23px',
+                            height: '43px',
                             backgroundColor: "#00bcd4",
                             borderRadius: '12px 12px 0 0',
                             padding: '17px 0 0 17px',

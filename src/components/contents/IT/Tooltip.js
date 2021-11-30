@@ -73,7 +73,7 @@ export default function Tooltips() {
         };
     }, []);
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
+    const [open, setOpen ] = useState(false);
   return (
         <Box>
             <Tooltip 
