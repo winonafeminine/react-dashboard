@@ -11,7 +11,8 @@ import InfoIcon from '@mui/icons-material/Info';
 
 function DetailCard(props) {
     // get value from parent to child
-    const {title, imageSrc, description, price, salePrice, onImgClick, onViewDetailClick} = props;
+    const {title, imageSrc, description, price, salePrice,
+         onImgClick, onViewDetailClick} = props;
     
     return (
         <Paper sx={{

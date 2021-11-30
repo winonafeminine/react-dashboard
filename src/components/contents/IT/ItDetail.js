@@ -180,7 +180,7 @@ function ItDetail() {
             }}>
                 <Badge badgeContent={addToCard} color="primary">
                     <Fab color="primary" aria-label="add" sx={{
-                    backgroundColor: '#00bcd4'
+                    backgroundColor: '#00bc'
                 }}>
                     <ShoppingCartIcon />
                 </Fab>

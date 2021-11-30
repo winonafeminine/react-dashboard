@@ -24,12 +24,31 @@ const StyledPaper = styled(Paper)
 
 
 function Dtdetail() {
+    const [amount, setAmount] = React.useState(0)
     const dtdetail = 'dtdetail';
     // convert to object
     const strdata = localStorage.getItem(dtdetail);
     // raw data
     const data = JSON.parse(strdata);
     // console.log(data);
+    const [sweaterImg, setSweaterImg] = React.useState(data.src);
+
+    const handleSweaterImgClick = (e, src) => {
+        setSweaterImg(src)
+    }
+    const handleAddClick = () => {
+        setAmount(amount + 1);
+    }
+
+    const handleRemoveClick = (e) => {
+        if(amount === 0)
+        {
+            // break
+            return;
+        }
+        setAmount(amount - 1);
+    }
+    console.log(sweaterImg);
     return (
         <React.Fragment>
             <Box sx={{
@@ -63,32 +82,36 @@ function Dtdetail() {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            '& img.sweater' : {
+                            '& img.sweaterImg' : {
                                 width: '500px',
                                 borderRadius: '6px',
                                 backgroundColor: '#4caf50'
                             }
                         })
                     }}>
-                        <img  className="sweater" src={data.src} alt=""/>
+                        <img  className="sweaterImg" src={sweaterImg} alt=""/>
                         <Box sx={{
-                                    '&.MuiBox-root': {
-                                        width: '100%',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        margin: '6px 0 0 0',
-                                        '& .sweaterimg': {
-                                            width: '75px',
-                                            height: '75px',
-                                            borderRadius: '12px',
-                                            margin: '0 3px'
-                                        }
+                                '&.MuiBox-root': {
+                                    width: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    margin: '6px 0 0 0',
+                                    '& .gallery': {
+                                        width: '75px',
+                                        height: '75px',
+                                        borderRadius: '12px',
+                                        margin: '0 3px',
+                                        cursor: 'pointer'
                                     }
-                                }}>
-                                    <img className="sweaterimg" src={data.src} alt=""/>
-                                    <img className="sweaterimg" src={data.src} alt=""/>
-                                    <img className="sweaterimg" src={data.src} alt=
-                                    ""/>
+                                }
+                        }}>
+                                    {
+                                        data.gallery.map(value => (
+                                            <img className="gallery" src={value} alt=""
+                                                onClick={(e) => handleSweaterImgClick(e, value)}
+                                            />
+                                        ))
+                                    }
                                 </Box>
                             </Box>
                             <Box sx={{
@@ -125,9 +148,9 @@ function Dtdetail() {
                                 <ButtonGroup sx={{
                                     margin: '6px 0 0 0'
                                 }}>
-                                    <Button color="inherit"><AddIcon/></Button>
-                                    <Button color="inherit">0</Button>
-                                    <Button color="inherit"><RemoveIcon/></Button>
+                                    <Button color="inherit" onClick={handleAddClick}><AddIcon/></Button>
+                                    <Button color="inherit">{amount}</Button>
+                                    <Button color="inherit" onClick={handleRemoveClick}><RemoveIcon/></Button>
                                 </ButtonGroup>
                                 <Box sx={{
                                     display: 'flex',
