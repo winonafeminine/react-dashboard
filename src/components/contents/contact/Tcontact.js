@@ -1,7 +1,6 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
-import Link from '@mui/material/Link';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -10,10 +9,6 @@ import Divider from '@mui/material/Divider';
 import InstagramIcon from '@mui/icons-material/Instagram';
 function Tconcact ()
 { 
-    const[state, setState] = React.useState(0);
-        const handleClick = (e) => {
-            setState(state+1);
-        }
     return (
         <div> 
             <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }} >

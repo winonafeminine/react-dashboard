@@ -22,7 +22,7 @@ export default function Hcontact() {
       <div  >
          <Root>
             <Typography sx = {{display:'flex', justifyContent : 'center'} } variant = "h3"> 
-            How to Contact Us
+            Kpop Center
             <ListItemIcon>
             <FaceRetouchingNaturalIcon/>
             <FaceRetouchingNaturalIcon/>
