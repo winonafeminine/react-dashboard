@@ -7,13 +7,11 @@ import {
 } from "react-router-dom";
 import ItCenter from './components/contents/IT/ItCenter';
 import Detail from './components/contents/detail/Detail';
-import Contact from './components/contents/contact/Contact';
+import Contact from './components/contents/contact/Kpopcenter';
 import About from './components/contents/about/About';
+import Kdetail from './components/contents/contact/kdetail';
 import Cat from './components/contents/cat/Cat';
 import CatDetail from './components/contents/cat/CatDetail';
-import Kdetail from './components/contents/contact/kdetail';
-import ItDetail from './components/contents/IT/ItDetail';
-
 import Dtdetail from './components/contents/detail/Dtdetail';
 import ProductDetail1 from './components/contents/about/ProductDetail1';
 function App() {

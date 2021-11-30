@@ -3,8 +3,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import textstyle from './style.css';
 import Button from '@mui/material/Button';
-import Facebook from  './img/facebook.png';
-
 export default function BasicTextFields() {
     const wtext ={
         width : "35vw",

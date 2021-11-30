@@ -62,4 +62,4 @@ import PropTypes from 'prop-types';
   onViewDetailClick: PropTypes.func
 }
 export default Image
- 
+    
