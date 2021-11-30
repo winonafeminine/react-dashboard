@@ -11,7 +11,7 @@ import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
 
 
  function ProductDialog(props) {
-    const {value, open, setOpen, onViewDetailClick} = props;
+    const {value, open, setOpen} = props;
     // const [open, setOpen] = React.useState(false);
 
     const navigate = useNavigate();
@@ -21,13 +21,6 @@ import ShoppingCartTwoToneIcon from '@mui/icons-material/ShoppingCartTwoTone';
     };
 
     const handleViewDetailClick = (value) => {
-        // const catname = 'catname';
-        // const catsrc = 'catsrc';
-        // const catprice = 'catprice';
-        // const catsaleprice = 'catsaleprice';
-        // const catdes = 'catdes';
-
-        // save to localstorage/coookies
         const clotdetail = 'clotdetail';
         // convert to string
         const str_value = JSON.stringify(value);

@@ -46,7 +46,7 @@
     color: rgb(247, 9, 9);
   }
   .App {
-    color: #f7a9c3;
+    /* color: #f7a9c3; */
     border: rgb(145, 192, 14);
     text-align: center;
     border-bottom-left-radius: 200%;
@@ -59,7 +59,7 @@
     background-attachment: fixed; 
     min-height: 100vh;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-direction: column;
 
   }
@@ -80,6 +80,7 @@
     justify-content: center;
     height: 25pc;
     width: 100%;
+    background-color: rgb(191, 197, 199);
   }
   .flex2{
     display: flex;
@@ -97,7 +98,7 @@
     background-image: linear-gradient(to right, rgba(8, 0, 7, 0), rgb(8, 8, 8));
     font-size: calc(10px + 2vmin);
     color: rgb(73, 30, 46);
-    border-color: rgb(233, 55, 159);
+    /* border-color: rgb(233, 55, 159); */
     background-repeat: no-repeat, repeat;
     padding: 15px;
   }

@@ -87,7 +87,8 @@ function Dtdetail() {
                                 }}>
                                     <img className="sweaterimg" src={data.src} alt=""/>
                                     <img className="sweaterimg" src={data.src} alt=""/>
-                                    <img className="sweaterimg" src={data.src} alt=""/>
+                                    <img className="sweaterimg" src={data.src} alt=
+                                    ""/>
                                 </Box>
                             </Box>
                             <Box sx={{
