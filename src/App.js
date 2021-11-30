@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 import ItCenter from './components/contents/IT/ItCenter';
+import ItDetail from './components/contents/IT/ItDetail'
 import Detail from './components/contents/detail/Detail';
 import Contact from './components/contents/contact/Kpopcenter';
 import About from './components/contents/about/About';
