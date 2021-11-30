@@ -33,9 +33,15 @@ function ProductDetail1() {
     const strdata = localStorage.getItem(clotdetail);
     // raw data
     const data = JSON.parse(strdata);
-    // console.log(data);
 
-    const [value, setValue] = React.useState(0);
+    // console.log(data);
+    const [clothImg, setClothImg] = React.useState(data.src);
+
+    const handleClothImg = (e, src) => {
+        setClothImg(src)
+    }
+
+    const [value, setValue] = React.useState(1); 
 
     return (
         <div className="App-header"> 
@@ -75,11 +81,13 @@ function ProductDetail1() {
                             alignItems: 'center',
                             '& img.catImg' : {
                                 width: '500px',
+                                height: '450px',
                                 borderRadius: '6px'
                             }
                         })
                     }}>
-                        <img className="catImg" src={data.src} alt=""/>
+                        <img className="catImg" src={clothImg} alt=""/>
+                       
                         <Box sx={{
                                     '&.MuiBox-root': {
                                         width: '100%',
@@ -90,13 +98,18 @@ function ProductDetail1() {
                                             width: '75px',
                                             height: '75px',
                                             borderRadius: '12px',
-                                            margin: '0 3px'
+                                            margin: '0 3px',
+                                            cursor: 'pointer'
                                         }
                                     }
                                 }}>
-                                    <img className="gallery" src={data.src} alt=""/>
-                                    <img className="gallery" src={data.src} alt=""/>
-                                    <img className="gallery" src={data.src} alt=""/>
+                                    {
+                                        data.gallery.map(value => (
+                                            <img className="gallery" src={value} alt=""
+                                                onClick={(e) => handleClothImg(e, value)}
+                                            />
+                                        ))
+                                    }
                                 </Box>
                             </Box>
                     <Box sx={{
@@ -112,7 +125,7 @@ function ProductDetail1() {
                                     }} variant="h3">{data.name}</Typography>
                                     </Box>
                         <Typography sx={{
-                                    margin: '0 0 6px 0  '
+                                    margin: '0 0 6px 0 '
                                 }}>
                                     {data.des}
                                 </Typography>
@@ -158,14 +171,21 @@ function ProductDetail1() {
                     </Box>
                     <Typography sx={{
                                         margin: '5px 0 6px 50px'
-                                    }} variant="h6">Num</Typography>
+                                    }} variant="h6">Quantity</Typography>
                     <ButtonGroup sx={{
                                     display: 'flex',
                                     margin: '20px 0 0 100px'  
                                 }}>
                                       <Button onClick={() => setValue(value + 1)}><AddIcon/></Button>
                                       <Button>{value}</Button>
-                                      <Button onClick={() => setValue(value - 1)}><RemoveIcon/></Button>
+                                      <Button onClick={() => {
+                                          if(value === 1)
+                                             { 
+                                                 return;
+                                             }
+                                                 setValue(value - 1);
+                                            }}><RemoveIcon/>
+                                        </Button>
                                 </ButtonGroup> 
                                 <Typography sx={{
                                         margin: '60px 0 0 50px',
@@ -174,20 +194,20 @@ function ProductDetail1() {
                 </Box>
                                 <Box sx={{
                                     display: 'flex',
-                                    margin: '0 0 0 950px'
+                                    margin: '0 0 0 850px'
                                 }}>
                                     <Button variant="outlined" sx={{
                                          '&.MuiButton-outlined': theme => ({
                                             color: theme.palette.warning.dark,
                                             borderColor: theme.palette.warning.light,
-                                            margin: '5px'
+                                            margin: '1px 5px 5px 5px'
                                         })
                                     }} startIcon={<AddShoppingCartIcon/>}>Add To Cart</Button>
                                     <Button variant="contained" sx={{
                                          '&.MuiButton-contained': theme => ({
                                             color: theme.palette.warning.dark,
                                             bgcolor: theme.palette.warning.light, 
-                                            margin: '4px'
+                                            margin: '1px 4px 4px 4px'
                                         })
                                     }} startIcon={<LocalMallIcon/>}>Buy Now</Button>
                                 </Box>        
