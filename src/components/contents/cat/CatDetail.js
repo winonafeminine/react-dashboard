@@ -22,12 +22,31 @@ const StyledPaper = styled(Paper)
     }));
 
 function CatDetail() {
+    const [amount, setAmount] = React.useState(0)
     const catdetail = 'catdetail';
     // convert to object
     const strdata = localStorage.getItem(catdetail);
     // raw data
     const data = JSON.parse(strdata);
     // console.log(data);
+    const [catImg, setCatImg] = React.useState(data.src);
+
+    const handleCatImgClick = (e, src) => {
+        setCatImg(src)
+    }
+    const handleAddClick = () => {
+        setAmount(amount + 1);
+    }
+
+    const handleRemoveClick = (e) => {
+        if(amount === 0)
+        {
+            // break
+            return;
+        }
+        setAmount(amount - 1);
+    }
+    console.log(catImg);
     return (
         <React.Fragment>
             <Box sx={{
@@ -61,11 +80,12 @@ function CatDetail() {
                                     alignItems: 'center',
                                     '& img.catImg' : {
                                         width: '500px',
+                                        height: '400px',
                                         borderRadius: '6px'
                                     }
                                 })
                             }}>
-                                <img className="catImg" src={data.src} alt=""/>
+                                <img className="catImg" src={catImg} alt=""/>
                                 <Box sx={{
                                     '&.MuiBox-root': {
                                         width: '100%',
@@ -76,13 +96,18 @@ function CatDetail() {
                                             width: '75px',
                                             height: '75px',
                                             borderRadius: '12px',
-                                            margin: '0 3px'
+                                            margin: '0 3px',
+                                            cursor: 'pointer'
                                         }
                                     }
                                 }}>
-                                    <img className="gallery" src={data.src} alt=""/>
-                                    <img className="gallery" src={data.src} alt=""/>
-                                    <img className="gallery" src={data.src} alt=""/>
+                                    {
+                                        data.gallery.map(value => (
+                                            <img className="gallery" src={value} alt=""
+                                                onClick={(e) => handleCatImgClick(e, value)}
+                                            />
+                                        ))
+                                    }
                                 </Box>
                             </Box>
                             <Box sx={{
@@ -119,9 +144,9 @@ function CatDetail() {
                                 <ButtonGroup sx={{
                                     margin: '6px 0 0 0'
                                 }}>
-                                    <Button><AddIcon/></Button>
-                                    <Button>0</Button>
-                                    <Button><RemoveIcon/></Button>
+                                    <Button onClick={handleAddClick}><AddIcon/></Button>
+                                    <Button>{amount}</Button>
+                                    <Button onClick={handleRemoveClick}><RemoveIcon/></Button>
                                 </ButtonGroup>
                                 <Box sx={{
                                     display: 'flex',
