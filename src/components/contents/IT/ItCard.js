@@ -7,6 +7,7 @@ import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { itTheme } from '../../UIs/theme/itTheme';
 import ItCardDetail from './ItCardDetail';
+import { Grow } from '@mui/material';
 
 function ItCard() {
     const [ItValue, setItValue] = React.useState({
@@ -85,21 +86,25 @@ function ItCard() {
                 }}>
                     <Grid container spacing={2}>
                         {ITs.map((value, ind) => (
-                            <Grid item xl={3} lg={4} sm={6} xs={12} key={ind} sx={{padding: '0px'}}>
-                                <Box sx={{
-                                    padding: '5px 0 0 0',
-                                }}>
-                                    <ItCardDetail 
-                                    name={value.name}
-                                    imageSrc={value.src}
-                                    description={value.des}
-                                    price={value.price}
-                                    salePrice={value.salePrice}
-                                    onImgClick={() => handleImgClicked(value)}
-                                    onViewDetailClick={() => handleViewDetailClick(value)}
-                                />
-                                </Box>
-                            </Grid>
+                            <Grow in={true} timeout={{
+                                enter: 1000 + ((ind + 1) - 1)*350
+                            }}>
+                                <Grid item xl={3} lg={4} sm={6} xs={12} key={ind} sx={{padding: '0px'}}>
+                                    <Box sx={{
+                                        padding: '5px 0 0 0',
+                                    }}>
+                                        <ItCardDetail 
+                                        name={value.name}
+                                        imageSrc={value.src}
+                                        description={value.des}
+                                        price={value.price}
+                                        salePrice={value.salePrice}
+                                        onImgClick={() => handleImgClicked(value)}
+                                        onViewDetailClick={() => handleViewDetailClick(value)}
+                                    />
+                                    </Box>
+                                </Grid>
+                            </Grow>
                         ))}
                     </Grid>
                 </Box>

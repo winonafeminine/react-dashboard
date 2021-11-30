@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
@@ -148,7 +148,10 @@ function ItDetail() {
 
                                 </Box>
                                 <ButtonGroup sx={{
-                                    margin: '6px 0 0 0'
+                                    margin: '6px 0 0 0',
+                                    '& Button':{
+                                        width: '6px'
+                                    }
                                 }}>
                                     <Button onClick={ () => setAddValue(addValue + 1) }><AddIcon/></Button>
                                     <Button>{addValue}</Button>
