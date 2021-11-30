@@ -4,12 +4,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
-import Button from '@mui/material/Button';
-import InfoIcon from '@mui/icons-material/Info';
 
 function ProductCard(props) {
 
-    const {name, imageSrc, description, price, price1, onImgClick, onViewDetailClick} = props;
+    const {name, imageSrc, description, price, price1, onImgClick} = props;
 
     return (
         <Paper sx={{

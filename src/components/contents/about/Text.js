@@ -16,7 +16,6 @@ function Text() {
           <div className="p">ร้านค้าเสื้อผ้าเเฟชันของผู้ชาย</div> 
             </div>
         <header className="App-header">
-          
         <div className="flex3">
             <Stack direction="row" spacing={2}>
                 <Button variant="outlined" sx={{

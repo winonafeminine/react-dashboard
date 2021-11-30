@@ -111,7 +111,7 @@ function CatDetail() {
                                 }}>
                                     <Typography >{`฿${data.salePrice}`}</Typography>
                                     <Typography sx={{
-                                        margin: '0 0 0 6px',
+                                        // margin: '0 0 0 6px',
                                         textDecoration: 'line-through'
                                     }}>{ `฿${data.price}`}</Typography>
 
