@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip'
 
 // icons
 import InfoIcon from '@mui/icons-material/Info';
@@ -19,7 +20,15 @@ function DetailCard(props) {
             '&.MuiPaper-root': theme => ({
                 borderRadius: '12px 12px 0 12px',
                 // padding: '0 12px 12px 12px'
-                background: theme.palette.success.main
+                background: theme.palette.success.main,
+                boxShadow: `0 0 5px 0 ${theme.palette.success.dark}`,
+                transition: theme.transitions.create(['box-shadow','transform'],{
+                    duration: theme.transitions.duration.standard
+                }),
+                '&:hover' : {
+                    boxShadow: `0 0 10px 0 ${theme.palette.success.main}`,
+                    transform: 'scale(1.1)'
+                }
             })
         }}>
             {/* cat image wrapper */}
@@ -81,14 +90,17 @@ function DetailCard(props) {
                         </Typography>
                     </Box>
                     <Box>
-                        <Button variant="outlined" sx={{
-                            '&.MuiButton-outlined': theme => ({
-                                color: theme.palette.common.white,
-                                borderColor: theme.palette.common.white
-                            })
-                        }} startIcon={<InfoIcon/>} 
-                            onClick={onViewDetailClick}
-                        >View Detail</Button>
+                        {/* Tooltip = อธิบายปุ่มกด */}
+                        <Tooltip title="View this sweater detail"> 
+                            <Button variant="outlined" sx={{
+                                '&.MuiButton-outlined': theme => ({
+                                    color: theme.palette.common.white,
+                                    borderColor: theme.palette.common.white
+                                })
+                            }} startIcon={<InfoIcon/>} 
+                                onClick={onViewDetailClick}
+                                >View Detail</Button>
+                        </Tooltip>
                     </Box>
                 </Box>
             </Box>

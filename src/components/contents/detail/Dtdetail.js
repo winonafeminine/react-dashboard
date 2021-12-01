@@ -7,12 +7,14 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
+import IconButton from '@mui/material/IconButton';
 
 // icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import LocalMallIcon from '@mui/icons-material/LocalMall';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const StyledPaper = styled(Paper)
     (({theme}) => ({
@@ -63,7 +65,9 @@ function Dtdetail() {
                     // width: '100%'
                     flexGrow: 1,
                     display: 'flex',
-                    justifyContent: 'center',     
+                    justifyContent: 'center',   
+                    position: 'relative',
+                    height: '83vh'  
                 }
             }}>
                
@@ -75,6 +79,18 @@ function Dtdetail() {
                     backgroundColor: '#4caf50'
                 }
             }}>
+                <IconButton color="success" sx={{
+                    position: 'absolute',
+                    Button: 1 ,
+                    right: 1 ,
+                }}>
+                    <ShoppingCartIcon
+                        sx={{
+                            width: '35px',
+                            height: '35px'
+                        }}
+                    />
+                </IconButton>
                 <Box sx={{
                     display: 'flex'
                 }}>
@@ -103,15 +119,17 @@ function Dtdetail() {
                                             height: '75px',
                                             borderRadius: '12px',
                                             margin: '0 3px',
-                                            cursor:'pointer'
+                                            cursor:'pointer',
                                         }
                                     }
                                 }}>
                                     {
                                         data.gallery.map(value => (
+                                            <Button>
                                             <img className="gallery" src={value} alt=""
                                                 onClick={(e) => handleSweaterImgClick(e,value)}
                                             />
+                                            </Button>
                                         ))
                                     }
                                     
