@@ -27,7 +27,9 @@ const StyledPaper = styled(Paper)
 
 
 function Dtdetail() {
-    const [localData, setLocalData] = React.useState();
+    const [localData, setLocalData] = React.useState([]);
+    const [clicked, setClicked] = React.useState(false);
+
     const sweaterCartKey = 'sweaterCartKey' ;
 
     const [amount, setAmount] = React.useState(0);
@@ -39,16 +41,21 @@ function Dtdetail() {
     const data = JSON.parse(strdata);
     // console.log(data);
 
+    // set ข้อมูลเริ่มต้น
     React.useEffect(() => {
             const sweaterCartStr = localStorage.getItem(sweaterCartKey);
             const sweaterCart = JSON.parse(sweaterCartStr) ;
+            // ! = เช็คเงื่อนไขถ้าไม่มีข้อมูล จะเข้าเงื่อนไข
             if(!localData.includes(data))
             {
-                setLocalData(sweaterCart);
-                console.log(localData);
+                if(sweaterCart !== null){
+                   setLocalData(sweaterCart); 
+                }
+                // console.log(localData);
                 return
             }   
-        }, [])
+        }, [clicked]);
+
     const [sweaterImg, setSweaterImg] = React.useState(data.src)
     const handleSweaterImgClick = (e,src) => {
         setSweaterImg(src)
@@ -66,13 +73,35 @@ function Dtdetail() {
     }
 
     const handleAddToCart = (e) => {
-      
-        let sweaterCart = [] ;
-        if(sweaterCart.includes(data)){
+
+        setClicked(!clicked);
+        let sweaterCart = JSON.parse(localStorage.getItem(sweaterCartKey)) ;
+        let sweaterCartStr = JSON.stringify(sweaterCart);
+        if(sweaterCart === null)
+        {
+            sweaterCart = [];
+            sweaterCart.push(data);
+            sweaterCartStr = JSON.stringify(sweaterCart);
+            localStorage.setItem(sweaterCartKey, sweaterCartStr);
             return;
         }
+           let exist = false ;
+            sweaterCart.map((value) => {
+                if(value.title === data.title)
+                {
+                    exist = true;
+                }
+                return value;
+            });
+
+            if(exist){
+                return;
+            }
+            // sweaterCart.push(data);
+           
+        
         sweaterCart.push(data);
-        const sweaterCartStr = JSON.stringify(sweaterCart);
+        sweaterCartStr = JSON.stringify(sweaterCart);
         localStorage.setItem(sweaterCartKey, sweaterCartStr);
     }
     // console.log(sweaterImg)

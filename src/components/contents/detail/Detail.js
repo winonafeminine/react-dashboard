@@ -127,7 +127,7 @@ export default function Detail() {
                           {sweater.map((value, ind) => (
                              <Grow in={true} timeout={{
                                 enter: 1000 + ((ind+1) -1)*300
-                          }}>
+                          }}key={value.title}> 
                               <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
                                   <DetailCard  
                                       title={value.title}
