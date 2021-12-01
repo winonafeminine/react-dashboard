@@ -46,7 +46,11 @@ export default function Detail() {
               price: 19,
               salePrice: 50,
               des: "เสื้อสเวเตอร์นำเข้างาน USA" ,
-              gallery:[stpp,stpp1,stpp2,] 
+              gallery:[ 
+                stpp,
+                stpp1,
+                stpp2,
+            ]
             
             },
             { 
@@ -55,7 +59,11 @@ export default function Detail() {
                 price: 19,
                 salePrice: 50,
                 des: "เสื้อสเวเตอร์งานแบรนด์",
-                gallery: [ puma,puma1,puma2,]
+                gallery: [ 
+                  puma,
+                  puma1,
+                  puma2,
+                ]
             },
             
             {
@@ -64,7 +72,10 @@ export default function Detail() {
               price: 19,
               salePrice: 50,
               des: "เสื้อสเวเตอร์งานมินิมอล",
-              gallery:[itim,itim1,]
+              gallery:[
+                itim,
+                itim1,
+              ]
             },
             {
               title: "Sweater Low-priced",
@@ -72,7 +83,11 @@ export default function Detail() {
               price: 19,
               salePrice: 50,
               des: "เสื้อสเวเตอร์ราคาถูก",
-              gallery:[stb,stb1,stb2,] 
+              gallery:[
+                stb,
+                stb1,
+                stb2,
+              ] 
             },
           ]
   const handleImgClicked = (value) => {
@@ -111,18 +126,17 @@ export default function Detail() {
                       }}>
                           {sweater.map((value, ind) => (
                              <Grow in={true} timeout={{
-                              enter: 1000 + ((ind+1) -1)*300
+                                enter: 1000 + ((ind+1) -1)*300
                           }}>
                               <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
-                                  <DetailCard 
-                                      
+                                  <DetailCard  
                                       title={value.title}
                                       imageSrc={value.src}
                                       Description={value.des}
-                                      onImgClick={() => handleImgClicked(value)}
-                                      onViewDetailClick={() => handleViewDetailClick(value)}
                                       price ={value.price}
                                       salePrice={value.salePrice}
+                                      onImgClick={() => handleImgClicked(value)}
+                                      onViewDetailClick={() => handleViewDetailClick(value)}
                                       gallery={value.gallery}
                                   />
                               </Grid>

@@ -104,7 +104,8 @@ DetailCard.propTypes = {
     price: PropTypes.number,
     salePrice: PropTypes.number,
     onImgClick: PropTypes.func,
-    onViewDetailClick: PropTypes.func
+    onViewDetailClick: PropTypes.func,
+    gallery: PropTypes.array
 }
 
 export default DetailCard

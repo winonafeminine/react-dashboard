@@ -24,36 +24,37 @@ const StyledPaper = styled(Paper)
 
 
 function Dtdetail() {
-    const [amount, setAmount] = React.useState(0)
+    const [amount, setAmount] = React.useState(0);
+
     const dtdetail = 'dtdetail';
     // convert to object
     const strdata = localStorage.getItem(dtdetail);
     // raw data
     const data = JSON.parse(strdata);
     // console.log(data);
-    const [sweaterImg, setSweaterImg] = React.useState(data.src);
 
-    const handleSweaterImgClick = (e, src) => {
+    const [sweaterImg, setSweaterImg] = React.useState(data.src)
+    const handleSweaterImgClick = (e,src) => {
         setSweaterImg(src)
     }
-    const handleAddClick = () => {
-        setAmount(amount + 1);
+    const handleAddClick =() => {
+        setAmount(amount+1);
     }
-
+    // รันจากบนลงล่าง พอเจอ amount = 0 จะรีเทิร์นออกจากฟังชัน
     const handleRemoveClick = (e) => {
         if(amount === 0)
         {
-            // break
             return;
         }
-        setAmount(amount - 1);
+        setAmount(amount-1);
     }
-    console.log(sweaterImg);
+    console.log(sweaterImg)
     return (
         <React.Fragment>
             <Box sx={{
                 display: 'flex',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                
             }}>
             <StyledPaper>
             {/* container */}
@@ -82,36 +83,38 @@ function Dtdetail() {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            '& img.sweaterImg' : {
+                            '& img.sweater' : {
                                 width: '500px',
+                                height: '600px',
                                 borderRadius: '6px',
                                 backgroundColor: '#4caf50'
                             }
                         })
                     }}>
-                        <img  className="sweaterImg" src={sweaterImg} alt=""/>
+                        <img  className="sweater" src={sweaterImg} alt=""/>
                         <Box sx={{
-                                '&.MuiBox-root': {
-                                    width: '100%',
-                                    display: 'flex',
-                                    justifyContent: 'center',
-                                    margin: '6px 0 0 0',
-                                    '& .gallery': {
-                                        width: '75px',
-                                        height: '75px',
-                                        borderRadius: '12px',
-                                        margin: '0 3px',
-                                        cursor: 'pointer'
+                                    '&.MuiBox-root': {
+                                        width: '100%',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        margin: '6px 0 0 0',
+                                        '& .gallery': {
+                                            width: '75px',
+                                            height: '75px',
+                                            borderRadius: '12px',
+                                            margin: '0 3px',
+                                            cursor:'pointer'
+                                        }
                                     }
-                                }
-                        }}>
+                                }}>
                                     {
                                         data.gallery.map(value => (
                                             <img className="gallery" src={value} alt=""
-                                                onClick={(e) => handleSweaterImgClick(e, value)}
+                                                onClick={(e) => handleSweaterImgClick(e,value)}
                                             />
                                         ))
                                     }
+                                    
                                 </Box>
                             </Box>
                             <Box sx={{
@@ -157,7 +160,7 @@ function Dtdetail() {
                                     margin: '12px 0 0 0'
                                 }}>
                                     <Button color="inherit" variant="outlined" startIcon={<AddShoppingCartIcon/>}>Add To Cart</Button>
-                                    <Button color="inherit" sx={{
+                                    <Button color="success" sx={{
                                         margin: '0 0 0 6px'
                                     }} variant="contained" startIcon={<LocalMallIcon/>}>Buy Now</Button>
                                 </Box>
