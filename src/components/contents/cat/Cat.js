@@ -113,7 +113,7 @@ function Products() {
                         {cats.map((value, ind) => ( // index start from 0
                             <Grow in={true} timeout={{
                                 enter: 1000 + ((ind+1) -1)*300
-                            }}>
+                            }} key={value.name}>
                                 <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
                                     <CatCard 
                                         name={value.name}
