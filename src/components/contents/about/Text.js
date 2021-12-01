@@ -20,6 +20,7 @@ function Text() {
             <Stack direction="row" spacing={2}>
                 <Button variant="outlined" sx={{
                     '&.MuiButton-outlined': theme => ({
+                        margin: '0 0 0 0',
                         color: theme.palette.common.white,
                         borderColor: theme.palette.common.white
                          })
