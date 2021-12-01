@@ -15,6 +15,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Badge } from '@mui/material';
 
 const StyledPaper = styled(Paper)
     (({theme}) => ({
@@ -26,6 +27,9 @@ const StyledPaper = styled(Paper)
 
 
 function Dtdetail() {
+    const [localData, setLocalData] = React.useState();
+    const sweaterCartKey = 'sweaterCartKey' ;
+
     const [amount, setAmount] = React.useState(0);
 
     const dtdetail = 'dtdetail';
@@ -35,6 +39,16 @@ function Dtdetail() {
     const data = JSON.parse(strdata);
     // console.log(data);
 
+    React.useEffect(() => {
+            const sweaterCartStr = localStorage.getItem(sweaterCartKey);
+            const sweaterCart = JSON.parse(sweaterCartStr) ;
+            if(!localData.includes(data))
+            {
+                setLocalData(sweaterCart);
+                console.log(localData);
+                return
+            }   
+        }, [])
     const [sweaterImg, setSweaterImg] = React.useState(data.src)
     const handleSweaterImgClick = (e,src) => {
         setSweaterImg(src)
@@ -50,7 +64,18 @@ function Dtdetail() {
         }
         setAmount(amount-1);
     }
-    console.log(sweaterImg)
+
+    const handleAddToCart = (e) => {
+      
+        let sweaterCart = [] ;
+        if(sweaterCart.includes(data)){
+            return;
+        }
+        sweaterCart.push(data);
+        const sweaterCartStr = JSON.stringify(sweaterCart);
+        localStorage.setItem(sweaterCartKey, sweaterCartStr);
+    }
+    // console.log(sweaterImg)
     return (
         <React.Fragment>
             <Box sx={{
@@ -79,11 +104,12 @@ function Dtdetail() {
                     backgroundColor: '#4caf50'
                 }
             }}>
-                <IconButton color="success" sx={{
+                <Badge color ="success" badgeContent={localData !==undefined ? localData.length : 0} sx={{
                     position: 'absolute',
                     Button: 1 ,
                     right: 1 ,
                 }}>
+                <IconButton color="success" >
                     <ShoppingCartIcon
                         sx={{
                             width: '35px',
@@ -91,6 +117,7 @@ function Dtdetail() {
                         }}
                     />
                 </IconButton>
+                </Badge>
                 <Box sx={{
                     display: 'flex'
                 }}>
@@ -177,7 +204,9 @@ function Dtdetail() {
                                     display: 'flex',
                                     margin: '12px 0 0 0'
                                 }}>
-                                    <Button color="inherit" variant="outlined" startIcon={<AddShoppingCartIcon/>}>Add To Cart</Button>
+                                    <Button color="inherit" variant="outlined" startIcon={<AddShoppingCartIcon/>}
+                                        onClick={handleAddToCart}
+                                    >Add To Cart</Button>
                                     <Button color="success" sx={{
                                         margin: '0 0 0 6px'
                                     }} variant="contained" startIcon={<LocalMallIcon/>}>Buy Now</Button>
