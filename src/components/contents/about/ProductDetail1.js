@@ -17,8 +17,11 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Radio from '@mui/material/Radio';
+import Badge from '@mui/material/Badge';
+import { ExitToApp } from '@mui/icons-material';
 
 const StyledPaper = styled(Paper)
     (({theme}) => ({
@@ -28,17 +31,65 @@ const StyledPaper = styled(Paper)
     }));
 
 function ProductDetail1() {
+    const [localData, setLocalData] = React.useState([]);
+    const clothCardkey = 'clothCardkey'; 
+
     const clotdetail = 'clotdetail';
     // convert to object
     const strdata = localStorage.getItem(clotdetail);
     // raw data
     const data = JSON.parse(strdata);
 
+    React.useEffect(() => {
+        const clothStr = localStorage.getItem(clothCardkey);
+        const clothCart = JSON.parse(clothStr);
+        if(!localData.includes(data))
+        {
+            setLocalData(clothCart);
+            return;
+        }
+        // console.log(data);
+    }, []);
+
     // console.log(data);
     const [clothImg, setClothImg] = React.useState(data.src);
 
     const handleClothImg = (e, src) => {
         setClothImg(src)
+    }
+
+    const handleAddToCard = (e) => {
+
+        let clothCart = JSON.parse(localStorage.getItem(clothCardkey));
+        let clothCartStr = JSON.stringify(clothCart);
+
+        if (clothCart === null)
+        {
+            clothCart = [];
+            clothCart.push(data);
+            clothCartStr = JSON.stringify(clothCart);
+            localStorage.setItem(clothCardkey,clothCartStr);
+            return;
+        }  
+            let exist = false;
+ 
+            clothCart.map((value) => {
+                if(value.name === data.name)
+                {
+                    exist = true;
+                }
+                return value;
+            });
+
+            if(exist)
+            {
+                return;
+            }
+            // clothCart.push(data);
+
+        clothCart.push(data);
+        clothCartStr = JSON.stringify(clothCart);
+        localStorage.setItem(clothCardkey,clothCartStr);
     }
 
     const [value, setValue] = React.useState(1); 
@@ -54,8 +105,7 @@ function ProductDetail1() {
                 justifyContent: 'center',
                 margin: '70px 0 6px 0'
             }}>
-                 <StyledPaper>
-                     
+                 <StyledPaper>       
             <Box sx={{
                 '&.MuiBox-root': {
                     // width: '100%',
@@ -67,13 +117,15 @@ function ProductDetail1() {
                 {/* wrapper */}
                 <Box sx={{
                 '&.MuiBox-root': {
-                    // width: '100%'
+                    // height: '100px',
                     width: '100%'
                 }
             }}>
+                
                 <Box sx={{
                     display: 'flex'
                 }}>
+                    
                     <Box sx={{
                         '&.MuiBox-root': theme => ({
                             display: 'flex',
@@ -100,6 +152,9 @@ function ProductDetail1() {
                                             borderRadius: '12px',
                                             margin: '0 3px',
                                             cursor: 'pointer'
+                                        }, '&.hover': {
+                                           boxShadow : '0 0 10px 10px rgba(0, 140 106, 0.5)',
+                                           transform: 'scale(1.2)'
                                         }
                                     }
                                 }}>
@@ -121,9 +176,22 @@ function ProductDetail1() {
                                     display: 'flex'
                                 }}>
                                   <Typography sx={{
-                                        margin: '0 0 6px 0'
+                                        margin: '0 0 6px 0',
                                     }} variant="h3">{data.name}</Typography>
+                                 <Box>
+                                    
+                                        <IconButton color="primary" sx={{
+                                            margin: '0px 0 0px 380px'
+                                            }}>        
+                                            <Badge color="error" badgeContent={localData === null ? 0 : localData.length} > {/*localData.length */}
+                                                <ShoppingCartIcon color="warning" sx={{
+                                                    margin: '5px 0 0 0px'
+                                            }}/>
+                                        </Badge>
+                                        </IconButton>                                   
+                                </Box>  
                                     </Box>
+                               
                         <Typography sx={{
                                     margin: '0 0 6px 0 '
                                 }}>
@@ -202,7 +270,9 @@ function ProductDetail1() {
                                             borderColor: theme.palette.warning.light,
                                             margin: '1px 5px 5px 5px'
                                         })
-                                    }} startIcon={<AddShoppingCartIcon/>}>Add To Cart</Button>
+                                    }} startIcon={<AddShoppingCartIcon/>}
+                                       onClick = {handleAddToCard}
+                                         >Add To Cart</Button>
                                     <Button variant="contained" sx={{
                                          '&.MuiButton-contained': theme => ({
                                             color: theme.palette.warning.dark,
@@ -212,7 +282,8 @@ function ProductDetail1() {
                                     }} startIcon={<LocalMallIcon/>}>Buy Now</Button>
                                 </Box>        
                 </Box>
-            </Box></StyledPaper>
+            </Box>
+            </StyledPaper>
             </Box>
         </React.Fragment>
         </ThemeProvider></div>
