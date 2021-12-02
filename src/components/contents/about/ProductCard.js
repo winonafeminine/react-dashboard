@@ -16,6 +16,14 @@ function ProductCard(props) {
                 // padding: '0 12px 12px 12px'
                  background: theme.palette.warning.dark,
                  color: theme.palette.common.white,
+                 boxShadow: '0 0 5px 0 rgba(0, 140 106, 0.5)' ,
+                 transition: theme.transitions.create(['box-shadow', 'transform'],{
+                    duration: theme.transitions.duration.standard
+            }),
+                 '&:hover': {
+                     boxShadow : '0 0 10px 10px rgba(0, 140 106, 0.5)',
+                     transform: 'scale(1.2)'
+                 }
             })
         }}>
             
@@ -44,10 +52,11 @@ function ProductCard(props) {
                 </Typography>
 
                 {/* description */}
-                <Typography>
+                <Typography sx={{
+                textOverflow: 'ellipsis',
+             }}>
                     {description}
                 </Typography>
-
                 {/* rating */}
                 <Rating value={5} />
 
