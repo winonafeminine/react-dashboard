@@ -9,6 +9,7 @@ import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import Badge from '@mui/material/Badge';
+import CatCartDrawer from './CatCartDrawer';
 
 // icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -27,6 +28,7 @@ const StyledPaper = styled(Paper)
 function CatDetail() {
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false);
+    const [openCatDrawer, setOpenCatDrawer] = React.useState(false);
 
     const catCartKey = 'catCartKey';
 
@@ -35,7 +37,7 @@ function CatDetail() {
     // convert to object
     const strdata = localStorage.getItem(catdetail);
     // raw data
-    const data = JSON.parse(strdata);
+    let data = JSON.parse(strdata);
     // console.log(data);
 
     React.useEffect(() => {
@@ -59,8 +61,24 @@ function CatDetail() {
     const handleCatImgClick = (e, src) => {
         setCatImg(src)
     }
-    const handleAddClick = () => {
+    const handleAddClick = (index) => {
+        // const catCartKey = ''
+        const catCartStr = localStorage.getItem(catCartKey);
         setAmount(amount + 1);
+        if(catCartStr === null){return}
+
+        // not null
+        let catCart = JSON.parse(catCartStr);
+        catCart.map((value, ind) => {
+            if(value.name === data.name)
+            {
+                value['amount'] = amount + 1;
+            }
+            return value;
+        });
+        catCart = JSON.stringify(catCart);
+        // console.log()
+        localStorage.setItem(catCartKey, catCart);
     }
 
     const handleRemoveClick = (e) => {
@@ -79,6 +97,7 @@ function CatDetail() {
         if(catCart === null)
         {
             catCart = [];
+            data['amount'] = amount;
             catCart.push(data);
             catCartStr = JSON.stringify(catCart);
             localStorage.setItem(catCartKey, catCartStr);
@@ -103,6 +122,11 @@ function CatDetail() {
         catCart.push(data);
         catCartStr = JSON.stringify(catCart);
         localStorage.setItem(catCartKey, catCartStr);
+    }
+
+    // open or close catCartDrawer
+    const handleOpenCatCartDrawer = () => {
+        setOpenCatDrawer(true);
     }
     // console.log(catImg);
     return (
@@ -135,7 +159,7 @@ function CatDetail() {
                                 bottom: 1,
                                 right: 1,
                             }}>
-                            <IconButton color="primary" >
+                            <IconButton color="primary" onClick={handleOpenCatCartDrawer}>
                                 <ShoppingCartIcon
                                     sx={{
                                         width: '35px',
@@ -177,7 +201,7 @@ function CatDetail() {
                                 }}>
                                     {
                                         data.gallery.map(value => (
-                                            <Button>
+                                            <Button key={value}>
                                                 <img className="gallery" src={value} alt=""
                                                     onClick={(e) => handleCatImgClick(e, value)}
                                                 />
@@ -221,7 +245,7 @@ function CatDetail() {
                                     margin: '6px 0 0 0'
                                 }}>
                                     <Button onClick={handleAddClick}><AddIcon/></Button>
-                                    <Button>{amount}</Button>
+                                    <Button>{data.amount !== undefined ? data.amount : amount }</Button>
                                     <Button onClick={handleRemoveClick}><RemoveIcon/></Button>
                                 </ButtonGroup>
                                 <Box sx={{
@@ -241,6 +265,10 @@ function CatDetail() {
                     </Box>
                 </StyledPaper>
             </Box>
+            <CatCartDrawer
+                open={openCatDrawer}
+                setOpen={setOpenCatDrawer}
+            />
         </React.Fragment>
     )
 }
