@@ -181,7 +181,7 @@ function ProductDetail1() {
                                  <Box>
                                     
                                         <IconButton color="primary" sx={{
-                                            margin: '0px 0 0px 350px'
+                                            margin: '0px 0 0px 380px'
                                             }}>        
                                             <Badge color="error" badgeContent={localData === null ? 0 : localData.length} > {/*localData.length */}
                                                 <ShoppingCartIcon color="warning" sx={{
