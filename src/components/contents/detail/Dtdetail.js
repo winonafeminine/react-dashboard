@@ -62,12 +62,15 @@ function Dtdetail() {
     const handleSweaterImgClick = (e,src) => {
         setSweaterImg(src)
     }
-    const handleAddClick =() => {
+    const handleAddClick =(index) => {
         const sweaterCartStr = localStorage.getItem(sweaterCartKey);
-        setAmount(amount+1);
-        if(sweaterCartStr === null){return}
+        setAmount(amount + 1);
+        if(sweaterCartStr === null)
+            {
+                return;
+            }
 
-        let sweaterCart = JSON.parse(sweaterCartStr);
+            let sweaterCart = JSON.parse(sweaterCartStr);
         sweaterCart.map((value, ind) => {
             if(value.title === data.title)
             {
@@ -80,16 +83,30 @@ function Dtdetail() {
         
     }
     // รันจากบนลงล่าง พอเจอ amount = 0 จะรีเทิร์นออกจากฟังชัน
-    const handleRemoveClick = (e) => {
+    const handleRemoveClick = (index) => {
+        const sweaterCartStr = localStorage.getItem(sweaterCartKey);
         if(amount === 0)
         {
             return;
         }
         setAmount(amount-1);
+        if(sweaterCartKey === null)
+        {
+            return;
+        }
+        let sweaterCart = JSON.parse(sweaterCartStr);
+        sweaterCart.map((value, ind) => {
+            if(value.title === data.title)
+            {
+                value['amount'] = amount - 1 ;
+            }
+            return value;
+        });
+        sweaterCart = JSON.stringify(sweaterCart);
+        localStorage.setItem(sweaterCartKey, sweaterCart);
     }
 
     const handleAddToCart = (e) => {
-
         setClicked(!clicked);
         let sweaterCart = JSON.parse(localStorage.getItem(sweaterCartKey)) ;
         let sweaterCartStr = JSON.stringify(sweaterCart);
