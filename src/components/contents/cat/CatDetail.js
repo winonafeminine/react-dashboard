@@ -139,7 +139,6 @@ function CatDetail() {
                                         // margin: '0 0 0 6px',
                                         textDecoration: 'line-through'
                                     }}>{ `฿${data.price}`}</Typography>
-
                                 </Box>
                                 <ButtonGroup sx={{
                                     margin: '6px 0 0 0'

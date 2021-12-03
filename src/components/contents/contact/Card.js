@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 
  function Image (props){
-  const {title,imageSrc,Description, onImgClick,onViewDetailClick} = props;
+  const {title,imageSrc, onImgClick,onViewDetailClick} = props;
   return (
       <Paper sx={{
         '&.MuiPaper-root': theme => ({
