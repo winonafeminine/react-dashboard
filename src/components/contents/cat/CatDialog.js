@@ -12,10 +12,14 @@ import { itTheme } from './../../UIs/theme/itTheme';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline'
 
+import CatContext from './CatContext';
+
 export default function CatDialog(props) {
-    const {value, open, setOpen} = props;
+    const catCtx = React.useContext(CatContext);
+    // console.log(catCtx)
+    // const {value, open, setOpen} = props;
     const handleClose = () => {
-        setOpen(false);
+        catCtx.setOpen(false);
     };
 
     return (
@@ -23,23 +27,27 @@ export default function CatDialog(props) {
             <CssBaseline />
             <Box>
                 <Dialog
-                    open={open}
+                    open={catCtx.open}
                     onClose={handleClose}
                     aria-labelledby="alert-dialog-title"
                     aria-describedby="alert-dialog-description"
                 >
                     <DialogTitle id="alert-dialog-title">
-                    {value.name}
+                    {catCtx.value.name}
                     </DialogTitle>
-                    <img src={value.src} alt="" />
+                    <img src={catCtx.value.src} alt="" />
                     <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {value.des}
+                        {catCtx.value.des}
                     </DialogContentText>
                     </DialogContent>
-                    <DialogActions>
+                    <DialogActions >
                     <Button onClick={handleClose}>Disagree</Button>
-                    <Button onClick={handleClose} autoFocus>
+                    <Button onClick={handleClose} autoFocus sx={{
+                        '&.MuiButton-root': theme => ({
+                            color: theme.palette.error.main
+                        })
+                    }}>
                         Agree
                     </Button>
                     </DialogActions>
