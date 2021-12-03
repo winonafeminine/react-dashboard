@@ -2,24 +2,28 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import CatCard from './CatCard';
 import Box from '@mui/material/Box';
-import CatDialog from './CatDialog';
+// import CatDialog from './CatDialog';
 import {useNavigate} from 'react-router-dom';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { catTheme } from '../../UIs/theme/catTheme';
 import Grow from '@mui/material/Grow';
+import CatDialogWrapper from './CatDialogWrapper';
+
+// context
+import CatContextProvider from './CatContextProvider';
 
 function Products() {
-    const [catValue, setCatValue] = React.useState({
-        name: "",
-        src: "",
-        price: 0,
-        salePrice: 0,
-        des: ""
-    });
+    // const [catValue, setCatValue] = React.useState({
+    //     name: "",
+    //     src: "",
+    //     price: 0,
+    //     salePrice: 0,
+    //     des: ""
+    // });
     const navigate = useNavigate();
 
-    const [dialogOpen, setDialogOpen] = React.useState(false);
+    // const [dialogOpen, setDialogOpen] = React.useState(false);
 
     const cats = [
         {
@@ -81,10 +85,10 @@ function Products() {
     ];
 
 
-    const handleImgClicked = (value) => {
-        setCatValue(value);
-        setDialogOpen(true)
-    }
+    // const handleImgClicked = (value) => {
+    //     setCatValue(value);
+    //     // setDialogOpen(true)
+    // }
 
     const handleViewDetailClick = (value) => {
         // const catname = 'catname';
@@ -102,42 +106,44 @@ function Products() {
     }
 
     return (
-        <ThemeProvider theme={catTheme}>
-            <CssBaseline/>
-            <Box sx={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
+        <CatContextProvider>
+            <ThemeProvider theme={catTheme}>
+                <CssBaseline/>
                 <Box sx={{
-                    width: '80%'
+                    display: 'flex',
+                    justifyContent: 'center'
                 }}>
-                    <Grid container spacing={2} sx={{
-                        margin: '20px 0 0 0'
+                    <Box sx={{
+                        width: '80%'
                     }}>
-                        {cats.map((value, ind) => ( // index start from 0
-                            <Grow in={true} timeout={{
-                                enter: 1000 + ((ind+1) -1)*300
-                            }} key={value.name}>
-                                <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
-                                    <CatCard 
-                                        name={value.name}
-                                        imageSrc={value.src}
-                                        description={value.des}
-                                        price={value.price}
-                                        salePrice={value.salePrice}
-                                        onImgClick={() => handleImgClicked(value)}
-                                        onViewDetailClick={() => handleViewDetailClick(value)}
-                                        gallery={value.gallery}
-                                        
-                                    />
-                                </Grid>
-                            </Grow>
-                        ))}
-                    </Grid>
+                        <Grid container spacing={2} sx={{
+                            margin: '20px 0 0 0'
+                        }}>
+                            {cats.map((value, ind) => ( // index start from 0
+                                <Grow in={true} timeout={{
+                                    enter: 1000 + ((ind+1) -1)*300
+                                }} key={value.name}>
+                                    <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
+                                        <CatCard 
+                                            name={value.name}
+                                            imageSrc={value.src}
+                                            description={value.des}
+                                            price={value.price}
+                                            salePrice={value.salePrice}
+                                            // onImgClick={() => handleImgClicked(value)}
+                                            onViewDetailClick={() => handleViewDetailClick(value)}
+                                            gallery={value.gallery}
+                                            value={value}
+                                        />
+                                    </Grid>
+                                </Grow>
+                            ))}
+                        </Grid>
+                    </Box>
+                    <CatDialogWrapper/>
                 </Box>
-                <CatDialog open={dialogOpen} setOpen={setDialogOpen} value={catValue}/>
-            </Box>
-        </ThemeProvider>
+            </ThemeProvider>
+        </CatContextProvider>
     )
 }
 
