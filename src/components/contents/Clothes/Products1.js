@@ -53,7 +53,7 @@ function Products() {
             src: "https://cf.shopee.co.th/file/1756ffb62733f22aabe88646fe648006",
             price: "CGW-1376",
             price1: 400,
-            des: "⚡ Ag ⚡กางเกงลำลองผู้ชายกางเกงแฟชั่นผู้ชาย สีดำ กางเกงรัดรูปผู้ชายผ้ายืดสไตล์เกาหลี",
+            des: "กางเกงลำลองผู้ชายกางเกงแฟชั่นผู้ชาย สีดำ กางเกงรัดรูปผู้ชายผ้ายืดสไตล์เกาหลี",
             gallery:["https://cf.shopee.co.th/file/dde145e08f59501438abde51aef85a52",
             "https://img.kaidee.com/prd/20200808/357680187/m/98a0fa29-4b8e-4ba7-bd06-f98c96e76f11.jpg",
             "https://cf.shopee.co.th/file/1756ffb62733f22aabe88646fe648006"
