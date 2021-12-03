@@ -8,13 +8,13 @@ export default function Hcontact() {
   const Root = styled('div')(({ theme }) => ({
     padding: theme.spacing(1),
     [theme.breakpoints.down('sm')]: {
-      backgroundColor: theme.palette.warning.light   
+      backgroundColor: theme.palette.primary.light   
     },
     [theme.breakpoints.up('md')]: {
-      backgroundColor: theme.palette.warning.main
+      backgroundColor: theme.palette.primary.main
     },
     [theme.breakpoints.up('lg')]: {
-      backgroundColor: theme.palette.warning.dark
+      backgroundColor: theme.palette.primary.dark
     },
   }));
   
