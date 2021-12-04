@@ -21,6 +21,7 @@ const StyledPaper = styled(Paper)
         borderRadius: '12px',
         padding: '12px',
         width: '70%',
+        background:'Gray',
        
     }));
 
@@ -129,7 +130,7 @@ function Dtdetail() {
                 '&.MuiBox-root': {
                     // width: '100%'
                     width: '90%',
-                    backgroundColor: '#ffffff'
+                    backgroundColor: 'Gray'
                 }
             }}>
                 <Badge color ="primary" badgeContent={localData !==undefined ? localData.length : 0} sx={{
@@ -164,19 +165,26 @@ function Dtdetail() {
                     }}>
                         <img  className="kpop" src={kpopImg} alt=""/>
                         <Box sx={{
-                                    '&.MuiBox-root': {
+                                    '&.MuiBox-root': theme => ({
                                         width: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         margin: '6px 0 0 0',
+                                        boxShadow: '0 0 5px 0 rgba(0, 140 106, 0.5)' ,
+                                        transition: theme.transitions.create(['box-shadow', 'transform'],{
+                                        duration: theme.transitions.duration.standard
+                                        }),
                                         '& .gallary': {
                                             width: '75px',
                                             height: '75px',
                                             borderRadius: '12px',
                                             margin: '0 3px',
-                                            cursor:'pointer',
+                                            cursor: 'pointer'
+                                        }, '&:hover': {
+                                           boxShadow : '0 0 10px 10px rgba(0, 140 106, 0.5)',
+                                           transform: 'scale(1.2)'
                                         }
-                                    }
+                                    })
                                 }}>
                                     {
                                         data.gallary.map(value => (
