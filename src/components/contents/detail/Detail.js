@@ -6,15 +6,24 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import './Detail.css'
 import Emotional from './dialog';
-import sty from './img/sty.jpg'
-import str from './img/str.jpg'
-import stp from './img/stp.jpg'
-import stg from './img/stg.jpg'
+import itim from './img/itim.jpg'
+import itim1 from './img/itim1.jpg'
+import stpp from './img/stpp.jpg'
+import stpp1 from './img/stpp1.jpg'
+import stpp2 from './img/stpp2.jpg'
+import stb from './img/stb.jpg'
+import stb1 from './img/stb1.jpg'
+import stb2 from './img/stb2.jpg'
+import puma from './img/puma.jpg'
+import puma1 from './img/puma1.jpg'
+import puma2 from './img/puma2.jpg'
+
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { catTheme } from '../../UIs/theme/catTheme';
 import {useNavigate} from 'react-router-dom';
 import DetailCard from './DetailCard';
+import Grow from '@mui/material/Grow';
 
 
 
@@ -33,33 +42,52 @@ export default function Detail() {
           const sweater = [ 
             {
               title: "Sweater USA",
-              src: sty,
+              src: stpp,
               price: 19,
               salePrice: 50,
               des: "เสื้อสเวเตอร์นำเข้างาน USA" ,
+              gallery:[ 
+                stpp,
+                stpp1,
+                stpp2,
+            ]
             
             },
             { 
                 title: "Sweater Brand",
-                src: str,
+                src: puma,
                 price: 19,
                 salePrice: 50,
-                des: "เสื้อสเวเตอร์งานแบรนด์"
+                des: "เสื้อสเวเตอร์งานแบรนด์",
+                gallery: [ 
+                  puma,
+                  puma1,
+                  puma2,
+                ]
             },
             
             {
               title: "Sweater Minimol",
-              src: stp,
+              src: itim,
               price: 19,
               salePrice: 50,
-              des: "เสื้อสเวเตอร์งานมินิมอล"
+              des: "เสื้อสเวเตอร์งานมินิมอล",
+              gallery:[
+                itim,
+                itim1,
+              ]
             },
             {
               title: "Sweater Low-priced",
-              src: stg,
+              src: stb,
               price: 19,
               salePrice: 50,
-              des: "เสื้อสเวเตอร์ราคาถูก"
+              des: "เสื้อสเวเตอร์ราคาถูก",
+              gallery:[
+                stb,
+                stb1,
+                stb2,
+              ] 
             },
           ]
   const handleImgClicked = (value) => {
@@ -97,18 +125,22 @@ export default function Detail() {
                           margin: '20px 20px 15px 0px'
                       }}>
                           {sweater.map((value, ind) => (
+                             <Grow in={true} timeout={{
+                                enter: 1000 + ((ind+1) -1)*300
+                          }}key={value.title}> 
                               <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
-                                  <DetailCard 
-                                      
+                                  <DetailCard  
                                       title={value.title}
                                       imageSrc={value.src}
                                       Description={value.des}
-                                      onImgClick={() => handleImgClicked(value)}
-                                      onViewDetailClick={() => handleViewDetailClick(value)}
                                       price ={value.price}
                                       salePrice={value.salePrice}
+                                      onImgClick={() => handleImgClicked(value)}
+                                      onViewDetailClick={() => handleViewDetailClick(value)}
+                                      gallery={value.gallery}
                                   />
                               </Grid>
+                            </Grow>
                           ))}
                       </Grid>
                   </Box>

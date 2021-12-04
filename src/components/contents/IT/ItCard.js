@@ -27,6 +27,7 @@ function ItCard() {
             src: "https://notebookspec.com/nbs/upload_notebook/20180709-103800_c.jpg",
             price: 230,
             salePrice: 200,
+            amount: [],
             des: "CPU Intel Core i5-8300H (2.30 GHz, 8 MB L3 Cache, up to 4.00 GHz), GPU NVIDIA GeForce GTX 1060 (6GB GDDR5), Resolution 15.6 inch (1920x1080) Full HD IPS,Memory Size 8 GB DDR4, Hard Disk Drive 1 TB 5400 RPM, Wireless LAN 802.11ac+Bluetooth 5.0, OS Bundle Windows 10 Home (64 Bit)",
             ITGallery: ["https://notebookspec.com/nbs/upload_notebook/20180709-103800_c.jpg",
                         "https://notebookspec.com/web/notebook-picture/MSI/GL63%208RE/GL63%208RE-bk.jpg",
@@ -39,6 +40,7 @@ function ItCard() {
             src: "https://notebookspec.com/nbs/upload_notebook/20210822-083821_c.jpg",
             price: 230,
             salePrice: 200,
+            amount: [],
             des: "CPU Intel Core i5-11300H (3.10 GHz, 8 MB L3 Cache up to 4.40 Ghz), GPU NVIDIA GeForce RTX 3050 (4GB GDDR6), Resolution 15.6 inch (1920x1080) Full HD, Refresh Rate 120 Hz, Memory Size 16 GB DDR4, 512 GB SSD PCIe M.2, Wireless LAN 802.11 ax (Wi-Fi 6), Windows 10 Home (64 Bit)",
             ITGallery: ["https://notebookspec.com/web/notebook-picture/Lenovo/Ideapad%20gaming%2015ihu6/Ideapad%20gaming%2015ihu6-l.jpg",
                         "https://notebookspec.com/nbs/upload_notebook/20210822-083821_c.jpg",
@@ -51,6 +53,7 @@ function ItCard() {
             src: "https://notebookspec.com/nbs/upload_notebook/20210130-124639_c.jpg",
             price: 230,
             salePrice: 200,
+            amount: [],
             des: "CPU AMD Ryzen 7 4800H (2.90 GHz up to 4.20 GHz, 8 MB L3 Cache), GPU NVIDIA GeForce RTX 3050 (4GB GDDR6), Resolution 15.6 inch (1920x1080) Full HD, Memory Size 8 GB DDR4, 512 GB SSD PCIe M.2, Wireless LAN 802.11ax (Wi-Fi 6), Bluetooth Bluetooth 5.1, Windows 11 Home (64 Bit)",
             ITGallery: ["https://notebookspec.com/nbs/upload_notebook/20210130-124639_c.jpg",
                         "https://notebookspec.com/web/notebook-picture/Asus/TUF%20Gaming%20A17%202021/TUF%20Gaming%20A17%202021-bk.jpg",
@@ -64,6 +67,7 @@ function ItCard() {
             
             price: 230,
             salePrice: 200,
+            amount: [],
             des: "CPU Intel Core i5-9300H (2.40 GHz, 8 MB L3 Cache, up to 4.10 GHz), GPU NVIDIA GeForce GTX 1650 (4GB GDDR5), Resolution 15.6 inch (1920x1080) Full HD IPS, Memory Size 8 GB DDR4, Hard Disk Drive 1 TB 5400 RPM, 128 GB SSD PCIe M.2, Wireless LAN 802.11ac, Bluetooth 5.0, Windows 10 Home (64 Bit)",
             ITGallery: ["https://notebookspec.com/web/notebook-picture/DELL/G5%2015%20Black/G5%2015%20Black-c.jpg",
                         "https://notebookspec.com/web/notebook-picture/DELL/G5%2015%20Black/G5%2015%20Black-bk.jpg",
@@ -76,6 +80,7 @@ function ItCard() {
             src: "https://notebookspec.com/nbs/upload_notebook/20180605-232206_c.jpg",
             price: 230,
             salePrice: 200,
+            amount: [],
             des: "CPU Intel Core i5-9300H (2.40 GHz, GPU NVIDIA GeForce GTX 1660 Ti (6GB GDDR6), Resolution 15.6 inch (1920x1080) Full HD IPS, Memory Size 8 GB DDR4, Hard Disk Drive 1 TB 7200 RPM, Wireless LAN Intel Wireless-AC 9560, Bluetooth Bluetooth 5.0, Windows 10 Home (64 Bit)",
             ITGallery: ["https://notebookspec.com/nbs/upload_notebook/20180605-232206_c.jpg",
                         "https://notebookspec.com/web/notebook-picture/HP/Pavilion%20Gaming%20Green/Pavilion%20Gaming%20Green-bk.jpg",
@@ -95,6 +100,7 @@ function ItCard() {
         const itdetail = 'itdetail';
         // convert to string
         const str_value = JSON.stringify(value);
+        localStorage.setItem(itdetail, str_value);
         localStorage.setItem(itdetail, str_value);
         navigate('/it/detail');
         console.log(str_value)

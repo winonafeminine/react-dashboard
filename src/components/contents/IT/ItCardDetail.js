@@ -26,7 +26,7 @@ function ItCardDetail(props) {
                 transition: 'transform .5s',
                 '&:hover':{
                     boxShadow: '0 0 4px 2px rgba(0, 140, 186, 0.5)',
-                    transform: 'scale(1.2)'
+                    transform: 'scale(1.1)'
                 }
             })
             }}>

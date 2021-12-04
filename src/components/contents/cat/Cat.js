@@ -28,6 +28,7 @@ function Products() {
             price: 230,
             salePrice: 200,
             des: "ก่าดฟหสกด่สฟห่กดสฟาห่กดสาฟ่หสกดา่ฟสหาก่ดสฟหาก่ดสฟาหก่ดสาฟห่กสาด่",
+            amount: 0,
             gallery: [
                 "https://static.independent.co.uk/2021/06/16/08/newFile-4.jpg?width=982&height=726&auto=webp&quality=75",
                 "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg",
@@ -41,6 +42,7 @@ function Products() {
             price: 230,
             salePrice: 200,
             des: "This is cat is a son of superman but it can only mew when hungry",
+            amount: 0,
             gallery: [
                 "https://static.independent.co.uk/2021/06/16/08/newFile-4.jpg?width=982&height=726&auto=webp&quality=75",
                 "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg",
@@ -54,6 +56,7 @@ function Products() {
             price: 230,
             salePrice: 200,
             des: "This is cat is a son of superman but it can only mew when hungry",
+            amount: 0,
             gallery: [
                 "https://static.independent.co.uk/2021/06/16/08/newFile-4.jpg?width=982&height=726&auto=webp&quality=75",
                 "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg",
@@ -67,6 +70,7 @@ function Products() {
             price: 230,
             salePrice: 200,
             des: "This is cat is a son of superman but it can only mew when hungry",
+            amount: 0,
             gallery: [
                 "https://static.independent.co.uk/2021/06/16/08/newFile-4.jpg?width=982&height=726&auto=webp&quality=75",
                 "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/other/cat_relaxing_on_patio_other/1800x1200_cat_relaxing_on_patio_other.jpg",
@@ -113,7 +117,7 @@ function Products() {
                         {cats.map((value, ind) => ( // index start from 0
                             <Grow in={true} timeout={{
                                 enter: 1000 + ((ind+1) -1)*300
-                            }}>
+                            }} key={value.name}>
                                 <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
                                     <CatCard 
                                         name={value.name}

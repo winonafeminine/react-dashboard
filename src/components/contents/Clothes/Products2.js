@@ -8,7 +8,9 @@ import ProductDialog from './ProductDialog';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
 import { clotTheme } from '../../UIs/theme/clotTheme';
-import Box1 from './Box'
+import Box1 from './Box';
+import Zoom from '@mui/material/Zoom';
+
 
 function Products() {
 
@@ -25,25 +27,37 @@ function Products() {
 
     const cats = [
         {
-            name: "Trousers",
-            src: "https://cf.shopee.co.th/file/dde145e08f59501438abde51aef85a52",
-            price: "Tatum",
+            name: "Otello",
+            src: "https://www.otellothailand.com/wp-content/uploads/2019/03/1_6.jpg",
+            price: "Oxford",
             price1: 200,
-            des: "กางเกงแฟชั่นผู้ชาย เอวยืดเชือกผูก กระเป๋ามีซิป ใส่สบาย สไตล์เกาหลี"
+            des: " รองเท้าหนังวัวแท้ทรง Oxford 102-สีน้ำตาลเข้ม #น้ำตาลเข้ม",
+            gallery:["https://www.otellothailand.com/wp-content/uploads/2019/03/1_6.jpg",
+                     "https://cf.shopee.co.th/file/9a8b335e39c1977c6a692edad57797cb",
+                     "http://ca.lnwfile.com/fhwix7.jpg"
+]     
         },
         {
-            name: "MEN Short",
-            src: "https://img.kaidee.com/prd/20200808/357680187/m/98a0fa29-4b8e-4ba7-bd06-f98c96e76f11.jpg",
-            price: "Walnuts",
+            name: "TIDE CUIStep",
+            src: "https://cf.shopee.co.th/file/9a8b335e39c1977c6a692edad57797cb",
+            price: "Shoes-911LD",
             price1: 300,
-            des: "กางเกงแฟชั่น-กางเกงขาจั้ม-กางเกงผู้ชาย แฟชั่นผู้ชาย กางเกงขายาว กางเกงจ็อกเกอร์"
+            des: "รองเท้าหนังแท้ผู้ชาย หุ้มส้น แบบผูกเชือก หนังออยล์ สีน้ำตาล",
+            gallery:["https://www.otellothailand.com/wp-content/uploads/2019/03/1_6.jpg",
+                     "https://cf.shopee.co.th/file/9a8b335e39c1977c6a692edad57797cb",
+                     "http://ca.lnwfile.com/fhwix7.jpg"
+]     
         },
         {
-            name: "CGW",
-            src: "https://cf.shopee.co.th/file/1756ffb62733f22aabe88646fe648006",
-            price: "CGW-1376",
+            name: "Shoes StepPro",
+            src: "http://ca.lnwfile.com/fhwix7.jpg",
+            price: "Boots-939",
             price1: 400,
-            des: "⚡ Ag ⚡กางเกงลำลองผู้ชายกางเกงแฟชั่นผู้ชาย สีดำ กางเกงรัดรูปผู้ชายผ้ายืดสไตล์เกาหลี"
+            des: "รองเท้าหนังแท้ นูบัค บูทหุ้มข้อ ชนิดหนา 3mm รุ่น Boots Code 939",
+            gallery:["https://www.otellothailand.com/wp-content/uploads/2019/03/1_6.jpg",
+                     "https://cf.shopee.co.th/file/9a8b335e39c1977c6a692edad57797cb",
+                     "http://ca.lnwfile.com/fhwix7.jpg"
+]     
         },
     ];
 
@@ -61,13 +75,17 @@ function Products() {
             justifyContent: 'center'
         }}>
             <Box sx={{
-                width: '80%'
+                width: '80%',
+                cursor: 'pointer'
             }}>
                 <Grid container spacing={2} sx={{
                     // margin: '10px 0 0 0',
                     justifyContent: 'center'
                 }}>
                     {cats.map((value, ind) => (
+                        <Zoom in={true} timeout={{
+                            enter: 1000 + ((ind+1) -1)*300
+                        }}> 
                         <Grid item xl={3} lg={4} sm={6} xs={12} key={ind}>
                             <ProductCard 
                                 name={value.name}
@@ -76,8 +94,10 @@ function Products() {
                                 price={value.price}
                                 price1={value.price1}
                                 onImgClick={() => handleImgClicked(value)}
+                                gallery={value.gallery}
                            />
                         </Grid>
+                        </Zoom>                      
                     ))}
                 </Grid>
             </Box>   

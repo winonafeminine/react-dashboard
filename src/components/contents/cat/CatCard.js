@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import Rating from '@mui/material/Rating';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 
 // icons
 import InfoIcon from '@mui/icons-material/Info';
@@ -19,7 +20,15 @@ function CatCard(props) {
             '&.MuiPaper-root': theme => ({
                 borderRadius: '12px 12px 0 12px',
                 // padding: '0 12px 12px 12px'
-                background: theme.palette.secondary.main
+                background: theme.palette.secondary.main,
+                boxShadow: `0 0 5px 0 ${theme.palette.primary.main}`,
+                transition: theme.transitions.create(['box-shadow', 'transform'], {
+                    duration: theme.transitions.duration.standard
+                }),
+                '&:hover': {
+                    boxShadow: `0 0 10px 0 ${theme.palette.primary.main}`,
+                    transform: 'scale(1.1)'
+                }
             })
         }}>
             {/* cat image wrapper */}
@@ -81,14 +90,16 @@ function CatCard(props) {
                         </Typography>
                     </Box>
                     <Box>
-                        <Button variant="outlined" sx={{
-                            '&.MuiButton-outlined': theme => ({
-                                color: theme.palette.common.white,
-                                borderColor: theme.palette.common.white
-                            })
-                        }} startIcon={<InfoIcon/>} 
-                            onClick={onViewDetailClick}
-                        >View Detail</Button>
+                        <Tooltip title="View this cat detail">
+                            <Button variant="outlined" sx={{
+                                '&.MuiButton-outlined': theme => ({
+                                    color: theme.palette.common.white,
+                                    borderColor: theme.palette.common.white
+                                })
+                            }} startIcon={<InfoIcon/>} 
+                                onClick={onViewDetailClick}
+                            >View Detail</Button>
+                        </Tooltip>
                     </Box>
                 </Box>
             </Box>
