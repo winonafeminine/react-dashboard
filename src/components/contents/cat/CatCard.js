@@ -9,12 +9,18 @@ import Tooltip from '@mui/material/Tooltip';
 
 // icons
 import InfoIcon from '@mui/icons-material/Info';
+import CatContext from './CatContext';
 
 function CatCard(props) {
+    const catCtx = React.useContext(CatContext);
     // get value from parent to child
     const {name, imageSrc, description, price, salePrice, 
-            onImgClick, onViewDetailClick} = props;
-    
+         onViewDetailClick, value} = props;
+         
+    const onImgClick = (e) => {
+        catCtx.setOpen(true);
+        catCtx.setValue(value);
+    }
     return (
         <Paper sx={{
             '&.MuiPaper-root': theme => ({

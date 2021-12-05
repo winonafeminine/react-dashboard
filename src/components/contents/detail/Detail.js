@@ -46,6 +46,7 @@ export default function Detail() {
               price: 19,
               salePrice: 50,
               des: "เสื้อสเวเตอร์นำเข้างาน USA" ,
+              amount:0 ,
               gallery:[ 
                 stpp,
                 stpp1,
@@ -59,6 +60,7 @@ export default function Detail() {
                 price: 19,
                 salePrice: 50,
                 des: "เสื้อสเวเตอร์งานแบรนด์",
+                amount:0 ,
                 gallery: [ 
                   puma,
                   puma1,
@@ -72,6 +74,7 @@ export default function Detail() {
               price: 19,
               salePrice: 50,
               des: "เสื้อสเวเตอร์งานมินิมอล",
+              amount:0 ,
               gallery:[
                 itim,
                 itim1,
@@ -83,6 +86,7 @@ export default function Detail() {
               price: 19,
               salePrice: 50,
               des: "เสื้อสเวเตอร์ราคาถูก",
+              amount:0 ,
               gallery:[
                 stb,
                 stb1,
