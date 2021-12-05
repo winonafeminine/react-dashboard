@@ -258,7 +258,6 @@ function ItDetail() {
             </Box>
             <CartDrawer 
                 iteminCart={ localData === null ? 0 : localData.length }
-                amount={data.amount}
             />
         </>
     )

@@ -52,7 +52,7 @@ export default function Carts(props) {
             }
             return;
         }
-        
+        // eslint-disable-next-line
     }, [clicked]);
 
     const handleAddAmount = (value) => {
@@ -66,16 +66,17 @@ export default function Carts(props) {
         const cart = JSON.stringify(itCart);
         localStorage.setItem(itCardkey, cart);
         setClicked(c => !c) //setClicked(!clicked);
+
     }
 
     const handleRemoveAmount = (value) => {
         itCart.map((val) => {
             if(val.amount === 1)
-             {
+            { 
                 return;
             }
             if(val.name === value.name)
-            {   
+            {  
 
                 val.amount -= 1;
             }
@@ -83,7 +84,7 @@ export default function Carts(props) {
         });
         const cart = JSON.stringify(itCart);
         localStorage.setItem(itCardkey, cart);
-        setClicked(c => !c) //setClicked(!clicked);
+        setClicked(c => !c) 
     }
 
     const handleRemovevCatInCart = (index)=> {
