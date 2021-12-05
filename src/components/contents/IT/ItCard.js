@@ -103,7 +103,6 @@ function ItCard() {
         localStorage.setItem(itdetail, str_value);
         localStorage.setItem(itdetail, str_value);
         navigate('/it/detail');
-        console.log(str_value)
     }
     
     return (

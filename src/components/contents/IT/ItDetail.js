@@ -7,7 +7,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import Carts from './Carts';
+import CartDrawer from './CartDrawer';
 import { ItDetailgallery } from './../../UIs/theme/itTheme';
 import Divider from '@mui/material/Divider'
 
@@ -148,7 +148,7 @@ function ItDetail() {
                 <StyledPaper>
                     {/* container */}
                     <Grid container spacing={2} sx={{padding: '17px'}}>
-                        <Grid xs={12} md={6}>
+                        <Grid item xs={12} md={6}>
                             <Box sx={{
                                 '&.MuiBox-root': theme => ({
                                     display: 'flex',
@@ -172,7 +172,7 @@ function ItDetail() {
                                 </Box>
                             </Box>
                         </Grid>
-                        <Grid xs={12} md={6}>
+                        <Grid item xs={12} md={6}>
                             <Box sx={{
                                 display: 'flex',
                             }}>
@@ -256,7 +256,7 @@ function ItDetail() {
                     </Box>
                 </StyledPaper>
             </Box>
-            <Carts 
+            <CartDrawer 
                 iteminCart={ localData === null ? 0 : localData.length }
                 amount={data.amount}
             />
