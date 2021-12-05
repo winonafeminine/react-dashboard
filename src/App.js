@@ -16,6 +16,7 @@ import Cat from './components/contents/cat/Cat';
 import CatDetail from './components/contents/cat/CatDetail';
 import Dtdetail from './components/contents/detail/Dtdetail';
 import ProductDetail1 from './components/contents/Clothes/ProductDetail1';
+import Dashbor from './components/contents/dashBor/Dashbor';
 function App() {
 
   return (
@@ -27,6 +28,7 @@ function App() {
           <li className="navbar"><Link to="/contact" className="btn">KPOP Center</Link></li>
           <li className="navbar"><Link to="/detail" className="btn">Sweater</Link></li>
           <li className="navbar"><Link to="/Clothes" className="btn">Clothes</Link></li>
+          <li className="navbar"><Link to="/DashBor" className="btn">dashBor</Link></li>
         </ul>
         <Routes>
           <Route exact path="/IT" element={<ItCenter />} />
@@ -40,6 +42,7 @@ function App() {
           <Route exact path="/kcenter/detail" element={<Kdetail/>} />
           <Route exact path="/suha/sweater" element={<Dtdetail/>} />
           <Route exact path="/clot/detail" element={<ProductDetail1/>} />
+          <Route exact path="/dashBor" element={<Dashbor/>} />
         </Routes>
       </Router>
     </div>
