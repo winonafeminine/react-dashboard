@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
+import SweaterCartDrawer from './SweaterCartDrawer';
 
 // icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -29,6 +30,7 @@ const StyledPaper = styled(Paper)
 function Dtdetail() {
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false);
+    const [openSweaterDrawer, setOpenSweaterDrawer] = React.useState(false);
 
     const sweaterCartKey = 'sweaterCartKey' ;
 
@@ -38,7 +40,7 @@ function Dtdetail() {
     // convert to object
     const strdata = localStorage.getItem(dtdetail);
     // raw data
-    const data = JSON.parse(strdata);
+    let data = JSON.parse(strdata);
     // console.log(data);
 
     // set ข้อมูลเริ่มต้น
@@ -60,26 +62,58 @@ function Dtdetail() {
     const handleSweaterImgClick = (e,src) => {
         setSweaterImg(src)
     }
-    const handleAddClick =() => {
-        setAmount(amount+1);
+    const handleAddClick =(index) => {
+        const sweaterCartStr = localStorage.getItem(sweaterCartKey);
+        setAmount(amount + 1);
+        if(sweaterCartStr === null)
+            {
+                return;
+            }
+
+            let sweaterCart = JSON.parse(sweaterCartStr);
+        sweaterCart.map((value, ind) => {
+            if(value.title === data.title)
+            {
+                value['amount'] = amount + 1 ;
+            }
+            return value ;
+        });
+        sweaterCart = JSON.stringify(sweaterCart) ;
+        localStorage.setItem(sweaterCartKey, sweaterCart);
+        
     }
     // รันจากบนลงล่าง พอเจอ amount = 0 จะรีเทิร์นออกจากฟังชัน
-    const handleRemoveClick = (e) => {
+    const handleRemoveClick = (index) => {
+        const sweaterCartStr = localStorage.getItem(sweaterCartKey);
         if(amount === 0)
         {
             return;
         }
         setAmount(amount-1);
+        if(sweaterCartKey === null)
+        {
+            return;
+        }
+        let sweaterCart = JSON.parse(sweaterCartStr);
+        sweaterCart.map((value, ind) => {
+            if(value.title === data.title)
+            {
+                value['amount'] = amount - 1 ;
+            }
+            return value;
+        });
+        sweaterCart = JSON.stringify(sweaterCart);
+        localStorage.setItem(sweaterCartKey, sweaterCart);
     }
 
     const handleAddToCart = (e) => {
-
         setClicked(!clicked);
         let sweaterCart = JSON.parse(localStorage.getItem(sweaterCartKey)) ;
         let sweaterCartStr = JSON.stringify(sweaterCart);
         if(sweaterCart === null)
         {
             sweaterCart = [];
+            data['amount'] = amount;
             sweaterCart.push(data);
             sweaterCartStr = JSON.stringify(sweaterCart);
             localStorage.setItem(sweaterCartKey, sweaterCartStr);
@@ -103,6 +137,10 @@ function Dtdetail() {
         sweaterCart.push(data);
         sweaterCartStr = JSON.stringify(sweaterCart);
         localStorage.setItem(sweaterCartKey, sweaterCartStr);
+    }
+    // เปิดปิด sweaterCartDrawer
+    const handleOpenSweaterDrawer = () => {
+        setOpenSweaterDrawer(true);
     }
     // console.log(sweaterImg)
     return (
@@ -138,7 +176,7 @@ function Dtdetail() {
                     Button: 1 ,
                     right: 1 ,
                 }}>
-                <IconButton color="success" >
+                <IconButton color="success" onClick={handleOpenSweaterDrawer}>
                     <ShoppingCartIcon
                         sx={{
                             width: '35px',
@@ -181,7 +219,7 @@ function Dtdetail() {
                                 }}>
                                     {
                                         data.gallery.map(value => (
-                                            <Button>
+                                            <Button key={value}>
                                             <img className="gallery" src={value} alt=""
                                                 onClick={(e) => handleSweaterImgClick(e,value)}
                                             />
@@ -226,7 +264,7 @@ function Dtdetail() {
                                     margin: '6px 0 0 0'
                                 }}>
                                     <Button color="inherit" onClick={handleAddClick}><AddIcon/></Button>
-                                    <Button color="inherit">{amount}</Button>
+                                    <Button color="inherit">{data.amount !== undefined ? data.amount : amount}</Button>
                                     <Button color="inherit" onClick={handleRemoveClick}><RemoveIcon/></Button>
                                 </ButtonGroup>
                                 <Box sx={{
@@ -246,6 +284,10 @@ function Dtdetail() {
                     </Box>
                 </StyledPaper>
                 </Box>
+                <SweaterCartDrawer
+                     open={openSweaterDrawer}
+                     setOpen={setOpenSweaterDrawer}   
+                />
         </React.Fragment>
     )
 }
