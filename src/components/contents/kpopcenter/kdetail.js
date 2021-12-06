@@ -30,6 +30,7 @@ const StyledPaper = styled(Paper)
 function Kpopdetail() {
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false);
+    const [openKpopDrawer, setOpenKpopDrawer] = React.useState(false);
 
     const kpopCartKey = 'kpopCartKey' ;
 
@@ -105,7 +106,7 @@ function Kpopdetail() {
         localStorage.setItem(kpopCartKey, kpopCartStr);
     }
     
-    const handleOpenKpopCartDrawer = () => {
+    const handleOpenKpopDrawer = () => {
         setOpenKpopDrawer(true);
     }
     return (
@@ -141,8 +142,7 @@ function Kpopdetail() {
                     Button: 1 ,
                     right: 1 ,
                 }}>
-                <IconButton color="primary"  onClick={handleOpenKpopCartDrawer} >
-                    <ShoppingCartIcon
+                <IconButton color="primary"  onClick={handleOpenKpopDrawer} >
                         sx={{
                             width: '35px',
                             height: '35px'
