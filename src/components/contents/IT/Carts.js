@@ -52,7 +52,7 @@ export default function Carts() {
     }
     React.useEffect(() => {
         context.light = state;
-    },[ChangeTheme]);
+    },[state]);
 
     const [clicked, setClicked] = React.useState(false);
     const itCardkey = 'itCardkey'; 

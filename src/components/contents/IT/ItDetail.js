@@ -258,9 +258,6 @@ function ItDetail() {
                     </Box>
                 </StyledPaper>
             </Box>
-            <CartDrawer 
-                iteminCart={ localData === null ? 0 : localData.length }
-            />
         </>
     )
 }
