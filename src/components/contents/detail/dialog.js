@@ -7,11 +7,48 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import PropTypes from 'prop-types';
 
+    
+const Theme = React.createContext({
+    dark: 'pink' ,
+    light: 'blue'
+})
+
+function DashBorBtn (props) {
+    const [state, setState] = React.useState("purple") ;
+    // step ที่ 2
+    const context = React.useContext(Theme);
+
+    const changeTheme = () => {
+        if(context.dark === 'purple')
+        {
+            setState("orange")
+        }else
+        {
+            setState("purple")
+        }
+    }
+
+    React.useEffect(() => {
+        context.dark = state ;
+    },[state]);
+
+    return (
+        <>
+            <button onClick={changeTheme} style={{background: context.dark}}>Mode</button>
+        </>
+    )
+}
+
 export default function FoodDialog (props){
     const {value, open, setOpen} = props;
     const handleClose = () => {
         setOpen(false);
     };
+    const contextValue ={
+        dark: 'green' ,
+        light: 'pink'
+    }
+    
     return (
         <div>
         <Dialog
@@ -37,7 +74,9 @@ export default function FoodDialog (props){
             </DialogActions>
             
         </Dialog>
-        
+        <Theme.Provider value={contextValue}>
+            <DashBorBtn/>
+        </Theme.Provider>
         </div>
 
     );

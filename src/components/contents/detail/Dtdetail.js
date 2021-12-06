@@ -26,8 +26,34 @@ const StyledPaper = styled(Paper)
         backgroundColor: '#4caf50'
     }));
 
+const Theme = React.createContext({
+    dark: 'pink' ,
+    light: 'blue'
+})
 
 function Dtdetail() {
+    const contextValue ={
+        dark: 'green' ,
+        light: 'pink'
+    }
+    const [state, setState] = React.useState("green") ;
+    // step ที่ 2
+    const context = React.useContext(Theme);
+
+    const changeTheme = () => {
+        if(context.dark === 'green')
+        {
+            setState("orange")
+        }else
+        {
+            setState("green")
+        }
+    }
+
+    React.useEffect(() => {
+        context.dark = state ;
+    },[state]);
+
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false);
     const [openSweaterDrawer, setOpenSweaterDrawer] = React.useState(false);
@@ -144,6 +170,8 @@ function Dtdetail() {
     }
     // console.log(sweaterImg)
     return (
+        <Theme.Provider value={contextValue}>
+        
         <React.Fragment>
             <Box sx={{
                 display: 'flex',
@@ -171,12 +199,12 @@ function Dtdetail() {
                     backgroundColor: '#4caf50'
                 }
             }}>
-                <Badge color ="success" badgeContent={localData !==undefined ? localData.length : 0} sx={{
+                <Badge badgeContent={localData !==undefined ? localData.length : 0} sx={{
                     position: 'absolute',
                     Button: 1 ,
                     right: 1 ,
                 }}>
-                <IconButton color="success" onClick={handleOpenSweaterDrawer}>
+                <IconButton style={{background: context.dark}}  onClick={handleOpenSweaterDrawer}>
                     <ShoppingCartIcon
                         sx={{
                             width: '35px',
@@ -197,7 +225,7 @@ function Dtdetail() {
                                 width: '500px',
                                 height: '600px',
                                 borderRadius: '6px',
-                                backgroundColor: '#4caf50'
+                                // backgroundColor: '#4caf50'
                             }
                         })
                     }}>
@@ -229,7 +257,7 @@ function Dtdetail() {
                                     
                                 </Box>
                             </Box>
-                            <Box sx={{
+                            <Box  sx={{
                                 '&.MuiBox-root': {
                                     margin: '0 0 0 12px'
                                 }
@@ -239,8 +267,8 @@ function Dtdetail() {
                                 }}>
                                     <Typography sx={{
                                         margin: '0 0 6px 0'
-                                    }} variant="h5" color="white"><b>{data.title}</b></Typography>
-                                    <Chip color="success" sx={{
+                                    }} variant="h5"><b>{data.title}</b></Typography>
+                                    <Chip onClick={changeTheme} style={{background: context.dark}} sx={{
                                         margin: '0 0 0 2px',
                                     }} label="New" />
                                 </Box>
@@ -274,7 +302,7 @@ function Dtdetail() {
                                     <Button color="inherit" variant="outlined" startIcon={<AddShoppingCartIcon/>}
                                         onClick={handleAddToCart}
                                     >Add To Cart</Button>
-                                    <Button color="success" sx={{
+                                    <Button style={{background: context.dark}} sx={{
                                         margin: '0 0 0 6px'
                                     }} variant="contained" startIcon={<LocalMallIcon/>}>Buy Now</Button>
                                 </Box>
@@ -289,6 +317,7 @@ function Dtdetail() {
                      setOpen={setOpenSweaterDrawer}   
                 />
         </React.Fragment>
+        </Theme.Provider>
     )
 }
 
