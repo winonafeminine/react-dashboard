@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
-import KpopCartDrawer from './kpopCartDrawer';
+
 
 // icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -30,7 +30,6 @@ const StyledPaper = styled(Paper)
 function Kpopdetail() {
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false);
-    const [openKpopDrawer, setOpenKpopDrawer] = React.useState(false);
 
     const kpopCartKey = 'kpopCartKey' ;
 
@@ -106,9 +105,7 @@ function Kpopdetail() {
         localStorage.setItem(kpopCartKey, kpopCartStr);
     }
     
-    const handleOpenKpopDrawer = () => {
-        setOpenKpopDrawer(true);
-    }
+    
     return (
         <React.Fragment>
             <Box sx={{
@@ -142,7 +139,7 @@ function Kpopdetail() {
                     Button: 1 ,
                     right: 1 ,
                 }}>
-                <IconButton color="primary"  onClick={handleOpenKpopDrawer} >
+                <IconButton color="primary"  >
                         sx={{
                             width: '35px',
                             height: '35px'
@@ -246,10 +243,7 @@ function Kpopdetail() {
                     </Box>
                 </StyledPaper>
                 </Box>
-                <KpopCartDrawer
-                        open={openKpopDrawer}
-                        setOpen={setOpenKpopDrawer}
-                    />
+               
         </React.Fragment>
     )
 }
