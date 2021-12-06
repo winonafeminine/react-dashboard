@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
+import KpopCartDrawer from './kpopCartDrawer'
 
 // icons
 import AddIcon from '@mui/icons-material/Add';
@@ -13,12 +14,12 @@ import { IconButton } from '@mui/material';
 
 function KpopInCart() {
     const [clicked, setClicked] = React.useState(false);
-    const kpopCartKey = 'kpopCartKey';
-    const kpopCartStr = localStorage.getItem(kpopCartKey);
+    const kpopCardkey = 'kpopCardkey'; 
+    const kpopCartStr = localStorage.getItem(kpopCardkey);
     let kpopCart = JSON.parse(kpopCartStr);
 
     React.useEffect(() => {
-        const kpopCartStr = localStorage.getItem(kpopCartKey);
+        const kpopCartStr = localStorage.getItem(kpopCardkey);
         kpopCart = JSON.parse(kpopCartStr);
         // eslint-disable-next-line
     }, [clicked]);
@@ -32,17 +33,36 @@ function KpopInCart() {
             return val;
         });
         const cart = JSON.stringify(kpopCart);
-        localStorage.setItem(kpopCartKey, cart);
+        localStorage.setItem(kpopCardkey, cart);
         setClicked(c => !c) //setClicked(!clicked);
-
     }
 
-    const handleRemovevkpopInCart = (index)=> {
+    const handleRemoveAmount = (value) => {
+        kpopCart.map((val) => {
+            if(val.amount === 0)
+             {
+                // break
+                return;
+            }
+            if(val.title === value.title)
+            {   
+
+                val.amount -= 1;
+            }
+            return val;
+        });
+        const cart = JSON.stringify(kpopCart);
+        localStorage.setItem(kpopCardkey, cart);
+        setClicked(c => !c) //setClicked(!clicked);
+    }
+
+    const handleRemovevCatInCart = (index)=> {
         kpopCart.splice(index, 1);
         const cart = JSON.stringify(kpopCart);
-        localStorage.setItem(kpopCartKey, cart);
+        localStorage.setItem(kpopCardkey, cart);
         setClicked(!clicked);
     }
+
     return (
         <Box sx={{
             '&.MuiBox-root': {
@@ -53,7 +73,7 @@ function KpopInCart() {
             <Typography sx={{
                 margin: '0 0 12px 0'
             }}>
-                Cats In Cart
+               kpop In Cart
             </Typography>
             <Divider light={true} sx={{
                 margin: '0 0 12px 0'
@@ -62,7 +82,7 @@ function KpopInCart() {
                 <Box sx={{
                     // padding: '12px',
                     margin: '6px 0',
-                    '& .kpopCartImg':{
+                    '& .catInCartImg':{
                         width: '75px',
                         height: '75px'
                     }
@@ -76,14 +96,14 @@ function KpopInCart() {
                         }}>
                             <Button onClick={() => handleAddAmount(value)}><AddIcon/></Button>
                             <Button>{value.amount}</Button>
-                            <Button><RemoveIcon/></Button>
+                            <Button onClick={() => handleRemoveAmount(value)} ><RemoveIcon/></Button>
                         </ButtonGroup>
-                        <img className="kpopCartImg" src={value.src} alt=""/>
+                        <img className="catInCartImg" src={value.src} alt=""/>
                         <Typography sx={{
                             margin: '0 0 0 6px'
                         }}>{value.name}</Typography>
 
-                        <IconButton onClick={() => handleRemovevkpopInCart(ind)}><DeleteOutlineIcon/></IconButton>
+                        <IconButton onClick={() => handleRemovevCatInCart(ind)}><DeleteOutlineIcon/></IconButton>
                     </Box>
 
                 </Box>

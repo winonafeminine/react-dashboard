@@ -4,26 +4,25 @@ import PropTypes from 'prop-types';
 import KpopInCart from './kpopincart';
 
 export default function KpopCartDrawer(props) {
-    const {open, setOpen} = props;
-
+    const{open, setOpen} = props;
+   
     const handleClose = (e) => {
         setOpen(false)
     }
 
     return (
-        <React.Fragment>
+        <React.Fragment >
             <Drawer
-                anchor="right"
+                anchor= "right"
                 open={open}
                 onClose={handleClose}
             >
-            <KpopInCart/>
+                <KpopInCart/>
             </Drawer>
         </React.Fragment>
     );
-}
-
-KpopCartDrawer.propTypes = {
-    open: PropTypes.bool,
-    setOpen: PropTypes.func
-}
+    }
+    KpopCartDrawer.propTypes = {
+        open: PropTypes.bool,
+        setOpen: PropTypes.func
+    }

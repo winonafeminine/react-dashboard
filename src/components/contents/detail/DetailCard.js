@@ -99,7 +99,7 @@ function DetailCard(props) {
                                 })
                             }} startIcon={<InfoIcon/>} 
                                 onClick={onViewDetailClick}
-                                >View Detail</Button>
+                                >View Detail</Button>  
                         </Tooltip>
                     </Box>
                 </Box>

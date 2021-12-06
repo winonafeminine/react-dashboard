@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
+import KpopCartDrawer from './kpopCartDrawer';
 
 // icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -26,7 +27,7 @@ const StyledPaper = styled(Paper)
     }));
 
 
-function Dtdetail() {
+function Kpopdetail() {
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false);
 
@@ -97,14 +98,16 @@ function Dtdetail() {
             if(exist){
                 return;
             }
-            // sweaterCart.push(data);
            
         
         kpopCart.push(data);
         kpopCartStr = JSON.stringify(kpopCart);
         localStorage.setItem(kpopCartKey, kpopCartStr);
     }
-    // console.log(sweaterImg)
+    
+    const handleOpenKpopCartDrawer = () => {
+        setOpenKpopDrawer(true);
+    }
     return (
         <React.Fragment>
             <Box sx={{
@@ -138,7 +141,7 @@ function Dtdetail() {
                     Button: 1 ,
                     right: 1 ,
                 }}>
-                <IconButton color="primary" >
+                <IconButton color="primary"  onClick={handleOpenKpopCartDrawer} >
                     <ShoppingCartIcon
                         sx={{
                             width: '35px',
@@ -243,9 +246,13 @@ function Dtdetail() {
                     </Box>
                 </StyledPaper>
                 </Box>
+                <KpopCartDrawer
+                        open={openKpopDrawer}
+                        setOpen={setOpenKpopDrawer}
+                    />
         </React.Fragment>
     )
 }
 
 
-export default Dtdetail
+export default Kpopdetail
