@@ -10,6 +10,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import CartDrawer from './CartDrawer';
 import { ItDetailgallery } from './../../UIs/theme/itTheme';
 import Divider from '@mui/material/Divider'
+import {useNavigate} from 'react-router-dom';
 
 // icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -24,8 +25,9 @@ const StyledPaper = styled(Paper)
         padding: '12px',
         width: '70%'
     }));
-
+    
 function ItDetail() {
+    const navigate = useNavigate();
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false); 
     const itCardkey = 'itCardkey'; 
@@ -138,7 +140,9 @@ function ItDetail() {
         localStorage.setItem(itCardkey,itCartStr);
         }
     }
-    
+    const handleClicktoCart = () => {
+        navigate('/it/carts-item');
+    }
     return (
         <>
             <Box sx={{
@@ -229,9 +233,7 @@ function ItDetail() {
                                         margin: '12px 0 0 0'
                                     }}>
                                         <Button onClick={ handleAddToCart } variant="outlined" startIcon={<AddShoppingCartIcon/>}>Add To Cart</Button>
-                                        <Button sx={{
-                                            margin: '0 0 0 6px'
-                                        }} variant="contained" startIcon={<LocalMallIcon/>}>Buy Now</Button>
+                                        <Button onClick={ handleClicktoCart} sx={{margin: '0 0 0 6px'}} variant="contained" startIcon={<LocalMallIcon/>}>Buy Now</Button>
                                     </Box>
                                 </Box>
                             </Box>

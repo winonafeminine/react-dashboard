@@ -87,7 +87,7 @@ export default function Carts(props) {
         setClicked(c => !c) 
     }
 
-    const handleRemovevCatInCart = (index)=> {
+    const handleRemoveITInCart = (index)=> {
         itCart.splice(index, 1);
         const cart = JSON.stringify(itCart);
         localStorage.setItem(itCardkey, cart);
@@ -200,7 +200,7 @@ export default function Carts(props) {
                                     </Typography>                   
                                 </Grid>
                                 <Grid >
-                                    <IconButton onClick={() => handleRemovevCatInCart(ind)}><DeleteOutlineIcon/></IconButton>                  
+                                    <IconButton onClick={() => handleRemoveITInCart(ind)}><DeleteOutlineIcon/></IconButton>                  
                                 </Grid>
                                 <Divider sx={{margin: '10px 0'}} />
                             </Box>

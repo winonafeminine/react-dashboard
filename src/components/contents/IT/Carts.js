@@ -3,12 +3,12 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import CssBaseline from '@mui/material/CssBaseline';
-import { itTheme } from '../../UIs/theme/itTheme';
+import { itTheme, MaterialUISwitch } from '../../UIs/theme/itTheme';
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 //icons
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
@@ -29,7 +29,31 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+const Theme = React.createContext({
+    dark: '#0D0037' ,
+    light: '#D6EAF8'
+})
+
 export default function Carts() {
+    const contextValue ={
+        dark: '#0D0037' ,
+        light: '#D6EAF8'
+    }
+    const [state, setState] = React.useState("#0D0037") ;
+    const context = React.useContext(Theme);
+    const ChangeTheme = () => {
+        if(context.light === "#D6EAF8")
+        {
+            setState("#0D0037")
+        }else
+        {
+            setState("#D6EAF8")
+        }
+    }
+    React.useEffect(() => {
+        context.light = state;
+    },[ChangeTheme]);
+
     const [clicked, setClicked] = React.useState(false);
     const itCardkey = 'itCardkey'; 
     const itCartStr = localStorage.getItem(itCardkey);
@@ -85,22 +109,33 @@ export default function Carts() {
         localStorage.setItem(itCardkey, cart);
         setClicked(!clicked);
     }
+
     return (
-        <>
-        <ThemeProvider theme={itTheme}>
+        <Theme.Provider value={contextValue}>
+            <>
             <CssBaseline/>
-            <Box sx={{backgroundColor: '#D6EAF8', width: '98%', margin: "0 auto", borderRadius: '12px 12px 0 0',}}>
+            <Box sx={{backgroundColor: context.light, width: '98%', margin: "0 auto", borderRadius: '12px 12px 0 0',}}>
                 <Box sx={{ flexGrow: 1, width: '97%', margin: "20px auto" }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sx={{ '.MuiPaper-root':{fontSize: '20px', padding: '15px', borderRadius: '12px',}}}>
-                            <Item >Checkout</Item>
+                        <Grid item xs={12} sx={{ '.MuiPaper-root':{ padding: '15px', borderRadius: '12px',}}}>
+                            <Item sx={{display: 'flex', }}>
+                                <Box sx={{width: '95%'}}>
+                                    <Typography sx={{fontSize: '20px',}}>Checkout</Typography>
+                                </Box>
+                                <Box>
+                                    <FormControlLabel
+                                        control={<MaterialUISwitch onChange={ ChangeTheme }/>}
+                                        label="Mode"
+                                    />
+                                </Box>
+                            </Item>
                         </Grid>
                         <Grid item xs={12} sx={{ '.MuiPaper-root':{padding: '29px', borderRadius: '12px',}}}>
                             <Item >
                                 <Box>
                                     <Grid sx={{display: 'flex',}}>
                                         <Grid item xs={4} md={2}>
-                                            <Box sx={{'.css-rrp4el-MuiButtonBase-root-MuiButton-root': {alignItems: 'flex-start', width: '100%', borderRadius: '12px', color: '#00bcd4',}}}>
+                                            <Box sx={{'.css-1f0bsb5-MuiButtonBase-root-MuiButton-root': {alignItems: 'flex-start', width: '100%', borderRadius: '12px', color: '#00bcd4',}}}>
                                                 <Button sx={{textTransform: 'none', padding: '20px',}}>
                                                     <ShoppingCartOutlinedIcon />
                                                     <Box sx={{textAlign: 'left', marginLeft: '10px', }}>
@@ -111,7 +146,7 @@ export default function Carts() {
                                             </Box>
                                         </Grid>
                                         <Grid item xs={4} md={2}>
-                                            <Box sx={{'.css-rrp4el-MuiButtonBase-root-MuiButton-root': {alignItems: 'flex-start', width: '100%', borderRadius: '12px', color: '#00bcd4',}}}>
+                                            <Box sx={{'.css-1f0bsb5-MuiButtonBase-root-MuiButton-root': {alignItems: 'flex-start', width: '100%', borderRadius: '12px', color: '#00bcd4',}}}>
                                                 <Button sx={{textTransform: 'none', padding: '20px'}}>
                                                     <BusinessOutlinedIcon />
                                                     <Box sx={{textAlign: 'left', marginLeft: '10px', }}>
@@ -122,7 +157,7 @@ export default function Carts() {
                                             </Box>
                                         </Grid>
                                         <Grid item xs={4} md={2}>
-                                            <Box sx={{'.css-1gk5n87-MuiButtonBase-root-MuiButton-root': {alignItems: 'flex-start', width: '100%', borderRadius: '12px', color: '#00bcd4',}}}>
+                                            <Box sx={{'.css-vcaatr-MuiButtonBase-root-MuiButton-root': {alignItems: 'flex-start', width: '100%', borderRadius: '12px', color: '#00bcd4',}}}>
                                                 <Button sx={{textTransform: 'none', padding: '20px', width: '100%', }}>
                                                     <CreditCardOutlinedIcon />
                                                     <Box sx={{textAlign: 'left', marginLeft: '10px'}}>
@@ -239,7 +274,7 @@ export default function Carts() {
                     </Grid>
                 </Box>
             </Box>
-        </ThemeProvider> 
         </>
+        </Theme.Provider>
     )
 }
