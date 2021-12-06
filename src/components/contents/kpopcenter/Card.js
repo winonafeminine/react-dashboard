@@ -12,21 +12,20 @@ import InfoIcon from '@mui/icons-material/Info';
 
 function DetailCard(props) {
     // get value from parent to child
-    const {title, imageSrc, description, price, salePrice,
-         onImgClick, onViewDetailClick} = props;
+    const {title, imageSrc, onImgClick, onViewDetailClick} = props;
     
     return (
         <Paper sx={{
             '&.MuiPaper-root': theme => ({
                 borderRadius: '12px 12px 0 12px',
                 // padding: '0 12px 12px 12px'
-                background: theme.palette.success.main,
-                boxShadow: `0 0 5px 0 ${theme.palette.success.dark}`,
+                background: theme.palette.primary.light,
+                boxShadow: `0 0 5px 0 ${theme.palette.primary.dark}`,
                 transition: theme.transitions.create(['box-shadow','transform'],{
                     duration: theme.transitions.duration.standard
                 }),
                 '&:hover' : {
-                    boxShadow: `0 0 10px 0 ${theme.palette.success.main}`,
+                    boxShadow: `0 0 10px 0 ${theme.palette.primary.main}`,
                     transform: 'scale(1.1)'
                 }
             })
@@ -56,14 +55,6 @@ function DetailCard(props) {
                 <Typography variant="h5" color="white">
                     {title}
                 </Typography>
-
-                {/* description */}
-                <Typography>
-                    {description}
-                </Typography>
-
-                {/* rating */}
-                <Rating value={5} />
                 
                 {/* price and shopping cart */}
                 <Box sx={{
@@ -78,16 +69,6 @@ function DetailCard(props) {
                             flexGrow: 1
                         }
                     }}>
-                        <Typography variant="h6" color="white">
-                            {`$${price}`}
-                        </Typography>
-                        <Typography variant="h6"  sx={{
-                            margin: '0 0 0 6px',
-                            textDecoration: 'line-through',
-                            // fontSize: '15px'
-                        }}>
-                            {`$${salePrice}`}
-                        </Typography>
                     </Box>
                     <Box>
                         {/* Tooltip = อธิบายปุ่มกด */}
@@ -99,7 +80,7 @@ function DetailCard(props) {
                                 })
                             }} startIcon={<InfoIcon/>} 
                                 onClick={onViewDetailClick}
-                                >View Detail</Button>  
+                                >View Detail</Button>
                         </Tooltip>
                     </Box>
                 </Box>

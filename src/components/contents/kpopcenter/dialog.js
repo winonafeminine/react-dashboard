@@ -22,7 +22,7 @@ export default function FoodDialog (props){
             </DialogTitle>
             <img src={value.src} alt="" />
             <DialogActions>
-            <Button onClick={handleClose}>ปิด</Button>
+            <Button onClick={handleClose}>CLOSE</Button>
             </DialogActions>
         </Dialog>
         </div>

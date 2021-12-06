@@ -8,9 +8,9 @@ import {
 import ItCenter from './components/contents/IT/ItCenter';
 import ItDetail from './components/contents/IT/ItDetail'
 import Detail from './components/contents/detail/Detail';
-import Contact from './components/contents/contact/Kpopcenter';
+import Contact from './components/contents/kpopcenter/Kpopcenter';
 import Clothes from './components/contents/Clothes/Clothes';
-import Kdetail from './components/contents/contact/kdetail';
+import Kdetail from './components/contents/kpopcenter/kdetail';
 import Cat from './components/contents/cat/Cat';
 import CatDetail from './components/contents/cat/CatDetail';
 import Dtdetail from './components/contents/detail/Dtdetail';
