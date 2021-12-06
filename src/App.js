@@ -6,7 +6,8 @@ import {
   Link
 } from "react-router-dom";
 import ItCenter from './components/contents/IT/ItCenter';
-import ItDetail from './components/contents/IT/ItDetail'
+import ItDetail from './components/contents/IT/ItDetail';
+import Carts from './components/contents/IT/Carts';
 import Detail from './components/contents/detail/Detail';
 import Contact from './components/contents/kpopcenter/Kpopcenter';
 import Clothes from './components/contents/Clothes/Clothes';
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route exact path="/IT" element={<ItCenter />} />
           <Route exact path="/it/detail" element={<ItDetail />} />
+          <Route exact path="/it/carts-item" element={<Carts />} />
           <Route exact path="/cat" element={<Cat/>} />
           <Route exact path="/detail" element={<Detail/>} />
           <Route exact path="/contact" element={<Contact/>} />

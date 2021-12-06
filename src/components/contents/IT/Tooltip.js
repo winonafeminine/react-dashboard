@@ -3,7 +3,12 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useState } from 'react';
-import { Button, Container, Fab, Modal, TextField, Tooltip } from '@mui/material';
+import Button from '@mui/material/Button'
+import Container from '@mui/material/Container';
+import Fab from '@mui/material/Fab';
+import Modal  from '@mui/material/Modal';
+import TextField  from '@mui/material/TextField';
+import Tooltip from '@mui/material/Tooltip'
 import { makeStyles } from '@mui/styles';
 import { loadCSS } from 'fg-loadcss';
 
@@ -29,10 +34,8 @@ const useStyles = makeStyles((theme) => ({
         height: '600px',
         backgroundColor: "white",
         position: "absolute",
-        top: '0px',
-        bottom: '0px',
-        left: '0px',
-        right: '0px',
+        top: '20px',
+        right: '20px',
         margin: "auto",
         borderRadius: '20px',
         maxWidth: '100vw',
@@ -81,7 +84,7 @@ export default function Tooltips() {
             aria-label="add" 
             onClick={() => setOpen(true)}>
                 <Fab className={classes.fab}>
-                    <i class="fab fa-facebook-messenger"></i>
+                    <i className="fab fa-facebook-messenger"></i>
                 </Fab>    
             </Tooltip>
             <Modal open={open}>

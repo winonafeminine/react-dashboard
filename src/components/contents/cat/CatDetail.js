@@ -139,7 +139,6 @@ function CatDetail() {
                     {/* container */}
                     <Box sx={{
                         '&.MuiBox-root': {
-                            // width: '100%'
                             flexGrow: 1,
                             display: 'flex',
                             justifyContent: 'center',
@@ -150,7 +149,6 @@ function CatDetail() {
                         {/* wrapper */}
                         <Box sx={{
                         '&.MuiBox-root': {
-                            // width: '100%'
                             width: '80%'
                         }
                     }}>
@@ -239,7 +237,6 @@ function CatDetail() {
                                         // margin: '0 0 0 6px',
                                         textDecoration: 'line-through'
                                     }}>{ `฿${data.price}`}</Typography>
-
                                 </Box>
                                 <ButtonGroup sx={{
                                     margin: '6px 0 0 0'

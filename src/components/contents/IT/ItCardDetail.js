@@ -15,7 +15,6 @@ import CssBaseline from '@mui/material/CssBaseline'
 function ItCardDetail(props) {
     // get value from parent to child
     const {name, imageSrc, description, price, salePrice, onImgClick, onViewDetailClick} = props;
-    
     return (
         <ThemeProvider theme={itTheme}>
             <CssBaseline/>
@@ -23,10 +22,11 @@ function ItCardDetail(props) {
             '&.MuiPaper-root': theme => ({
                 borderRadius: '12px',
                 height: '350px',
-                // padding: '0 12px 12px 12px'
                 background: '#F7F7F7',
-                '&.MuiPaper-root:hover':{
-                    boxShadow: '0 0 4px 2px rgba(0, 140, 186, 0.5)'
+                transition: 'transform .5s',
+                '&:hover':{
+                    boxShadow: '0 0 4px 2px rgba(0, 140, 186, 0.5)',
+                    transform: 'scale(1.1)'
                 }
             })
             }}>
@@ -46,7 +46,6 @@ function ItCardDetail(props) {
                 }}>
                     <img onClick={onImgClick} className="imageSrc" src={imageSrc} alt="" />
                 </Box>
-
                 {/* text or title area */}
                 <Box sx={{
                     padding: '12px',
@@ -58,12 +57,10 @@ function ItCardDetail(props) {
                         overflow: 'hidden',
                         width: '100%',
                         height: '100%',
-                        textOverflow: 'ellipsis',
                     }}>
                         {name}
                         </Typography>
                     </Box>
-
                     {/* description */}
                     <Box sx={{width:"100%", whiteSpace: 'nowrap'}}>
                         <Typography sx={{
@@ -71,14 +68,12 @@ function ItCardDetail(props) {
                         overflow: 'hidden',
                         width: '100%',
                         height: '100%',
-                        textOverflow: 'ellipsis',
                     }}>
                         {description}
                         </Typography>
                     </Box>              
                     {/* rating */}
                     <Rating value={5} />
-                    
                     {/* price and shopping cart */}
                     <Box sx={{
                         '&.MuiBox-root': {
@@ -99,7 +94,6 @@ function ItCardDetail(props) {
                                 margin: '0 0 0 6px',
                                 textDecoration: 'line-through',
                                 color: 'red'
-                                // fontSize: '15px'
                             }}>
                                 {`$${salePrice}`}
                             </Typography>
@@ -119,10 +113,8 @@ function ItCardDetail(props) {
                 </Box>
             </Paper>
         </ThemeProvider>
-        
     )
 }
-
 // specify the type for each properties
 ItCardDetail.propTypes = {
     name: PropTypes.string, 
@@ -133,5 +125,4 @@ ItCardDetail.propTypes = {
     onImgClick: PropTypes.func,
     onViewDetailClick: PropTypes.func
 }
-
 export default ItCardDetail
