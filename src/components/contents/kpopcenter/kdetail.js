@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Chip from '@mui/material/Chip';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
-
+import KpopCartDrawer from './kpopCartDrawer';
 
 // icons
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -22,16 +22,16 @@ const StyledPaper = styled(Paper)
         borderRadius: '12px',
         padding: '12px',
         width: '70%',
-        background:'Gray',
-       
+        backgroundColor: 'Gray',
     }));
 
 
-function Kpopdetail() {
+function Dtdetail() {
     const [localData, setLocalData] = React.useState([]);
     const [clicked, setClicked] = React.useState(false);
+    const [openKpopDrawer, setOpenKpopDrawer] = React.useState(false);
 
-    const kpopCartKey = 'kpopCartKey' ;
+    const KpopCartKey = 'KpopCartKey' ;
 
     const [amount, setAmount] = React.useState(0);
 
@@ -39,55 +39,87 @@ function Kpopdetail() {
     // convert to object
     const strdata = localStorage.getItem(kpopdetail);
     // raw data
-    const data = JSON.parse(strdata);
+     const data = JSON.parse(strdata);
     // console.log(data);
 
     // set ข้อมูลเริ่มต้น
     React.useEffect(() => {
-            const kpopCartStr = localStorage.getItem(kpopCartKey);
-            const kpopCart = JSON.parse(kpopCartStr) ;
+            const KpopCartStr = localStorage.getItem(KpopCartKey);
+            const KpopCart = JSON.parse(KpopCartStr) ;
             // ! = เช็คเงื่อนไขถ้าไม่มีข้อมูล จะเข้าเงื่อนไข
             if(!localData.includes(data))
             {
-                if(kpopCart !== null){
-                   setLocalData(kpopCart); 
+                if(KpopCart !== null){
+                   setLocalData(KpopCart); 
                 }
                 // console.log(localData);
                 return
             }   
         }, [clicked]);
 
-    const [kpopImg, setkpopImg] = React.useState(data.src)
-    const handlekpopImgClick = (e,src) => {
-        setkpopImg(src)
+    const [KpopImg, setKpopImg] = React.useState(data.src)
+    const handleKpopImgClick = (e,src) => {
+        setKpopImg(src)
     }
-    const handleAddClick =() => {
-        setAmount(amount+1);
+    const handleAddClick =(index) => {
+        const KpopCartStr = localStorage.getItem(KpopCartKey);
+        setAmount(amount + 1);
+        if(KpopCartStr === null)
+            {
+                return;
+            }
+
+            let KpopCart = JSON.parse(KpopCartStr);
+            KpopCart.map((value, ind) => {
+            if(value.title === data.title)
+            {
+                value['amount'] = amount + 1 ;
+            }
+            return value ;
+        });
+        KpopCart = JSON.stringify(KpopCart) ;
+        localStorage.setItem(KpopCartKey, KpopCart);
+        
     }
     // รันจากบนลงล่าง พอเจอ amount = 0 จะรีเทิร์นออกจากฟังชัน
-    const handleRemoveClick = (e) => {
+    const handleRemoveClick = (index) => {
+        const KpopCartStr = localStorage.getItem(KpopCartKey);
         if(amount === 0)
         {
             return;
         }
         setAmount(amount-1);
+        if(KpopCartKey === null)
+        {
+            return;
+        }
+        let KpopCart = JSON.parse(KpopCartStr);
+        KpopCart.map((value, ind) => {
+            if(value.title === data.title)
+            {
+                value['amount'] = amount - 1 ;
+            }
+            return value;
+        });
+        KpopCart = JSON.stringify(KpopCart);
+        localStorage.setItem(KpopCartKey, KpopCart);
     }
 
     const handleAddToCart = (e) => {
-
         setClicked(!clicked);
-        let kpopCart = JSON.parse(localStorage.getItem(kpopCartKey)) ;
-        let kpopCartStr = JSON.stringify(kpopCart);
-        if(kpopCart === null)
+        let KpopCart = JSON.parse(localStorage.getItem(KpopCartKey)) ;
+        let KpopCartStr = JSON.stringify(KpopCart);
+        if(KpopCart === null)
         {
-            kpopCart = [];
-            kpopCart.push(data);
-            kpopCartStr = JSON.stringify(kpopCart);
-            localStorage.setItem(kpopCartKey, kpopCartStr);
+            KpopCart = [];
+            data['amount'] = amount;
+            KpopCart.push(data);
+            KpopCartStr = JSON.stringify(KpopCart);
+            localStorage.setItem(KpopCartKey, KpopCartStr);
             return;
         }
            let exist = false ;
-            kpopCart.map((value) => {
+           KpopCart.map((value) => {
                 if(value.title === data.title)
                 {
                     exist = true;
@@ -99,13 +131,17 @@ function Kpopdetail() {
                 return;
             }
            
+           
         
-        kpopCart.push(data);
-        kpopCartStr = JSON.stringify(kpopCart);
-        localStorage.setItem(kpopCartKey, kpopCartStr);
+        KpopCart.push(data);
+        KpopCartStr = JSON.stringify(KpopCart);
+        localStorage.setItem(KpopCartKey, KpopCartStr);
     }
-    
-    
+    // เปิดปิด sweaterCartDrawer
+    const handleOpenKpopDrawer = () => {
+        setOpenKpopDrawer(true);
+    }
+    // console.log(sweaterImg)
     return (
         <React.Fragment>
             <Box sx={{
@@ -139,7 +175,8 @@ function Kpopdetail() {
                     Button: 1 ,
                     right: 1 ,
                 }}>
-                <IconButton color="primary"  >
+                <IconButton color="primary" onClick={handleOpenKpopDrawer}>
+                    <ShoppingCartIcon
                         sx={{
                             width: '35px',
                             height: '35px'
@@ -155,42 +192,35 @@ function Kpopdetail() {
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
-                            '& img.kpop' : {
+                            '& img.Kpop' : {
                                 width: '500px',
-                                height: '400PX',
+                                height: '300px',
                                 borderRadius: '6px',
-                                backgroundColor: '#ffffff'
+                                backgroundColor: 'Gray'
                             }
                         })
                     }}>
-                        <img  className="kpop" src={kpopImg} alt=""/>
+                        <img  className="Kpop" src={KpopImg} alt=""/>
                         <Box sx={{
-                                    '&.MuiBox-root': theme => ({
+                                    '&.MuiBox-root': {
                                         width: '100%',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         margin: '6px 0 0 0',
-                                        boxShadow: '0 0 5px 0 rgba(0, 140 106, 0.5)' ,
-                                        transition: theme.transitions.create(['box-shadow', 'transform'],{
-                                        duration: theme.transitions.duration.standard
-                                        }),
                                         '& .gallary': {
                                             width: '75px',
                                             height: '75px',
                                             borderRadius: '12px',
                                             margin: '0 3px',
-                                            cursor: 'pointer'
-                                        }, '&:hover': {
-                                           boxShadow : '0 0 10px 10px rgba(0, 140 106, 0.5)',
-                                           transform: 'scale(1.2)'
+                                            cursor:'pointer',
                                         }
-                                    })
+                                    }
                                 }}>
                                     {
                                         data.gallary.map(value => (
-                                            <Button>
+                                            <Button key={value}>
                                             <img className="gallary" src={value} alt=""
-                                                onClick={(e) =>handlekpopImgClick(e,value)}
+                                                onClick={(e) => handleKpopImgClick(e,value)}
                                             />
                                             </Button>
                                         ))
@@ -200,7 +230,7 @@ function Kpopdetail() {
                             </Box>
                             <Box sx={{
                                 '&.MuiBox-root': {
-                                    margin: '0 0 0 20px'
+                                    margin: '0 0 0 12px'
                                 }
                             }}>
                                 <Box sx={{
@@ -213,17 +243,17 @@ function Kpopdetail() {
                                         margin: '0 0 0 2px',
                                     }} label="New" />
                                 </Box>
-                                <Typography color="BLACK" sx={{
+                                <Typography color="black" sx={{
                                     margin: '0 0 6px 0  '
                                 }}>
                                     {data.des}
                                 </Typography>
-                        
+                                
                                 <ButtonGroup sx={{
                                     margin: '6px 0 0 0'
                                 }}>
                                     <Button color="inherit" onClick={handleAddClick}><AddIcon/></Button>
-                                    <Button color="inherit">{amount}</Button>
+                                    <Button color="inherit">{data.amount !== undefined ? data.amount : amount}</Button>
                                     <Button color="inherit" onClick={handleRemoveClick}><RemoveIcon/></Button>
                                 </ButtonGroup>
                                 <Box sx={{
@@ -243,10 +273,13 @@ function Kpopdetail() {
                     </Box>
                 </StyledPaper>
                 </Box>
-               
+                <KpopCartDrawer
+                     open={openKpopDrawer}
+                     setOpen={setOpenKpopDrawer}   
+                />
         </React.Fragment>
     )
 }
 
 
-export default Kpopdetail
+export default Dtdetail
